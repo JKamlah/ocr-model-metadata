@@ -2,7 +2,7 @@
 
 const MSG_LEVELS = ["DEBUG", "INFO", "WARN", "ERROR"];
 const DEFAULT_i18n_DATA_ATTR = "vanilla-i18n";
-const DEFAULT_i18n_DIR = "gt-metadata/assets/vanilla-i18n";
+const DEFAULT_i18n_DIR = "ocr-model-metadata/assets/vanilla-i18n";
 const DEFAULT_LANG_TOGGLER_ID = "vanilla-i18n-toggler";
 
 class vanilla_i18n {
