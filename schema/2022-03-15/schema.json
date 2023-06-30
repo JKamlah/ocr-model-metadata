@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://tboenig.github.io/gt-metadata/schema/2022-03-15/schema.json",
+    "$id": "https://JKamlah.github.io/ocr-model-metadata/schema/2022-03-15/schema.json",
     "title": "GroundTruthRepository",
     "description": "A description of a ground truth repository",
     "type": "object",
@@ -8,7 +8,7 @@
         "schema": {
             "description": "Schema version used",
             "type": "string",
-            "enum": ["https://tboenig.github.io/gt-metadata/2022-04-08/schema.json"]
+            "enum": ["https://JKamlah.github.io/ocr-model-metadata/2022-04-08/schema.json"]
         },
         "title": {
             "description": "Name of the dataset",
