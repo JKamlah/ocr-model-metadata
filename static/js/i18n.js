@@ -9,7 +9,7 @@ else { default_language = "English"; }
 const i18n_item = new vanilla_i18n (
   i18n_languages,
   opts = {
-    path: "gt-metadata/assets/vanilla-i18n",
+    path: "ocr-model-metadata/assets/vanilla-i18n",
     debug: true,
     i18n_attr_name: "vanilla-i18n",
     toggler_id: "vanilla-i18n-toggler",
