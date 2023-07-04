@@ -277,6 +277,20 @@
       })
     });
 
+   document.querySelectorAll(".modeltype-key").forEach((el) => {
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.querySelector("#modeltype").value = el.innerText;
+      })
+    });
+
+    document.querySelectorAll(".doctype-key").forEach((el) => {
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.querySelector("#doctype").value = el.innerText;
+      })
+    });
+
 
 
     form.addEventListener('submit', function(e) {
