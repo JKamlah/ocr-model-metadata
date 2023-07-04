@@ -178,8 +178,9 @@
           <label for="format" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.std">Model file format</i18n><span class="required">*</span></label>
           <div class="col-sm-3">
             <select name="format" id="format" class="form-control" required>
-              <option value="Page-XML" default>.mlmodel</option>
-              <option value="Alto-XML">.traineddata</option>
+              <option value="Kraken" default>.mlmodel</option>
+              <option value="Tesseract">.traineddata</option>
+              <option value="Calmarai">.h5</option>
               <!-- Ajouter d'autres options !-->
             </select>
           </div>
@@ -194,9 +195,8 @@
               <div class="row">
                 <div class="col-md-9">
                   <div class="btn-group btn-group-sm">
-                    <a class="btn btn-sm btn-outline-info software-key" href="#">OCR</a>
-                    <a class="btn btn-sm btn-outline-info software-key" href="#">HTR</a>
-                    <a class="btn btn-sm btn-outline-info software-key" href="#">Layout recognition</a>
+                    <a class="btn btn-sm btn-outline-info software-key" href="#">Segmentation/Layout</a>
+                    <a class="btn btn-sm btn-outline-info software-key" href="#">Transcription/Recognition</a>
                   </div>
                 </div>
               </div>
@@ -205,7 +205,7 @@
           </div>
         
         <div class="form-group row my-2">
-          <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.software">Name of OCR-Engines used for training</i18n><span class="required">*</span></label>
+          <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.software">Name of the engine used for training</i18n><span class="required">*</span></label>
           <div class="col-sm-9">
             <input type="text" name="software" class="form-control" id="software" placeholder="" vanilla-i18n-placeholder="form.field.software_placeholder" required="true"/>
           </div>
@@ -217,100 +217,13 @@
                     <a class="btn btn-sm btn-outline-info software-key" href="#">Kraken</a>
                     <a class="btn btn-sm btn-outline-info software-key" href="#">Tesseract</a>
                     <a class="btn btn-sm btn-outline-info software-key" href="#">Calamari</a>
+                    <a class="btn btn-sm btn-outline-info software-key" href="#">PyLaia</a>
+                    <a class="btn btn-sm btn-outline-info software-key" href="#">Eynollah</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          </div>
-      <div class="row">
-            <div class="col">
-              <h2><i18n vanilla-i18n="form.title.project">General information about the project</i18n></h2>
-            </div>
-      </div>
-       
-          
-          <div class="form-group row my-2">
-            <label for="projectName" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.project.name">Project's name (if different from model name)</i18n></label>
-            <div class="col-sm-9">
-              <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Project name" vanilla-i18n-placeholder="form.input.projectname">
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="projectWebsite" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.project.link">Link to website of project (if applicable)</i18n></label>
-            <div class="col-sm-9">
-              <input type="text" name="projectWebsite" class="form-control" id="projectWebsite" placeholder="Link to project website" vanilla-i18n-placeholder="form.input.projectlink">
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <div class="col-3">
-              <i18n vanilla-i18n="form.field.authors">Project staff</i18n>
-            </div>
-            <div class="col-9">
-              <div class="row author original-author p-2 mx-1 mt-1 mb-2 rounded border border-secondary">
-                <div class="col-sm-6">
-                  <div class="btn-group btn-group-sm my-2">
-                    <button class="btn btn-info btn-sm add-author" vanilla-i18n="form.field.member.add">Add contributor</button>
-                    <button class="btn btn-danger btn-sm remove-author invisible col-sm mx-2" vanilla-i18n="form.field.member.rm">Remove contributor</button>
-                   </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <input type="text" name="authorityName" class="form-control mb-2" placeholder="Name" vanilla-i18n-placeholder="form.field.member.name"/>
-                    </div>
-                    <div class=" col-md-6">
-                      <input type="text" name="authoritySurname" class="form-control mb-2 col-md-6" placeholder="Surname" vanilla-i18n-placeholder="form.field.member.surname"/>
-                    </div>
-                  </div>
-                  <div class="row mb-2">
-                    <label class="col-md-2 col-form-label">ORCID</label>
-                    <div class="col-md-10">
-                      <input type="text" name="authorityORCID" class="form-control" pattern="\d{4}-\d{4}-\d{4}-\d{3}[0-9xX]" placeholder="0000-0000-0000-0000" />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div class="form-check">
-                        <input type="checkbox" value="institution" name="authorityType" id="authorityType">
-                        <label for="authorityType" name="authorityType" vanilla-i18n="form.field.member.status">This contributor is an institution</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4" vanilla-i18n="form.field.member.roles">Role:</div>
-                    <div class="col-md-4">
-                      <!-- <div class="form-check">
-                        <input type="checkbox" value="transcriber" name="roleTranscriber" id="roleTranscriber" class="roles">
-                        <label class="form-check-label" for="roleTranscriber"><i18n vanilla-i18n="form.field.member.transcriber">Transcription</i18n></label>
-                      </div>
-                      <div class="form-check">
-                        <input type="checkbox" value="aligner" name="roleAligner" id="roleAligner" class="roles">
-                        <label class="form-check-label" for="roleAligner"><i18n vanilla-i18n="form.field.member.aligner">Alignement</i18n></label>
-                      </div> -->
-                      <div class="form-check">
-                        <input type="checkbox" value="project-manager" name="roleMainCreator" id="roleMainCreator" class="roles">
-                        <label class="form-check-label" for="roleMainCreator"><i18n vanilla-i18n="form.field.member.mainCreator">Project manager</i18n></label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-check">
-                        <input type="checkbox" value="quality-control" name="roleQualityControl" id="roleQualityControl" class="roles">
-                        <label class="form-check-label" for="roleQualityControl"><i18n vanilla-i18n="form.field.member.qualityControl">Quality Control</i18n></label>
-                      </div>
-                      <!-- <div class="form-check">
-                        <input type="checkbox" value="digitization" name="roleDigitization" id="roleDigitization" class="roles">
-                        <label class="form-check-label" for="roleDigitization"><i18n vanilla-i18n="form.field.member.digitizer">Numérisation</i18n></label>
-                      </div> -->
-                      <div class="form-check">
-                        <input type="checkbox" value="support" name="roleSupport" id="roleSupport" class="roles">
-                        <label class="form-check-label" for="roleSupport"><i18n vanilla-i18n="form.field.member.support">Support</i18n></label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> 
           </div>
           <div class="row">
             <div class="col">
@@ -489,6 +402,94 @@
             </div>
           </div>
 
+      <div class="row">
+            <div class="col">
+              <h2><i18n vanilla-i18n="form.title.project">General information about the project</i18n></h2>
+            </div>
+      </div>  
+          <div class="form-group row my-2">
+            <label for="projectName" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.project.name">Project's name (if different from model name)</i18n></label>
+            <div class="col-sm-9">
+              <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Project name" vanilla-i18n-placeholder="form.input.projectname">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="projectWebsite" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.project.link">Link to website of project (if applicable)</i18n></label>
+            <div class="col-sm-9">
+              <input type="text" name="projectWebsite" class="form-control" id="projectWebsite" placeholder="Link to project website" vanilla-i18n-placeholder="form.input.projectlink">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <div class="col-3">
+              <i18n vanilla-i18n="form.field.authors">Project staff</i18n>
+            </div>
+            <div class="col-9">
+              <div class="row author original-author p-2 mx-1 mt-1 mb-2 rounded border border-secondary">
+                <div class="col-sm-6">
+                  <div class="btn-group btn-group-sm my-2">
+                    <button class="btn btn-info btn-sm add-author" vanilla-i18n="form.field.member.add">Add contributor</button>
+                    <button class="btn btn-danger btn-sm remove-author invisible col-sm mx-2" vanilla-i18n="form.field.member.rm">Remove contributor</button>
+                   </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" name="authorityName" class="form-control mb-2" placeholder="Name" vanilla-i18n-placeholder="form.field.member.name"/>
+                    </div>
+                    <div class=" col-md-6">
+                      <input type="text" name="authoritySurname" class="form-control mb-2 col-md-6" placeholder="Surname" vanilla-i18n-placeholder="form.field.member.surname"/>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <label class="col-md-2 col-form-label">ORCID</label>
+                    <div class="col-md-10">
+                      <input type="text" name="authorityORCID" class="form-control" pattern="\d{4}-\d{4}-\d{4}-\d{3}[0-9xX]" placeholder="0000-0000-0000-0000" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-check">
+                        <input type="checkbox" value="institution" name="authorityType" id="authorityType">
+                        <label for="authorityType" name="authorityType" vanilla-i18n="form.field.member.status">This contributor is an institution</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4" vanilla-i18n="form.field.member.roles">Role:</div>
+                    <div class="col-md-4">
+                      <!-- <div class="form-check">
+                        <input type="checkbox" value="transcriber" name="roleTranscriber" id="roleTranscriber" class="roles">
+                        <label class="form-check-label" for="roleTranscriber"><i18n vanilla-i18n="form.field.member.transcriber">Transcription</i18n></label>
+                      </div>
+                      <div class="form-check">
+                        <input type="checkbox" value="aligner" name="roleAligner" id="roleAligner" class="roles">
+                        <label class="form-check-label" for="roleAligner"><i18n vanilla-i18n="form.field.member.aligner">Alignement</i18n></label>
+                      </div> -->
+                      <div class="form-check">
+                        <input type="checkbox" value="project-manager" name="roleMainCreator" id="roleMainCreator" class="roles">
+                        <label class="form-check-label" for="roleMainCreator"><i18n vanilla-i18n="form.field.member.mainCreator">Project manager</i18n></label>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-check">
+                        <input type="checkbox" value="quality-control" name="roleQualityControl" id="roleQualityControl" class="roles">
+                        <label class="form-check-label" for="roleQualityControl"><i18n vanilla-i18n="form.field.member.qualityControl">Quality Control</i18n></label>
+                      </div>
+                      <!-- <div class="form-check">
+                        <input type="checkbox" value="digitization" name="roleDigitization" id="roleDigitization" class="roles">
+                        <label class="form-check-label" for="roleDigitization"><i18n vanilla-i18n="form.field.member.digitizer">Numérisation</i18n></label>
+                      </div> -->
+                      <div class="form-check">
+                        <input type="checkbox" value="support" name="roleSupport" id="roleSupport" class="roles">
+                        <label class="form-check-label" for="roleSupport"><i18n vanilla-i18n="form.field.member.support">Support</i18n></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+    
            
 
           <div class="row">
