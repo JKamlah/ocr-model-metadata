@@ -230,7 +230,7 @@
             </div>
           </div>
         <div class="form-group row my-2">
-            <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.software_version">Software version</i18n>/label>
+            <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.software_version">Software version</i18n></label>
             <div class="col-sm-9">
               <input name="desc" class="form-control" id="desc" placeholder="Software version" vanilla-i18n-placeholder="form.input.software_ver"></input>
             </div>
@@ -255,23 +255,23 @@
             <div class="col offset-3"><p><small class="text-muted"><i18n vanilla-i18n="form.field.year.info">Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication</i18n></small></p></div>
           </div> -->
           <div class="form-group row my-2">
-          <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.basemodel">Basemodel</i18n><span class="required">*</span></label>
+          <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.trainingtype">Training type</i18n><span class="required">*</span></label>
           <div class="col-sm-9">
-            <input type="text" name="doctype" class="form-control" id="doctype" placeholder="Did you use a basemodel?" vanilla-i18n-placeholder="form.field.basemodel_placeholder" required="true"/>
+            <input type="text" name="trainingtype" class="form-control" id="trainingtype" placeholder="Training type" vanilla-i18n-placeholder="form.field.trainingtype_placeholder" required="true"/>
           </div>
           <div class="offset-sm-3 col-sm-9">
               <div class="row">
                 <div class="col-md-9">
                   <div class="btn-group btn-group-sm">
-                    <a class="btn btn-sm btn-outline-info basemodel-key" href="#">Yes</a>
-                    <a class="btn btn-sm btn-outline-info basemodel-key" href="#">No</a>
+                    <a class="btn btn-sm btn-outline-info trainingtype-key" href="#">From scratch / Coldstart</a>
+                    <a class="btn btn-sm btn-outline-info trainingtype-key" href="#">Basemodel / Finetuning / Warmstart</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.basemodel_url">Basemmodel</i18n>/label>
+            <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.basemodel_url">Basemodel URL</i18n></label>
             <div class="col-sm-9">
               <input name="desc" class="form-control" id="desc" placeholder="URL to basemodel" vanilla-i18n-placeholder="form.input.basemodelurl"></input>
             </div>
