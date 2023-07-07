@@ -291,6 +291,25 @@
       })
     });
 
+   document.querySelectorAll(".trainingstype-key").forEach((el) => {
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.querySelector("#trainingstype").value = el.innerText;
+        var baseModelContainer = document.getElementById('basemodel_container');
+        if (document.querySelector("#trainingstype").value === "From scratch") {
+            baseModelContainer.style.display = 'None';
+        } else {
+            baseModelContainer.style.display = 'flex';
+        }
+      })
+    });
+
+    document.querySelectorAll(".").forEach((el) => {
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.querySelector("#software").value = el.innerText;
+      })
+    });
 
 
     form.addEventListener('submit', function(e) {

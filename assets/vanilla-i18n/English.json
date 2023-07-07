@@ -1,1 +1,257 @@
-{"nav": {"charter": "Data reuse charter"}, "form": {"ocrd": "OCR-D Metadata form for ground truth data", "title": {"project": "General information about the project", "generate": "Generate the <code>metadata.yml</code> file", "ds": "General information about the dataset", "detail": "Detailed information about the data", "data": "General information about the data", "ocrdetail": "Detailed information about the OCR model trained with the GT"}, "steps": {"title": "ToDo"}, "step2": {"title": "Click on \"Get formatted metadata\"", "desc": "And copy the output !"}, "step1": {"title": "Fill the form", "desc": "Follow the examples and note that you can always manually modify the output. This form only helps you structure the description and ensure that every item is documented."}, "help": {"title": "Help"}, "gt": {"title": "Type of Ground Truth", "desc": "<b>document GT</b><br/>The Ground Truth contains annotated and complete documents. A complete document is, for example, a book or an article. Annotations of the text and document structure (for example: headings, paragraphs, footnotes) have been made.<br/><b>structure GT</b><br/>The ground truth contains annotated document parts such as individual pages or paragraphs. Exclusively annotation of the document structure (for example: headings, paragraphs, footnotes) has been done.<br/><b>structure and text GT</b><br/>Ground truth contains annotated document parts such as individual pages or paragraphs. Annotations of the text and document structure (for example: headings, paragraphs, footnotes) have been made.<br/><b>line GT</b><br/>The ground truth contains annotated document lines only. Annotations of the text as well as the line have been made."}, "level": {"title": "Transcription level", "desc": "An overview of the transcription levels can be found at <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html\">GT-Guidelines</a>.<br/><br/>The <b>mixed level</b> contains transcriptions that correspond to several levels. There is no compatibility between the levels, see for example <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html\">hyphenation</a>.<br/><br/>To assess the transcription level, please read the <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/index.html\">GT-Guidelines</a>"}, "env": {"title": "Training environment", "desc": "The training environment specifies the software with which the OCR model was created or trained, e.g. tesseract [version]."}, "play": "Play or restart", "input": {"src": "Link to the source or a catalog description", "reponame": "Repository's title", "repolink": "Link to repository", "quantity": "Example: 200", "projectname": "Project's name", "projectlink": "Link to project's website (if applicable)", "guidelines": "Transcription guidelines", "dateend": "Example: 1899", "datebegin": "Example: 1800", "cff": "Link to a CITATION.cff file", "apa": "APA Reference for a source", "ocrmodel": "OCR model name", "ocrmodellink": "Link to the OCR model", "ocrmodelengine": "Training environment", "desc": "Description"}, "field": {"software": "Software use to produce the data", "year": {"start": "Source Start-Year", "info": "For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.", "end": "Source End-Year"}, "std_info": "This is a non-exhaustive selection of license options.", "std": "Format Standard", "src": "Sources", "script": {"type": {"select": {"print": "Print (e.g. books)", "only-typed": "Typed only", "only-manuscript": "Manuscript only", "mainly-typed": "Mainly typed", "mainly-manuscript": "Mainly manuscript", "evenly-mixed": "Evenly typed and manuscript", "all": "All"}, "label": "Document type"}}, "repolink": "Link to repository", "qual": {"select": {"regions": "Zones", "pages": "Pages", "lines": "Lines", "files": "XML Files", "characters": "Characters"}, "label": "Estimated quantity"}, "project": {"name": "Project's name (if different from the repository/dataset's one)", "link": "Link to project's website"}, "prec": {"select": {"level1": "Level 1", "level2": "Level 2", "level3": "Level 3", "levelmix": "Level mix"}, "label": "Transcription level"}, "member": {"rm": "Remove person", "add": "Add person", "name": "Author's first name", "surname": "Author's last name", "transcriber": "Transcription", "aligner": "Alignment", "mainCreator": "Project Manager", "qualityControl": "Quality Control", "digitizer": "Digitization", "support": "Support", "status": "This contributor is an institution", "person": "Person", "institution": "Institution", "roles": "Roles"}, "software_placeholder": "You can use the following buttons to populate the field.", "authors": "Authority and role(s)", "license": "License", "hands": {"select": {"unknown": "Unknown", "more3": "More than 3 (many)"}, "label": "Number fonts or hands"}, "guidelines": {"label": "Transcription guidelines", "info": "Guidelines used to transcribe the resources (normalization, resolution of abbreviation, correction of mispelling, etc.)"}, "gtstructuretext": "structure and text GT", "gtstructure": "structure GT", "gtline": "line GT", "gtdocument": "document GT", "gt": "Type of Ground Truth", "ds_title": "Repository's or dataset's title", "ds_desc": "Short description", "cff": {"link": "Link to a CITATION.cff file", "info": "CITATION.cf files allow for generating quick APA citations or Bibtex ones on github for example. See:"}, "apa": "<small class=\"text-muted\">We prefer APA references, which can look like the following <code>Allport, G. W. (1930\u20131967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, see <a href=\"https://apastyle.apa.org/style-grammar-guidelines/references/archival\">APA Style</a>, but simpler formats are okay too. The link or the APA reference are sufficient but you can provide both.</small>", "ocrmodel": "OCR model name (title)", "ocrmodellink": "Link to the OCR model", "ocrmodelengine": "Training environment"}, "form": {"head": "Fields followed by a <span class=\"required\">*</span> are the only ones required."}, "fields": {"scripts": {"label": "Font/Writing system", "helper": "To ease data entry, default values are already selected. Just click on it to deselect the one you don't want."}, "languages": {"label": "Language(s)", "helper": "To ease data entry, default values are already selected. Just click on it to deselect the one you don't want."}}, "download": {"text3": "A METADATA.yml file is created in your repository. You can now paste into the metadata created.", "text2": "to the clipboard and click on this", "text": "this file below or", "push_link": "link", "push_copy": "copy your content", "dl": "Download"}, "desc": {"main": "HTR-United is a Github organization without any other form of legal personality. It aims at gathering HTR/OCR models for and transcriptions of all periods and style of writing, mostly but not exclusively in French. <br/>It was born from the mere necessity -for projects- to possess potentiel ground truth to rapidly train models on smaller corpora."}, "btn": {"get": "Get formatted metadata"}}, "footer": {"team": "Who are the people behind HTR-United?"}}
+{
+  "nav": {
+    "charter": "Data reuse charter"
+  },
+
+  "form": {
+
+    "field": {
+      "required": "Fields followed by a <span class=\"required\">*</span> are the only ones required.",
+
+    "title": "OCR-D metadata form for Segementation/Layout and OCR/HTR models",
+
+    "heading": {
+      "persons": "General information about involved persons",
+      "project": "General information about the project",
+      "generate": "Generate the <code>metadata.yml</code> file",
+      "model": "General information about the model",
+      "training": "General information about the training",
+      "training_data": "Detailed information about the training data"
+    },
+
+    "infobar": {
+      "todo": {
+        "title": "ToDo",
+        "step1": {
+          "title": "Fill the form",
+          "info": "Follow the examples and note that you can always manually modify the output. This form only helps you structure the description and ensure that every item is documented."
+        },
+        "step2": {
+          "title": "Click on \"Get formatted metadata\"",
+          "info": "And copy the output !"
+        }
+      },
+      "help": {
+        "title": "Help",
+        "level": {
+          "title": "Transcription level",
+          "info": "An overview of the transcription levels can be found at <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html\">GT-Guidelines</a>.<br/><br/>The <b>mixed level</b> contains transcriptions that correspond to several levels. There is no compatibility between the levels, see for example <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html\">hyphenation</a>.<br/><br/>To assess the transcription level, please read the <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/index.html\">GT-Guidelines</a>"
+        }
+      }
+    },
+
+    "model": {
+      "name": {
+        "title": "Model name",
+        "input": "Model name"
+      },
+      "repo": {
+        "link": {
+          "title": "Link to repository",
+          "input": "Link to repository"
+        }
+      },
+      "default": {
+        "link": {
+          "title": "Link to default model",
+          "input": "Link to default model",
+          "info": "Provide a URL to the default model. If you only have one model, then use the url to that. If you have several models of the same type, choose one as the default."
+        },
+        "creation": {
+          "title": "",
+          "input": "",
+          "info": "If you want to provide just a year (e.g. 2021), choose: 01-01-2021"
+        }
+      },
+      "description": {
+        "title": "Description",
+        "input": "Short description of the model"
+      },
+      "cff": {
+        "title": "Link to a CITATION.cff file",
+        "input": "Link to a CITATION.cff file",
+        "info": "CITATION.cf files allow for generating quick APA citations or Bibtex ones on github for example. See:"
+        },
+      "license": {
+        "title": "License",
+        "info": "This is a non-exhaustive selection of license options.</br><a href=\"https://choosealicense.com\">https://choosealicense.com/</a> can help to find a suitable license and download the template."
+      },
+      "format": {
+        "title": "Model file format",
+        "info": "This is a non-exhaustive selection of model formats options. If none fits, use the \".*\" option."
+      },
+      "type": {
+        "title": "Model type",
+        "input": ""
+      },
+      "software": {
+        "name": {
+          "title": "Name of the software/engine used for training",
+          "input": ""
+        },
+        "version": {
+          "title": "Software version",
+          "input":  "Software version"
+        }
+      }
+    },
+
+    "training": {
+        "type": {
+          "title": "Trainings type",
+          "input":  ""
+        },
+        "epochs": {
+          "title": "Epochs",
+          "input": "Epochs",
+          "info": "An epoch refers to one cycle through the full training dataset."
+        },
+        "basemodel": {
+          "title": "Link to Basemodel",
+          "input": "Link to Basemodel"
+        }
+      },
+
+    "training_data": {
+        "dataset": {
+          "title": "Ground Truth used for training",
+          "link": {
+            "input": ""
+          },
+          "description": {
+            "input": ""
+          },
+          "input": ""
+        },
+        "script": {
+          "type": {
+            "select": {
+              "info": " -- select an option -- ",
+              "print": "Print (e.g. books)",
+              "only-typed": "Typed only",
+              "only-manuscript": "Manuscript only",
+              "mainly-typed": "Mainly typed",
+              "mainly-manuscript": "Mainly manuscript",
+              "evenly-mixed": "Evenly typed and manuscript",
+              "all": "All"
+            }
+          },
+          "title": "Document type"
+        },
+      "year": {
+        "start": {
+          "title": "Training data Start-Year",
+          "input": ""
+        },
+        "info": "For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.",
+        "end": {
+          "title": "Training data End-Year",
+          "input": ""
+        }
+      },
+      "scripts": {
+          "title": "Font/Writing system",
+          "info": "To ease data entry, default values are already selected. Just click on it to deselect the one you don't want."
+        },
+
+        "languages": {
+          "title": "Language(s)",
+          "info": "To ease data entry, default values are already selected. Just click on it to deselect the one you don't want."
+        },
+        "guidelines": {
+          "title": "Transcription guidelines",
+          "input": "",
+          "info": "Guidelines used to transcribe the resources (normalization, resolution of abbreviation, correction of mispelling, etc.)"
+        },
+       "prec": {
+        "select": {
+          "level1": "Level 1",
+          "level2": "Level 2",
+          "level3": "Level 3",
+          "levelmix": "Level mix"
+        },
+        "title": "Transcription level"
+      }
+    },
+
+    "project": {
+      "name": {
+        "title": "Project's name (if different from the repository/dataset's one)",
+        "input": "Project's name (if different from the repository/dataset's one)"
+      },
+      "link": {
+        "title": "Link to project's website",
+        "input": "Link to project's website"
+      }
+    },
+
+    "person": {
+      "authors": "Authority and role(s)",
+
+      "member": {
+        "rm": "Remove person",
+        "add": "Add person",
+        "name": "Author's first name",
+        "surname": "Author's last name",
+        "mainCreator": "Project Manager",
+        "Creator": "Creator",
+        "qualityControl": "Quality Control",
+        "support": "Support",
+        "status": "This contributor is an institution",
+        "person": "Person",
+        "institution": "Institution",
+        "roles": "Roles"
+      }
+    },
+
+    "generate": {
+      "metadata": {
+        "download": {
+          "text3": "A METADATA.yml file is created in your repository. You can now paste into the metadata created.",
+          "text2": "to the clipboard and click on this",
+          "text": "this file below or",
+          "push_link": "link",
+          "push_copy": "copy your content",
+          "dl": "Download"
+        }
+      },
+      "btn": {
+      "get": "Get formatted metadata"
+    }
+    },
+
+    "input": {
+      "src": "Link to the source or a catalog description",
+      "guidelines": "Transcription guidelines",
+      "dateend": "Example: 1899",
+      "datebegin": "Example: 1800",
+      "software": "Software use to produce the data"
+      "software_placeholder": "You can use the following buttons to populate the field.",
+
+      "license": "License",
+      "hands": {
+        "select": {
+          "unknown": "Unknown",
+          "more3": "More than 3 (many)"
+        },
+        "label": "Number fonts or hands"
+      },
+      "gtstructuretext": "structure and text GT",
+      "gtstructure": "structure GT",
+      "gtline": "line GT",
+      "gtdocument": "document GT",
+      "gt": "Type of Ground Truth",
+      "ds_title": "Repository's or dataset's title",
+      "model_title": "Model name",
+      "model_desc": "",
+      "apa": "<small class=\"text-muted\">We prefer APA references, which can look like the following <code>Allport, G. W. (1930\u20131967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, see <a href=\"https://apastyle.apa.org/style-grammar-guidelines/references/archival\">APA Style</a>, but simpler formats are okay too. The link or the APA reference are sufficient but you can provide both.</small>"
+    },
+    "desc": {
+      "main": "HTR-United is a Github organization without any other form of legal personality. It aims at gathering HTR/OCR models for and transcriptions of all periods and style of writing, mostly but not exclusively in French. <br/>It was born from the mere necessity -for projects- to possess potentiel ground truth to rapidly train models on smaller corpora."
+    },
+
+  },
+  "footer": {
+    "team": "Who are the people behind HTR-United?"
+  }
+}
