@@ -1,4 +1,31 @@
-  const languages = [{"label": "Ghotuo", "value": "aaa"},
+const element_types = [{"label": "Region", "value": "Region"},
+{"label": "TextLine", "value": "TextLine"}]
+/*
+page border, text region, text line, header, image, separator, marginalia, initial, table
+Structural
+ PrintSpace
+ Border
+Text
+ TextRegion
+ TextLine
+Table
+ TableRegion
+ TableCell
+Illustrations
+ ImageRegion
+ GraphicRegion
+ LineDrawingRegion
+ MapRegion
+ AdvertRegion
+Art/Science
+ MathsRegion
+ ChemRegion
+ MusicRegion
+Other
+ NoiseRegion
+ UnknownRegion*/
+
+const languages = [{"label": "Ghotuo", "value": "aaa"},
 {"label": "Alumu-Tesu", "value": "aab"},
 {"label": "Ari", "value": "aac"},
 {"label": "Amal", "value": "aad"},

@@ -119,10 +119,41 @@
       remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
     };
 
-    document.querySelector(".add-sources").addEventListener("click", addSources);
+    document.querySelector(".add-tags").addEventListener("click", addSources);
+
+    const tagsOriginal = document.querySelector(".tags-form");
+
+    const addTags = function(event) {
+      event.preventDefault();
+      // Retrieve element and their copy
+      let new_elem = tagsOriginal.cloneNode(true),
+          add_button = new_elem.querySelector(".add-tags"),
+          remove_button = new_elem.querySelector(".remove-tags"),
+          text_inputs = new_elem.querySelectorAll("input[type='text']");
+
+
+      // Clean text inputs
+      for (var i = text_inputs.length - 1; i >= 0; i--) {
+        text_inputs[i].value = "";
+      }
+
+      idForAuthors++;
+      // Insert element in the DOM
+      tagsOriginal.after(new_elem);
+      // Un-hide the element for removal
+      remove_button.classList.remove("d-none");
+
+      // Register events
+      add_button.addEventListener("click", addTags);
+      remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
+    };
+
+    document.querySelector(".add-tags").addEventListener("click", addTags);
+
+
 
     const normalize = function(a_string) {
-      return a_string.replace("'", "’");
+      return str?.replace("'", "’") ?? "";
     };
 
 
@@ -228,6 +259,30 @@
       return text;
     };
 
+    const elementTypeSelect = new SelectPure(".element-type", {
+        options: element_types,
+        multiple: true,
+        autocomplete: true, // default: false
+        value: ["Region", "TextLine"],
+
+        icon: "fa fa-times", // uses Font Awesome
+        inlineIcon: false // custom cross icon for multiple select.
+    });
+
+
+    /*elementTypeSelect.addEventListener('change', updateSelectOptions);
+    function updateSelectOptions() {
+        // Iterate through each PureSelect
+        for (var i = 0; i < pureSelects.length; i++) {
+            var pureValue = pureSelects.value[i];
+            //var selectedValue = pureSelect.value;
+             // Get the corresponding target select element
+            var targetSelect = document.getElementById('element-tag');
+            var option1 = document.createElement('option');
+            targetSelect.appendChild(option1);
+        }
+    }*/
+
     const languageSelect = new SelectPure(".language", {
         options: languages,
         multiple: true,
@@ -270,10 +325,21 @@
       return "";
     };
 
+     document.getElementById("format").addEventListener('change', function(el) {
+        event.preventDefault();
+        document.getElementById("software").value = el.target.value;
+      });
+
     document.querySelectorAll(".software-key").forEach((el) => {
       el.addEventListener("click", (event) => {
         event.preventDefault();
         document.querySelector("#software").value = el.innerText;
+        var otherSoftware = document.getElementById('other_software');
+        if (el.id !== "software-key-other") {
+            otherSoftware.style.display = 'None';
+        } else {
+            otherSoftware.style.display = 'flex';
+        }
       })
     });
 
@@ -281,6 +347,15 @@
       el.addEventListener("click", (event) => {
         event.preventDefault();
         document.querySelector("#modeltype").value = el.innerText;
+        var segementation_data = document.getElementById('segmentation_data');
+        var transcription_data = document.getElementById('transcription_data');
+        if (el.id === "modeltype-key-segmentation") {
+            segementation_data.style.display = 'flex';
+            transcription_data.style.display = 'None';
+        } else {
+            segementation_data.style.display = 'None';
+            transcription_data.style.display = 'flex';
+        }
       })
     });
 
@@ -296,18 +371,11 @@
         event.preventDefault();
         document.querySelector("#trainingstype").value = el.innerText;
         var baseModelContainer = document.getElementById('basemodel_container');
-        if (document.querySelector("#trainingstype").value === "From scratch") {
+        if (el.id === "trainingstype-key-from-scratch") {
             baseModelContainer.style.display = 'None';
         } else {
             baseModelContainer.style.display = 'flex';
         }
-      })
-    });
-
-    document.querySelectorAll(".").forEach((el) => {
-      el.addEventListener("click", (event) => {
-        event.preventDefault();
-        document.querySelector("#software").value = el.innerText;
       })
     });
 
@@ -316,12 +384,15 @@
       e.preventDefault();
       let data = Object.fromEntries(new FormData(form));
       let languages = languageSelect.value().join("\n  - ");
+      let element_types = elementTypeSelect.value().join("\n  - ");
       let scripts = scriptSelect.value().join("\n  - ");
 
       let obj = {
-        "schema": `https://github.com/JKamlah/ocr-model-metadata/tree/master/schema/2022-03-15/schema.json`,
-        "title": normalize(data.repoName),
+        "schema": "https://github.com/JKamlah/ocr-model-metadata/tree/master/schema/2022-03-15/schema.json",
+        "title": normalize(data.modelName),
         "url": data.repoLink,
+        };
+        /*
         ...getAuthors(),
         "description": normalize(data.desc),
         ...updateOrIgnore(data.projectName, "project-name"),
@@ -356,7 +427,7 @@
         ...updateOrIgnore(data.ocrmodellink, "modelurl"),
         ...updateOrIgnore(data.ocrmodelengine, "modelengine"),
        
-      };
+      };*/
 
       output.innerText = jsyaml.dump(obj, {"noRef": true});
       outputContainer.classList.remove("d-none");

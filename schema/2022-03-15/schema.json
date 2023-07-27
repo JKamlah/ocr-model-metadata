@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://JKamlah.github.io/ocr-model-metadata/schema/2022-03-15/schema.json",
-    "title": "GroundTruthRepository",
+    "title": "Modelname",
     "description": "A description of a ground truth repository",
     "type": "object",
     "properties": {
@@ -8605,10 +8605,6 @@
                         "levelmix"
                     ]
                 }
-
-
-
-
             },
             "required": [
                 "count",

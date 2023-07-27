@@ -1,4 +1,4 @@
-const i18n_languages = ["Français", "English", "Deutsch"];
+const i18n_languages = ["English"];
 let default_language = navigator.language || navigator.userLanguage; 
 if (default_language.startsWith("en-")) { default_language = "English"; }
 else if (default_language.startsWith("fr-")) { default_language = "Français"; }

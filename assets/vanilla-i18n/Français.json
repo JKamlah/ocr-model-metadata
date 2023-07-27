@@ -1,1 +1,184 @@
-{"nav": {"charter": "Charte de r\u00e9utilisation des donn\u00e9es"}, "form": {"ocrd": "OCR-D Formulaire de m\u00e9tadonn\u00e9es pour les donn\u00e9es de ground truth", "title": {"project": "Informations g\u00e9n\u00e9rales sur le projet", "generate": "G\u00e9n\u00e9rer le fichier <code>METADATA.yml</code>", "ds": "Informations g\u00e9n\u00e9rales sur le set de donn\u00e9es", "detail": "Informations d\u00e9taill\u00e9es sur les donn\u00e9es", "data": "Informations g\u00e9n\u00e9rales sur les donn\u00e9es", "ocrdetail": "Informations d\u00e9taill\u00e9es sur le mod\u00e8le OCR entra\u00een\u00e9 avec le GT"}, "steps": {"title": "\u00c0 faire"}, "step2": {"title": "Cliquer sur \"Obtenir les m\u00e9tadonn\u00e9es format\u00e9es\"", "desc": "Et copier le r\u00e9sultat !"}, "step1": {"title": "Remplir le formulaire", "desc": "Suivre les examples. Si n\u00e9cessaire, modifier manuellement l'output : ce formulaire aide seulement \u00e0 structurer la description et \u00e0 s'assurer que toutes les rubriques sont document\u00e9es."}, "help": {"title": "Aide"}, "gt": {"title": "Type de v\u00e9rit\u00e9s de terrain (Ground Truth)", "desc": "<b>Document GT</b><br/>Le Ground Truth contient des documents annot\u00e9s et des documents complets. Un document complet est par exemple un livre ou un article. Des annotations du texte et de la structure du document (par exemple : titres, paragraphes, notes de bas de page) ont \u00e9t\u00e9 effectu\u00e9es.<br/><b>Structure GT</b><br/> La v\u00e9rit\u00e9 fondamentale contient des parties de documents annot\u00e9es, comme des pages ou des paragraphes individuels. Seule l'annotation de la structure du document (par exemple : titres, paragraphes, notes de bas de page) a \u00e9t\u00e9 effectu\u00e9e.<br/><b>Structure et Texte GT</b><br/>La v\u00e9rit\u00e9 de base contient des parties de document annot\u00e9es telles que des pages ou des paragraphes individuels. Les annotations du texte et de la structure du document (par exemple : titres, paragraphes, notes de bas de page) ont \u00e9t\u00e9 effectu\u00e9es.<br/><b>Lignes GT</b><br/>Le Ground Truth contient uniquement des lignes de document annot\u00e9es. Des annotations du texte et de la ligne ont \u00e9t\u00e9 effectu\u00e9es."}, "level": {"title": "Niveau de transcription", "desc": "Pour un aper\u00e7u des niveaux de transcription, voir <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html\">GT-Guidelines</a>.<br/><br/>Le <b>niveau mixte</b> comprend des transcriptions qui correspondent \u00e0 plusieurs niveaux. Il n'y a pas de compatibilit\u00e9 entre les niveaux, voir par exemple <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html\">la c\u00e9sure</a>.<br/><br/>Pour \u00e9valuer le niveau de transcription, veuillez lire les <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/index.html\">GT-Guidelines</a>."}, "env": {"title": "Environnement d'entra\u00eenement", "desc": "L'indication de l'environnement d'entra\u00eenement indique avec quel logiciel le mod\u00e8le OCR a \u00e9t\u00e9 cr\u00e9\u00e9 ou entra\u00een\u00e9, par ex. tesseract [version]."}, "play": "Lancer la d\u00e9mo ou la red\u00e9marrer", "input": {"src": "Lien vers le catalogue ou la ressource", "reponame": "Nom du d\u00e9p\u00f4t", "repolink": "Lien vers le d\u00e9p\u00f4t", "quantity": "Exemple: 200", "projectname": "Nom du projet", "projectlink": "Lien vers le site du projet (s'il existe)", "guidelines": "Normes de transcription", "dateend": "Exemple: 1899", "datebegin": "Exemple: 1800", "cff": "Lien vers un fichier CITATION.cff", "apa": "R\u00e9f\u00e9rence en mode APA", "ocrmodel": "Nom du mod\u00e8le OCR", "ocrmodellink": "Lien vers le mod\u00e8le OCR", "ocrmodelengine": "Environnement d'entra\u00eenement", "desc": "Description"}, "field": {"software": "Logiciel(s) utilis\u00e9(s) pour produire les donn\u00e9es", "year": {"start": "Ann\u00e9e de d\u00e9but des sources", "info": "Pr\u00e9f\u00e9rez, pour des donn\u00e9es au si\u00e8cle pr\u00e8s, 1200 pour un d\u00e9but au 13e si\u00e8cle et 1299 pour une fin au 13e si\u00e8cle. Les dates n'ont pas besoin d'\u00eatre pr\u00e9cises, cela reste une indication", "end": "Ann\u00e9e de fin des sources"}, "std_info": "Les licences sont ici propos\u00e9es \u00e0 titre indicatif.", "std": "Format des donn\u00e9es", "src": "D\u00e9tails des sources transcrites", "script": {"type": {"select": {"print": "Imprim\u00e9 (par exemple livres)", "only-typed": "Imprim\u00e9/dactylographi\u00e9 uniquement", "only-manuscript": "Manuscrit uniquement", "mainly-typed": "Principalement imprim\u00e9/dactylographi\u00e9", "mainly-manuscript": "Principalement manuscrit", "evenly-mixed": "Egale r\u00e9partition manuscrit/dactylographi\u00e9 et imprim\u00e9", "all": "Tous"}, "label": "Type d'\u00e9criture"}}, "repolink": "Lien vers le d\u00e9p\u00f4t", "qual": {"select": {"regions": "Zones", "pages": "Pages", "lines": "Lignes", "files": "Fichiers XML", "characters": "Caract\u00e8res"}, "label": "Description sommaire des quantit\u00e9s"}, "project": {"name": "Nom du projet (si diff\u00e9rent du nom du d\u00e9p\u00f4t)", "link": "Lien vers le site du projet"}, "prec": {"select": {"level1": "Niveau 1", "level2": "Niveau 2", "level3": "Niveau 3", "levelmix": "Niveau M\u00e9lange"}, "label": "Niveau de transcription"}, "member": {"rm": "Supprimer cette personne", "add": "Ajouter une personne", "name": "Pr\u00e9nom de la personne", "surname": "Nom de la personne", "transcriber": "Transcription", "aligner": "Alignement", "mainCreator": "Responsable du projet", "qualityControl": "Contr\u00f4le Qualit\u00e9", "digitizer": "Num\u00e9risation", "support": "Assistance", "status": "Cette contribution vient d'une institution", "person": "Personne", "institution": "Institution", "roles": "R\u00f4les"}, "software_placeholder": "Vous pouvez utiliser les boutons pour remplir plus rapidement le champ.", "authors": "Acteur-rice-s du projet", "license": "Licence", "hands": {"select": {"unknown": "Inconnu", "more3": "Sup\u00e9rieur \u00e0 3 (beaucoup)"}, "label": "Nombre de mains (ou de fontes)"}, "guidelines": {"label": "Normes de transcription", "info": "Normes de transcriptions utilis\u00e9es (format libre). Peut concerner la r\u00e9solution des abr\u00e9viations, corrections de fautes d'orthographe, l'usage de caract\u00e8res sp\u00e9ciaux, la normalisation, etc."}, "gtstructuretext": "Structure et Texte GT", "gtstructure": "Structure GT", "gtline": "Lignes GT", "gtdocument": "Document GT", "gt": "Type de v\u00e9rit\u00e9s de terrain", "ds_title": "Nom du d\u00e9p\u00f4t / dataset (titre)", "ds_desc": "Courte description", "cff": {"link": "Lien vers un fichier CITATION.cff", "info": "Les fichiers CITATION.cff permettent de fournir un mode de citation assez simple sur github par exemple. Lien:"}, "apa": "<small class=\"text-muted\">Le format APA est pr\u00e9f\u00e9r\u00e9 pour les citations, ce qui peut donner des r\u00e9f\u00e9rences longues comme <code>Allport, G. W. (1930\u20131967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, cf. <a href=\"https://apastyle.apa.org/style-grammar-guidelines/references/archival\">APA Style</a>. Des formats plus courts sont autoris\u00e9. Le lien ou la r\u00e9f\u00e9rence APA peuvent suffire.</small>", "ocrmodel": "Nom du mod\u00e8le OCR (titre)", "ocrmodellink": "Lien vers le mod\u00e8le OCR", "ocrmodelengine": "Environnement d'entra\u00eenement"}, "form": {"head": "Les champs dont le nom est suivi d'un <span class=\"required\">*</span> sont obligatoires."}, "fields": {"scripts": {"label": "Police de caract\u00e8res/Syst\u00e8me d'\u00e9criture", "helper": "Pour faciliter l'entr\u00e9e de donn\u00e9es, des valeurs par d\u00e9faut sont s\u00e9lectionn\u00e9es. Cliquez dessus pour les d\u00e9s\u00e9lectionner."}, "languages": {"label": "Langue(s)", "helper": "Pour faciliter l'entr\u00e9e de donn\u00e9es, des valeurs par d\u00e9faut sont s\u00e9lectionn\u00e9es. Cliquez dessus pour les d\u00e9s\u00e9lectionner."}}, "download": {"text3": "Un fichier METADATA.yml sera cr\u00e9\u00e9 dans votre r\u00e9f\u00e9rentiel. Vous pouvez maintenant ins\u00e9rer les m\u00e9tadonn\u00e9es g\u00e9n\u00e9r\u00e9es.", "text2": "dans le presse-papiers et cliquez sur ce", "text": "le fichier ci-dessous ou", "push_link": "lien", "push_copy": "copiez son contenu", "dl": "T\u00e9l\u00e9chargez"}, "desc": {"main": "HTR-United est une organisation Github sans autre forme de personnalit\u00e9 juridique visant \u00e0 mettre en commun des jeux de donn\u00e9es et des mod\u00e8les pour l'HTR/OCR de textes de toutes p\u00e9riodes et de tout style, principalement en fran\u00e7ais mais de mani\u00e8re non restricive.&nbsp,<br>Elle est n\u00e9e du simple besoin - pour des projets - d'avoir de potentiels v\u00e9rit\u00e9s de terrain pour entra\u00eener des mod\u00e8les rapidement sur des corpus plus petits."}, "btn": {"get": "Cr\u00e9er et obtenir les m\u00e9tadonn\u00e9es format\u00e9es"}}, "footer": {"team": "Qui est derri\u00e8re HTR-United ?"}}
+{
+  "nav": {
+    "charter": "Charte de r\u00e9utilisation des donn\u00e9es"
+  },
+  "form": {
+    "ocrd": "OCR-D Formulaire de m\u00e9tadonn\u00e9es pour les donn\u00e9es de ground truth",
+    "title": {
+      "project": "Informations g\u00e9n\u00e9rales sur le projet",
+      "generate": "G\u00e9n\u00e9rer le fichier <code>METADATA.yml</code>",
+      "ds": "Informations g\u00e9n\u00e9rales sur le set de donn\u00e9es",
+      "detail": "Informations d\u00e9taill\u00e9es sur les donn\u00e9es",
+      "data": "Informations g\u00e9n\u00e9rales sur les donn\u00e9es",
+      "ocrdetail": "Informations d\u00e9taill\u00e9es sur le mod\u00e8le OCR entra\u00een\u00e9 avec le GT"
+    },
+    "steps": {
+      "title": "\u00c0 faire"
+    },
+    "step2": {
+      "title": "Cliquer sur \"Obtenir les m\u00e9tadonn\u00e9es format\u00e9es\"",
+      "desc": "Et copier le r\u00e9sultat !"
+    },
+    "step1": {
+      "title": "Remplir le formulaire",
+      "desc": "Suivre les examples. Si n\u00e9cessaire, modifier manuellement l'output : ce formulaire aide seulement \u00e0 structurer la description et \u00e0 s'assurer que toutes les rubriques sont document\u00e9es."
+    },
+    "help": {
+      "title": "Aide"
+    },
+    "gt": {
+      "title": "Type de v\u00e9rit\u00e9s de terrain (Ground Truth)",
+      "desc": "<b>Document GT</b><br/>Le Ground Truth contient des documents annot\u00e9s et des documents complets. Un document complet est par exemple un livre ou un article. Des annotations du texte et de la structure du document (par exemple : titres, paragraphes, notes de bas de page) ont \u00e9t\u00e9 effectu\u00e9es.<br/><b>Structure GT</b><br/> La v\u00e9rit\u00e9 fondamentale contient des parties de documents annot\u00e9es, comme des pages ou des paragraphes individuels. Seule l'annotation de la structure du document (par exemple : titres, paragraphes, notes de bas de page) a \u00e9t\u00e9 effectu\u00e9e.<br/><b>Structure et Texte GT</b><br/>La v\u00e9rit\u00e9 de base contient des parties de document annot\u00e9es telles que des pages ou des paragraphes individuels. Les annotations du texte et de la structure du document (par exemple : titres, paragraphes, notes de bas de page) ont \u00e9t\u00e9 effectu\u00e9es.<br/><b>Lignes GT</b><br/>Le Ground Truth contient uniquement des lignes de document annot\u00e9es. Des annotations du texte et de la ligne ont \u00e9t\u00e9 effectu\u00e9es."
+    },
+    "level": {
+      "title": "Niveau de transcription",
+      "desc": "Pour un aper\u00e7u des niveaux de transcription, voir <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html\">GT-Guidelines</a>.<br/><br/>Le <b>niveau mixte</b> comprend des transcriptions qui correspondent \u00e0 plusieurs niveaux. Il n'y a pas de compatibilit\u00e9 entre les niveaux, voir par exemple <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html\">la c\u00e9sure</a>.<br/><br/>Pour \u00e9valuer le niveau de transcription, veuillez lire les <a href=\"https://tboenig.github.io/gt-guidelines/html/trans/index.html\">GT-Guidelines</a>."
+    },
+    "env": {
+      "title": "Environnement d'entra\u00eenement",
+      "desc": "L'indication de l'environnement d'entra\u00eenement indique avec quel logiciel le mod\u00e8le OCR a \u00e9t\u00e9 cr\u00e9\u00e9 ou entra\u00een\u00e9, par ex. tesseract [version]."
+    },
+    "play": "Lancer la d\u00e9mo ou la red\u00e9marrer",
+    "input": {
+      "src": "Lien vers le catalogue ou la ressource",
+      "reponame": "Nom du d\u00e9p\u00f4t",
+      "repolink": "Lien vers le d\u00e9p\u00f4t",
+      "quantity": "Exemple: 200",
+      "projectname": "Nom du projet",
+      "projectlink": "Lien vers le site du projet (s'il existe)",
+      "guidelines": "Normes de transcription",
+      "dateend": "Exemple: 1899",
+      "datebegin": "Exemple: 1800",
+      "cff": "Lien vers un fichier CITATION.cff",
+      "apa": "R\u00e9f\u00e9rence en mode APA",
+      "ocrmodel": "Nom du mod\u00e8le OCR",
+      "ocrmodellink": "Lien vers le mod\u00e8le OCR",
+      "ocrmodelengine": "Environnement d'entra\u00eenement",
+      "desc": "Description"
+    },
+    "field": {
+      "software": "Logiciel(s) utilis\u00e9(s) pour produire les donn\u00e9es",
+      "year": {
+        "start": "Ann\u00e9e de d\u00e9but des sources",
+        "info": "Pr\u00e9f\u00e9rez, pour des donn\u00e9es au si\u00e8cle pr\u00e8s, 1200 pour un d\u00e9but au 13e si\u00e8cle et 1299 pour une fin au 13e si\u00e8cle. Les dates n'ont pas besoin d'\u00eatre pr\u00e9cises, cela reste une indication",
+        "end": "Ann\u00e9e de fin des sources"
+      },
+      "std_info": "Les licences sont ici propos\u00e9es \u00e0 titre indicatif.",
+      "std": "Format des donn\u00e9es",
+      "src": "D\u00e9tails des sources transcrites",
+      "script": {
+        "type": {
+          "select": {
+            "print": "Imprim\u00e9 (par exemple livres)",
+            "only-typed": "Imprim\u00e9/dactylographi\u00e9 uniquement",
+            "only-manuscript": "Manuscrit uniquement",
+            "mainly-typed": "Principalement imprim\u00e9/dactylographi\u00e9",
+            "mainly-manuscript": "Principalement manuscrit",
+            "evenly-mixed": "Egale r\u00e9partition manuscrit/dactylographi\u00e9 et imprim\u00e9",
+            "all": "Tous"
+          },
+          "label": "Type d'\u00e9criture"
+        }
+      },
+      "repolink": "Lien vers le d\u00e9p\u00f4t",
+      "qual": {
+        "select": {
+          "regions": "Zones",
+          "pages": "Pages",
+          "lines": "Lignes",
+          "files": "Fichiers XML",
+          "characters": "Caract\u00e8res"
+        },
+        "label": "Description sommaire des quantit\u00e9s"
+      },
+      "project": {
+        "name": "Nom du projet (si diff\u00e9rent du nom du d\u00e9p\u00f4t)",
+        "link": "Lien vers le site du projet"
+      },
+      "prec": {
+        "select": {
+          "level1": "Niveau 1",
+          "level2": "Niveau 2",
+          "level3": "Niveau 3",
+          "levelmix": "Niveau M\u00e9lange"
+        },
+        "label": "Niveau de transcription"
+      },
+      "member": {
+        "rm": "Supprimer cette personne",
+        "add": "Ajouter une personne",
+        "name": "Pr\u00e9nom de la personne",
+        "surname": "Nom de la personne",
+        "transcriber": "Transcription",
+        "aligner": "Alignement",
+        "mainCreator": "Responsable du projet",
+        "qualityControl": "Contr\u00f4le Qualit\u00e9",
+        "digitizer": "Num\u00e9risation",
+        "support": "Assistance",
+        "status": "Cette contribution vient d'une institution",
+        "person": "Personne",
+        "institution": "Institution",
+        "roles": "R\u00f4les"
+      },
+      "software_placeholder": "Vous pouvez utiliser les boutons pour remplir plus rapidement le champ.",
+      "authors": "Acteur-rice-s du projet",
+      "license": "Licence",
+      "hands": {
+        "select": {
+          "unknown": "Inconnu",
+          "more3": "Sup\u00e9rieur \u00e0 3 (beaucoup)"
+        },
+        "label": "Nombre de mains (ou de fontes)"
+      },
+      "guidelines": {
+        "label": "Normes de transcription",
+        "info": "Normes de transcriptions utilis\u00e9es (format libre). Peut concerner la r\u00e9solution des abr\u00e9viations, corrections de fautes d'orthographe, l'usage de caract\u00e8res sp\u00e9ciaux, la normalisation, etc."
+      },
+      "gtstructuretext": "Structure et Texte GT",
+      "gtstructure": "Structure GT",
+      "gtline": "Lignes GT",
+      "gtdocument": "Document GT",
+      "gt": "Type de v\u00e9rit\u00e9s de terrain",
+      "ds_title": "Nom du d\u00e9p\u00f4t / dataset (titre)",
+      "ds_desc": "Courte description",
+      "cff": {
+        "link": "Lien vers un fichier CITATION.cff",
+        "info": "Les fichiers CITATION.cff permettent de fournir un mode de citation assez simple sur github par exemple. Lien:"
+      },
+      "apa": "<small class=\"text-muted\">Le format APA est pr\u00e9f\u00e9r\u00e9 pour les citations, ce qui peut donner des r\u00e9f\u00e9rences longues comme <code>Allport, G. W. (1930\u20131967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, cf. <a href=\"https://apastyle.apa.org/style-grammar-guidelines/references/archival\">APA Style</a>. Des formats plus courts sont autoris\u00e9. Le lien ou la r\u00e9f\u00e9rence APA peuvent suffire.</small>",
+      "ocrmodel": "Nom du mod\u00e8le OCR (titre)",
+      "ocrmodellink": "Lien vers le mod\u00e8le OCR",
+      "ocrmodelengine": "Environnement d'entra\u00eenement"
+    },
+    "form": {
+      "head": "Les champs dont le nom est suivi d'un <span class=\"required\">*</span> sont obligatoires."
+    },
+    "fields": {
+      "scripts": {
+        "label": "Police de caract\u00e8res/Syst\u00e8me d'\u00e9criture",
+        "helper": "Pour faciliter l'entr\u00e9e de donn\u00e9es, des valeurs par d\u00e9faut sont s\u00e9lectionn\u00e9es. Cliquez dessus pour les d\u00e9s\u00e9lectionner."
+      },
+      "languages": {
+        "label": "Langue(s)",
+        "helper": "Pour faciliter l'entr\u00e9e de donn\u00e9es, des valeurs par d\u00e9faut sont s\u00e9lectionn\u00e9es. Cliquez dessus pour les d\u00e9s\u00e9lectionner."
+      }
+    },
+    "download": {
+      "text3": "Un fichier METADATA.yml sera cr\u00e9\u00e9 dans votre r\u00e9f\u00e9rentiel. Vous pouvez maintenant ins\u00e9rer les m\u00e9tadonn\u00e9es g\u00e9n\u00e9r\u00e9es.",
+      "text2": "dans le presse-papiers et cliquez sur ce",
+      "text": "le fichier ci-dessous ou",
+      "push_link": "lien",
+      "push_copy": "copiez son contenu",
+      "dl": "T\u00e9l\u00e9chargez"
+    },
+    "desc": {
+      "main": "HTR-United est une organisation Github sans autre forme de personnalit\u00e9 juridique visant \u00e0 mettre en commun des jeux de donn\u00e9es et des mod\u00e8les pour l'HTR/OCR de textes de toutes p\u00e9riodes et de tout style, principalement en fran\u00e7ais mais de mani\u00e8re non restricive.&nbsp,<br>Elle est n\u00e9e du simple besoin - pour des projets - d'avoir de potentiels v\u00e9rit\u00e9s de terrain pour entra\u00eener des mod\u00e8les rapidement sur des corpus plus petits."
+    },
+    "btn": {
+      "get": "Cr\u00e9er et obtenir les m\u00e9tadonn\u00e9es format\u00e9es"
+    }
+  },
+  "footer": {
+    "team": "Qui est derri\u00e8re HTR-United ?"
+  }
+}
