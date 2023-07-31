@@ -151,7 +151,6 @@
     document.querySelector(".add-tags").addEventListener("click", addTags);
 
 
-
     const normalize = function(a_string) {
       return str?.replace("'", "’") ?? "";
     };
@@ -212,7 +211,41 @@
 
       return out;
     };
-    
+
+    const getModelInfos = function () {
+      let out = {"Model": []},
+          authors = document.querySelectorAll(".author");
+
+      if (authors.length == 0) {
+        return {};
+      }
+      for (var i = 0; i < authors.length; i++) {
+        let surname = authors[i].querySelector("input[name='authoritySurname']").value,
+            name = authors[i].querySelector("input[name='authorityName']").value,
+            orcid = authors[i].querySelector("input[name='authorityORCID']").value,
+            status = authors[i].querySelector("input[name='authorityType']:checked");
+
+        if (name.trim() === "") { continue; }
+
+        let a = {
+          "name": name,
+          "surname": surname
+        }
+          if (orcid.trim() !== "") {
+            a["orcid"] = orcid;
+          }
+        let roles = authors[i].querySelectorAll("input[type='checkbox']:checked");
+        if (roles.length > 0) {
+          a.roles = [...roles].map((o) => o.value);
+        }
+        out.authors.push(a);
+
+      }
+
+      return out;
+    };
+
+
     const getMetrics = function () {
       let text = {"volume": []},
           metrics = document.querySelectorAll(".metric-form");
@@ -315,9 +348,7 @@
       }
       return out;
     };
-    
-    
-    
+
     const get_or_none_charriot = function(field, yaml) {
       if (field !== undefined && field.trim() != ""){
         return `${yaml}: >\n    ${field.split('\n').join('\n    ')}'`
@@ -325,7 +356,7 @@
       return "";
     };
 
-     document.getElementById("format").addEventListener('change', function(el) {
+     document.getElementById("modelfileformat").addEventListener('change', function(el) {
         event.preventDefault();
         document.getElementById("software").value = el.target.value;
       });
@@ -380,27 +411,44 @@
     });
 
 
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       let data = Object.fromEntries(new FormData(form));
+      console.log(data);
       let languages = languageSelect.value().join("\n  - ");
       let element_types = elementTypeSelect.value().join("\n  - ");
       let scripts = scriptSelect.value().join("\n  - ");
 
       let obj = {
         "schema": "https://github.com/JKamlah/ocr-model-metadata/tree/master/schema/2022-03-15/schema.json",
-        "title": normalize(data.modelName),
+        "title": data.modelName,
         "url": data.repoLink,
-        };
-        /*
-        ...getAuthors(),
-        "description": normalize(data.desc),
         ...updateOrIgnore(data.projectName, "project-name"),
         ...updateOrIgnore(data.projectWebsite, "project-website"),
-        "language": languageSelect.value(),
-        "production-software": data.software,
+        ...getAuthors(),
+        "license": [
+          {"name": data.license, "url": LICENSES[data.license]}
+        ],
+
+        "description": data.desc,
+        "defaultmodel": data.defaultModel,
+        "modeltype": data.modeltype,
+        "modelfileformat": data.modelfileformat,
+        ...updateOrIgnore(data.modeltopology, "modeltopology"),
+        "software-name": data.softwareName,
+        ...updateOrIgnore(data.softwareOther, "software-other"),
+        ...updateOrIgnore(data.softwareVersion, "software-version")
+       /**
+        ...getModelInfos(),
+
         "script": scriptSelect.value(),
         "script-type": data.scriptType,
+
+        "modeltype": data.gformat,
+        "trainingstype": data.trainingstype,
+        ...updateOrIgnore(data.basmodellink, "basemodel"),
+        "epochs": data.epochs,
         "time": {
           "notBefore": data["date-begin"],
           "notAfter": data["date-end"]
@@ -410,24 +458,18 @@
           "precision": data.precision,
           "level": data.level
         },
-        "license": [
-          {"name": data.license, "url": LICENSES[data.license]}
-        ],
-        
-        "gtTyp": data.gformat,
-        
+
         "format": data.format,
         ...getSources(),
         ...getMetrics(),
         ...updateOrIgnore(data.cff, 'citation-file-link'),
         ...updateOrIgnore(data.transcriptionGuidelines, 'transcription-guidelines'),
-                  
         ...updateOrIgnore(data.ocrmodel, "modeltitle"),
         ...updateOrIgnore(data.ocrdesc, "modeldescription"),
         ...updateOrIgnore(data.ocrmodellink, "modelurl"),
         ...updateOrIgnore(data.ocrmodelengine, "modelengine"),
-       
-      };*/
+      */
+      };
 
       output.innerText = jsyaml.dump(obj, {"noRef": true});
       outputContainer.classList.remove("d-none");
