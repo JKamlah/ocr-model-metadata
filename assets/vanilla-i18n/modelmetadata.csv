@@ -1,0 +1,138 @@
+vanilla-i18n-key,English,Deutsch
+title,OCR-D metadata form for Segementation/Layout and OCR/HTR models,OCR-D-Metadatenformular für Segmentation/Layout- und OCR/HTR-Modelle
+nav.charter,Data reuse charter,Datenverwendung Charter
+infobar.todo.title,ToDo,ToDo
+infobar.todo.step1.title,Fill the form,Füllen Sie das Formular aus
+infobar.todo.step1.info,Follow the examples and note that you can always manually modify the output. This form only helps you structure the description and ensure that every item is documented.,"Folgen Sie den Beispielen und beachten Sie, dass Sie das Ergebnis jederzeit manuell ändern können. Dieses Formular hilft nur dabei, die Beschreibung zu strukturieren und sicherzustellen, dass jedes Element dokumentiert ist."
+infobar.todo.step2.title,"Click on ""Get formatted metadata""","Klicken Sie auf ""Formatierte Metadaten abrufen"""
+infobar.todo.step2.info,And copy the output !,Und kopieren Sie das Ergebnis!
+infobar.help.title,Help,Hilfe
+infobar.help.level.title,Transcription level,Transkriptionsstufe
+infobar.help.level.info,"An overview of the transcription levels can be found at <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html"">GT-Guidelines</a>.<br/><br/>The <b>mixed level</b> contains transcriptions that correspond to several levels. There is no compatibility between the levels, see for example <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html"">hyphenation</a>.<br/><br/>To assess the transcription level, please read the <a href=""https://tboenig.github.io/gt-guidelines/html/trans/index.html"">GT-Guidelines</a>","Eine Übersicht über die Transkriptionsstufen finden Sie unter <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html"">GT-Guidelines</a>.<br/><br/>Die <b>gemischte Ebene</b> enthält Transkriptionen, die mehreren Ebenen entsprechen. Es besteht keine Kompatibilität zwischen den Ebenen, siehe zum Beispiel <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html"">Silbentrennung</a>.<br/><br/>Um die Transkriptionsstufe zu bewerten, lesen Sie bitte die <a href=""https://tboenig.github.io/gt-guidelines/html/trans/index.html"">GT-Guidelines</a>."
+form.field.required,"Fields followed by a <span class=""required"">*</span> are the only ones required.","Felder, die von einem <span class=""required"">*</span> gefolgt werden, sind die einzigen erforderlichen."
+form.heading.persons,General information about involved persons,Allgemeine Informationen über beteiligte Personen
+form.heading.project,General information about the project,Allgemeine Informationen über das Projekt
+form.heading.generate,Generate the <code>metadata.yml</code> file,Generieren Sie die Datei <code>metadata.yml</code>
+form.heading.model,General information about the model,Allgemeine Informationen zum Modell
+form.heading.training,General information about the training,Allgemeine Informationen zum Training
+form.heading.training_data,Detailed information about the training data,Detaillierte Informationen zu den Trainingsdaten
+form.model.name.title,Model name,Modellname
+form.model.name.input,Model name,Modellname
+form.model.repo.link.title,Link to repository,Link zum Repository
+form.model.repo.link.input,Link to repository,Link zum Repository
+form.model.default.link.title,Link to default model,Link zum Standardmodell
+form.model.default.link.input,Link to default model,Link zum Standardmodell
+form.model.default.link.info,"Provide a URL to the default model. If you only have one model, then use the url to that. If you have several models of the same type, choose one as the default.","Geben Sie eine URL zum Standardmodell an. Wenn Sie nur ein Modell haben, verwenden Sie die URL dazu. Wenn Sie mehrere Modelle desselben Typs haben, wählen Sie eines als Standard aus."
+form.model.default.creation.title,,
+form.model.default.creation.input,,
+form.model.default.creation.info,"If you want to provide just a year (e.g. 2021), choose: 01-01-2021","Wenn Sie nur ein Jahr angeben möchten (z. B. 2021), wählen Sie: 01.01.2021"
+form.model.description.title,Description,Beschreibung
+form.model.description.input,Short description of the model,Kurze Beschreibung des Modells
+form.model.cff.title,Link to a CITATION.cff file,Link zu einer CITATION.cff-Datei
+form.model.cff.input,Link to a CITATION.cff file,Link zu einer CITATION.cff-Datei
+form.model.cff.info,CITATION.cf files allow for generating quick APA citations or Bibtex ones on github for example. See:,"CITATION.cf-Dateien ermöglichen das schnelle Generieren von APA-Zitaten oder Bibtex-Zitaten auf GitHub, zum Beispiel. Siehe:"
+form.model.license.title,License,Lizenz
+form.model.license.info,"This is a non-exhaustive selection of license options.</br><a href=""https://choosealicense.com"">https://choosealicense.com/</a> can help to find a suitable license and download the template.","Dies ist eine nicht erschöpfende Auswahl von Lizenzoptionen.</br><a href=""https://choosealicense.com"">https://choosealicense.com/</a> kann helfen, eine geeignete Lizenz zu finden und die Vorlage herunterzuladen."
+form.model.format.title,Model file format,Modelldateiformat
+form.model.format.info,"This is a non-exhaustive selection of model formats options. If none fits, use the "".*"" option.","Dies ist eine nicht erschöpfende Auswahl von Modellformateoptionen. Wenn keine passt, verwenden Sie die Option "".*""."
+form.model.type.title,Model type,Modelltyp
+form.model.type.input,,
+form.model.topology.title,Model topology,Modelltopologie
+form.model.topology.input,Model topology,Modelltopologie
+form.model.topology.info,"Here you can give information about the topology of the model. Example: VGSL: [1,0,0,3 Ct5,5,16 Mp3,3 Lfys64 Lfx128 Lrx128 Lfx256 O1c105]","Hier können Informationen über die Topologie des Modells angegeben werdenl. Beispiel: VGSL: [1,0,0,3 Ct5,5,16 Mp3,3 Lfys64 Lfx128 Lrx128 Lfx256 O1c105]"
+form.model.software.name.title,Software/engine used for training,Software/Engine für das Training verwendet
+form.model.software.name.input,Software/engine,Software/Engine
+form.model.software.other.name.title,Name of the software/engine,Name der Software/Engine
+form.model.software.other.name.input,Software/engine,Software/Engine
+form.model.software.version.title,Software version,Software-Version
+form.model.software.version.input,Software/Engine version,Software/Engine-Version
+form.training.type.title,Trainings type,Trainingstyp
+form.training.type.input,,
+form.training.epochs.title,Epochs,Epochen
+form.training.epochs.input,Epochs,Epochen
+form.training.epochs.info,An epoch refers to one cycle through the full training dataset.,Eine Epoche bezieht sich auf einen Durchlauf durch den gesamten Trainingsdatensatz.
+form.training.basemodel.name.title,Basemodel name,Basismodellname
+form.training.basemodel.name.input,Basemodel name,Basismodellname
+form.training.basemodel.link.title,Link to basemodel,Link zum Basismodell
+form.training.basemodel.link.input,Link to basemodel,Link zum Basismodell
+form.segmentation_data.dataset.title,Ground Truth used for training,Verwendete Ground Truth für das Training
+form.segmentation_data.dataset.link.input,,
+form.segmentation_data.dataset.description.input,,
+form.segmentation_data.dataset.input,,
+form.segmentation_data.data.modifications.title,Data modifications,Datenmodifikationen
+form.segmentation_data.data.modifications.input,Data modifications,Datenmodifikationen
+form.segmentation_data.data.modifications.info,"Please insert any modification applied to the data not concerning the transcription (data augmentation, binarazation etc.)","Bitte geben Sie jede Modifikation an, die auf die Daten angewendet wurde und die die Transkription nicht betrifft (Datenanreicherung, Binarisierung usw.)."
+form.segmentation_data.layout.feature.title,Trained document features,Trainierte Dokumentfunktionen
+form.segmentation_data.layout.feature.info,,
+form.segmentation_data.layout.features.complex_ro,Complex Reading Order,Komplexe Lesereihenfolge
+form.segmentation_data.layout.features.multi_col,Multiple Column,Mehrspaltig
+form.segmentation_data.layout.features.table,Tables,Tabellen
+form.segmentation_data.layout.features.advert,Advertisment,Werbung
+form.segmentation_data.layout.features.marginal,Marginal,Marginal
+form.segmentation_data.layout.features.initial,Initial,Initial
+form.segmentation_data.layout.tags.title,Element tags,Element-Tags
+form.segmentation_data.layout.tags.info,,
+form.segmentation_data.element_type.title,Element type(s),Elementtyp(en)
+form.segmentation_data.element_type.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Zur Erleichterung der Dateneingabe sind Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um diejenigen zu deaktivieren, die Sie nicht möchten."
+form.segmentation_data.prec.select.level1,Level 1,Level 1
+form.segmentation_data.prec.select.level2,Level 2,Level 2
+form.segmentation_data.prec.select.level3,Level 3,Level 3
+form.segmentation_data.prec.select.levelmix,Level mix,Level gemischt
+form.transcription_data.dataset.title,Ground Truth used for training,Verwendete Ground Truth für das Training
+form.transcription_data.dataset.link.input,,
+form.transcription_data.dataset.description.input,,
+form.transcription_data.dataset.input,,
+form.transcription_data.script.type.select.info, -- select an option -- ,-- eine Option auswählen --
+form.transcription_data.script.type.select.print,Print (e.g. books),Druck (z. B. Bücher)
+form.transcription_data.script.type.select.only-typed,Typed only,Nur getippt
+form.transcription_data.script.type.select.only-manuscript,Manuscript only,Nur Manuskript
+form.transcription_data.script.type.select.mainly-typed,Mainly typed,Hauptsächlich getippt
+form.transcription_data.script.type.select.mainly-manuscript,Mainly manuscript,Hauptsächlich Manuskript
+form.transcription_data.script.type.select.evenly-mixed,Evenly typed and manuscript,Gleichmäßig getippt und Manuskript
+form.transcription_data.script.type.select.all,All,Alle
+form.transcription_data.script.title,Document type,Dokumenttyp
+form.transcription_data.year.start.title,Training data Start-Year,Startjahr der Trainingsdaten
+form.transcription_data.year.start.input,,
+form.transcription_data.year.info,"For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.","Bei Jahrhunderten verwenden Sie bitte die Verwendung von 1200, wenn ein Datensatz im 13. Jahrhundert beginnt, und 1299, wenn er im 13. Jahrhundert endet. Daten müssen nicht präzise sein."
+form.transcription_data.year.end.title,Training data End-Year,Endjahr der Trainingsdaten
+form.transcription_data.year.end.input,,
+form.transcription_data.scripts.title,Font/Writing system,Schriftsatz/Schriftsystem
+form.transcription_data.scripts.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Zur Erleichterung der Dateneingabe sind Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um diejenigen zu deaktivieren, die Sie nicht möchten."
+form.transcription_data.languages.title,Language(s),Sprache(n)
+form.transcription_data.languages.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Zur Erleichterung der Dateneingabe sind Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um diejenigen zu deaktivieren, die Sie nicht möchten."
+form.transcription_data.guidelines.title,Transcription guidelines,Transkriptionsrichtlinien
+form.transcription_data.guidelines.input,,
+form.transcription_data.guidelines.info,"Guidelines used to transcribe the resources (normalization, resolution of abbreviation, correction of mispelling, etc.)","Richtlinien zur Transkription der Ressourcen (Normalisierung, Auflösung von Abkürzungen, Korrektur von Rechtschreibfehlern, etc.)"
+form.transcription_data.prec.select.level1,Level 1,Level 1
+form.transcription_data.prec.select.level2,Level 2,Level 2
+form.transcription_data.prec.select.level3,Level 3,Level 3
+form.transcription_data.prec.select.levelmix,Level mix,Level gemischt
+form.transcription_data.prec.title,Transcription level,Transkriptionsstufe
+form.transcription_data.data.modifications.title,Data modifications,Datenmodifikationen
+form.transcription_data.data.modifications.input,Data modifications,Datenmodifikationen
+form.transcription_data.data.modifications.info,"Please insert any modification applied to the data not concerning the transcription (data augmentation, binarazation etc.)","Bitte geben Sie jede Modifikation an, die auf die Daten angewendet wurde und die die Transkription nicht betrifft (Datenanreicherung, Binarisierung usw.)."
+form.project.name.title,Project's name (if different from the repository/dataset's one),Projektname (falls unterschiedlich vom Namen des Repositorys/Datensatzes)
+form.project.name.input,Project's name (if different from the repository/dataset's one),Projektname (falls unterschiedlich vom Namen des Repositorys/Datensatzes)
+form.project.link.title,Link to project's website,Link zur Website des Projekts
+form.project.link.input,Link to project's website,Link zur Website des Projekts
+form.person.authors,Authority and role(s),Autorität und Rolle(n)
+form.person.member.rm,Remove person,Person entfernen
+form.person.member.add,Add person,Person hinzufügen
+form.person.member.name,Author's first name,Vorname des Autors
+form.person.member.surname,Author's last name,Nachname des Autors
+form.person.member.mainCreator,Project Manager,Projektmanager
+form.person.member.Creator,Creator,Schöpfer
+form.person.member.qualityControl,Quality Control,Qualitätskontrolle
+form.person.member.support,Support,Unterstützung
+form.person.member.status,This contributor is an institution,Dieser Beitragende ist eine Institution
+form.person.member.person,Person,Person
+form.person.member.institution,Institution,Institution
+form.person.member.roles,Roles,Rollen
+form.generate.metadata.download.text3,A METADATA.yml file is created in your repository. You can now paste into the metadata created.,Eine METADATA.yml-Datei wird in Ihrem Repository erstellt. Sie können sie jetzt in die erstellten Metadaten einfügen.
+form.generate.metadata.download.text2,to the clipboard and click on this,in die Zwischenablage und klicken Sie auf diese
+form.generate.metadata.download.text,this file below or,diese Datei unten oder
+form.generate.metadata.download.push_link,link,Link
+form.generate.metadata.download.push_copy,copy your content,Ihren Inhalt kopieren
+form.generate.metadata.download.dl,Download,Herunterladen
+form.generate.btn.get,Get formatted metadata,Formatierte Metadaten abrufen
+footer.team,Who are the people behind OCR-D?,Wer sind die Personen hinter OCR-D?
