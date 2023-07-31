@@ -7,9 +7,7 @@ Output: Dict[str, Dict[str, Union[Dict, str]]] = {}
 
 def augment_dict(keys: List[str], dictionary: Dict[str, Union[Dict, str]]) -> Dict[str, str]:
 	""" Given a list of key, produce or returns the dictionary in a recursive fashion
-
-
-	>>> augment_dict(["a", "b", "c"], {})
+	augment_dict(["a", "b", "c"], {})
 	{'a': {'b': {'c': {}}}}
 	"""
 	first_key = keys.pop(0)
@@ -24,7 +22,7 @@ def augment_dict(keys: List[str], dictionary: Dict[str, Union[Dict, str]]) -> Di
 
 
 # Read input
-with open("gtmetadata.csv") as f:
+with open("modelmetadata.csv") as f:
 	reader = csv.reader(f)
 	for lineno, line in enumerate(reader):
 		# First line gives the languages, we register it in the Output DICT
