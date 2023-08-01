@@ -358,7 +358,32 @@
 
      document.getElementById("modelfileformat").addEventListener('change', function(el) {
         event.preventDefault();
-        document.getElementById("software").value = el.target.value;
+        val = el.target.value;
+        software = document.getElementById("software");
+        console.log(val);
+        switch(val) {
+            case ".traineddata":
+                software.value = "Tesseract";
+                break;
+            case ".h5":
+                software.value = "Calamari";
+                break;
+            case ".pt":
+                software.value = "PyTorch";
+                break;
+            case ".pb":
+                software.value = "Eynollah";
+                break;
+            case ".mlmodel":
+                software.value = "Kraken";
+                break;
+            case ".ckpt":
+                software.value = "Calamari";
+                break;
+            default:
+                software.value = "Other";
+                document.getElementById("software-key-other").click();
+        }
       });
 
     document.querySelectorAll(".software-key").forEach((el) => {
@@ -412,6 +437,22 @@
 
 
 
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       let data = Object.fromEntries(new FormData(form));
@@ -431,11 +472,12 @@
           {"name": data.license, "url": LICENSES[data.license]}
         ],
 
-        "description": data.desc,
-        "defaultmodel": data.defaultModel,
-        "modeltype": data.modeltype,
-        "modelfileformat": data.modelfileformat,
-        ...updateOrIgnore(data.modeltopology, "modeltopology"),
+        "description": data.modeldescriptionesc,
+        "defaultmodel": data.defaultmodelLink,
+        "modeltype": data.modelType,
+        "modelfileformat": data.modelFileformat,
+        ...updateOrIgnore(data.modelTopology, "modeltopology"),
+        ...updateOrIgnore(data.modelCreationDate, "model-creation-date"),
         "software-name": data.softwareName,
         ...updateOrIgnore(data.softwareOther, "software-other"),
         ...updateOrIgnore(data.softwareVersion, "software-version")

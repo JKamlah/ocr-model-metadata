@@ -180,3 +180,102 @@ header {
 .citation .fa-copy {
     cursor: pointer;
 }
+
+/* # The Rotating Marker # */
+details summary::-webkit-details-marker { display: none; }
+summary::before {
+  content: "▶";
+  position: absolute;
+  top: 1rem;
+  left: 0.8rem;
+  transform: rotate(0);
+  transform-origin: center;
+  transition: 0.2s transform ease;
+}
+details[open] > summary:before {
+  transform: rotate(90deg);
+  transition: 0.45s transform ease;
+}
+
+/* # The Sliding Summary # */
+details { overflow: hidden; }
+details summary {
+  position: relative;
+  z-index: 10;
+}
+@keyframes details-show {
+  from {
+    margin-bottom: -80%;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+details > *:not(summary) {
+  animation: details-show 500ms ease-in-out;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  color: transparent;
+  overflow: hidden;
+}
+details[open] > *:not(summary) { color: inherit; }
+
+* # Just Some Pretty Styles # */
+body { font-family: "Open Sans", sans-serif; padding-bottom: 400px; }
+img { max-width: 100%; }
+p { margin: 0; padding-bottom: 10px; }
+p:last-child { padding: 0; }
+details {
+  background: white;
+}
+summary {
+  outline: none;
+  padding: 1rem;
+  display: block;
+  background: #FFF;
+  color: #666;
+  padding-left: 2.2rem;
+  position: relative;
+  cursor: pointer;
+}
+details[open] summary,
+summary:hover {
+  color: black;
+  background: #FFF;
+}
+summary:hover strong,
+details[open] summary strong,
+summary:hover::before,
+details[open] summary::before {
+  color: black;
+}
+.content {
+  padding: 10px;
+  border-top: none;
+}
+
+/* # Style 3 # */
+details.accordion summary::before {
+  content: "›";
+  font-size: 4rem;
+  line-height: 1rem;
+  top: 1.75rem;
+  left: 0rem;
+  margin: -0.5rem -0.5rem 0 0.5rem;
+  transform-origin: bottom center;
+  transition: margin linear 0.05s;
+}
+details.accordion:hover > summary:before {
+  color: black;
+}
+details[open].accordion > summary:before {
+  left: 0rem;
+  color: black;
+  transform: rotate(90deg);
+  margin-left: 0.4rem;
+  transition: color ease 2s, transform ease 1s, margin ease 1s;
+}
+@supports (-webkit-touch-callout: none) {
+  details.accordion summary::before { top: 1.6rem; }
+  details[open].accordion > summary:before { top: 1.3rem; transition: all 0.8s; }
+}

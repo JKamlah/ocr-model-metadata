@@ -1,5 +1,5 @@
 vanilla-i18n-key,English,Deutsch
-title,OCR-D metadata form for Segementation/Layout and OCR/HTR models,OCR-D-Metadatenformular für Segmentation/Layout- und OCR/HTR-Modelle
+title,OCR-D Model Card and Metadata Creator,OCR-D Model Card and Metadata Creator
 nav.charter,Data reuse charter,Datenverwendung Charter
 infobar.todo.title,ToDo,ToDo
 infobar.todo.step1.title,Fill the form,Füllen Sie das Formular aus
@@ -9,6 +9,8 @@ infobar.todo.step2.info,And copy the output !,Und kopieren Sie das Ergebnis!
 infobar.help.title,Help,Hilfe
 infobar.help.level.title,Transcription level,Transkriptionsstufe
 infobar.help.level.info,"An overview of the transcription levels can be found at <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html"">GT-Guidelines</a>.<br/><br/>The <b>mixed level</b> contains transcriptions that correspond to several levels. There is no compatibility between the levels, see for example <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html"">hyphenation</a>.<br/><br/>To assess the transcription level, please read the <a href=""https://tboenig.github.io/gt-guidelines/html/trans/index.html"">GT-Guidelines</a>","Eine Übersicht über die Transkriptionsstufen finden Sie unter <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html"">GT-Guidelines</a>.<br/><br/>Die <b>gemischte Ebene</b> enthält Transkriptionen, die mehreren Ebenen entsprechen. Es besteht keine Kompatibilität zwischen den Ebenen, siehe zum Beispiel <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html"">Silbentrennung</a>.<br/><br/>Um die Transkriptionsstufe zu bewerten, lesen Sie bitte die <a href=""https://tboenig.github.io/gt-guidelines/html/trans/index.html"">GT-Guidelines</a>."
+infobar.help.modelcards.title,Model Cards,Model Cards
+infobar.help.modelcards.info,"Model cards are files that accompany the models and provide handy information. Under the hood, model cards are simple Markdown files with additional metadata. Model cards are essential for discoverability, reproducibility, and sharing! You can find a model card as the README.md file in any model repo. Further information: https://huggingface.co/docs/hub/model-cards","Model cards are files that accompany the models and provide handy information. Under the hood, model cards are simple Markdown files with additional metadata. Model cards are essential for discoverability, reproducibility, and sharing! You can find a model card as the README.md file in any model repo. Further information: https://huggingface.co/docs/hub/model-cards"
 form.field.required,"Fields followed by a <span class=""required"">*</span> are the only ones required.","Felder, die von einem <span class=""required"">*</span> gefolgt werden, sind die einzigen erforderlichen."
 form.heading.persons,General information about involved persons,Allgemeine Informationen über beteiligte Personen
 form.heading.project,General information about the project,Allgemeine Informationen über das Projekt
@@ -51,10 +53,10 @@ form.training.type.input,,
 form.training.epochs.title,Epochs,Epochen
 form.training.epochs.input,Epochs,Epochen
 form.training.epochs.info,An epoch refers to one cycle through the full training dataset.,Eine Epoche bezieht sich auf einen Durchlauf durch den gesamten Trainingsdatensatz.
-form.training.basemodel.name.title,Basemodel name,Basismodellname
-form.training.basemodel.name.input,Basemodel name,Basismodellname
-form.training.basemodel.link.title,Link to basemodel,Link zum Basismodell
-form.training.basemodel.link.input,Link to basemodel,Link zum Basismodell
+form.training.basemodel.name.title,Parent modelname,Basismodellname
+form.training.basemodel.name.input,Parent modelname,Basismodellname
+form.training.basemodel.link.title,Link to parent model,Link zum Basismodell
+form.training.basemodel.link.input,Link to parent model,Link zum Basismodell
 form.segmentation_data.dataset.title,Ground Truth used for training,Verwendete Ground Truth für das Training
 form.segmentation_data.dataset.link.input,,
 form.segmentation_data.dataset.description.input,,
@@ -65,7 +67,7 @@ form.segmentation_data.data.modifications.info,"Please insert any modification a
 form.segmentation_data.layout.feature.title,Trained document features,Trainierte Dokumentfunktionen
 form.segmentation_data.layout.feature.info,,
 form.segmentation_data.layout.features.complex_ro,Complex Reading Order,Komplexe Lesereihenfolge
-form.segmentation_data.layout.features.multi_col,Multiple Column,Mehrspaltig
+form.segmentation_data.layout.features.multi_col,Multiple Column,Mehrspaltigkeit
 form.segmentation_data.layout.features.table,Tables,Tabellen
 form.segmentation_data.layout.features.advert,Advertisment,Werbung
 form.segmentation_data.layout.features.marginal,Marginal,Marginal
