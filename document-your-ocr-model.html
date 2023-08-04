@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-          content="The metadata form for ocr models is designed to help you create accurate metadata">
+    <meta name="description" content="The metadata form for ocr models is designed to help you create accurate metadata">
     <meta name="author" content="Alix Chagué">
     <meta name="author" content="Thibault Clérice">
     <meta name="author" content="Matthias Boenig">
@@ -151,7 +150,7 @@
                     <details class="accordion active" open>
                         <summary class="col">
                             <h2>
-                                <i18n vanilla-i18n="form.heading.model">Information about the model</i18n>
+                                <i18n vanilla-i18n="form.heading.model">Model details</i18n>
                             </h2>
                         </summary>
                     <div class="form-group row my-2">
@@ -318,7 +317,7 @@
                         <div class="col-sm-9">
                             <input name="softwareOther" class="form-control" id="other_software_input"
                                    placeholder="Software name"
-                                   vanilla-i18n-placeholder="form.software.other.name.input">
+                                   vanilla-i18n-placeholder="form.model.software.other.name.input">
                         </div>
                     </div>
                     <div class="form-group row my-2">
@@ -330,6 +329,7 @@
                                    vanilla-i18n-placeholder="form.model.software.version.input">
                         </div>
                     </div>
+
                     <div class="form-group row my-2">
                         <label class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.model.default.creation.title">Date of creation</i18n>
@@ -347,6 +347,13 @@
                             </small></p>
                         </div>
                     </div>
+
+                    <details class="accordion">
+                        <summary class="col">
+                            <h4>
+                                <i18n vanilla-i18n="form.heading.citation">Citation [optional]</i18n>
+                            </h4>
+                        </summary>
                     <div class="form-group row my-2">
                         <label for="citationCFF" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.model.cff.title">Link to the CITATION.cff</i18n>
@@ -358,18 +365,97 @@
                                 <i18n vanilla-i18n="form.model.cff.info">CITATION.cf files allow for generating quick
                                     APA citations or Bibtex ones on GitHub for example. See:
                                     https://citation-file-format.github.io/
-                                </i18n>
-                                <a href="https://citation-file-format.github.io/">https://citation-file-format.github.io/</a></small>
+                                </i18n><a href="https://citation-file-format.github.io/">https://citation-file-format.github.io/</a></small>
                             </p>
                         </div>
                     </div>
                     </details>
 
+                    <details class="accordion">
+                        <summary class="col">
+                            <h4>
+                                <i18n vanilla-i18n="form.heading.uses">Uses [optional]</i18n>
+                            </h4>
+                        </summary>
+                    <div class="form-group row my-2">
+                         <p><small class="text-muted">
+                             <i18n vanilla-i18n="form.uses.info">This section addresses questions around how the model is intended to be used, discusses the foreseeable users of the model (including those affected by the model), and describes uses that are considered out of scope or misuse of the model.</i18n>
+                         </small></p>
+                        <div class="form-group row my-2">
+                            <label for="uses" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.uses.general.title"></i18n>General use details</label>
+                            <div class="col-sm-9">
+                                    <textarea type="text" name="uses" class="form-control" id="uses"
+                                   placeholder="General use details"
+                                   vanilla-i18n-placeholder="form.uses.general.input"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label for="usesDirect" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.uses.direct.title">Direct use</i18n></label>
+                            <div class="col-sm-9">
+                                    <input type="text" name="usesDirect" class="form-control" id="usesDirect"
+                                   placeholder="How can this model be used, without additional post-processing or further pipeline work?"
+                                   vanilla-i18n-placeholder="form.uses.direct.input">
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label for="usesDownstream" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.uses.downstream.title">Downstream use</i18n></label>
+                            <div class="col-sm-9">
+                                    <input type="text" name="usesDownstream" class="form-control" id="usesDownstream"
+                                   placeholder="How can this model be used, when incorporated into another system?"
+                                   vanilla-i18n-placeholder="form.uses.downstream.input">
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label for="usesOOS" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.uses.oos.title">Out-of-Scope use</i18n></label>
+                            <div class="col-sm-9">
+                                    <input type="text" name="usesOOS" class="form-control" id="usesOOS"
+                                   placeholder="What tasks will the model not work for?"
+                                   vanilla-i18n-placeholder="form.uses.oos.input">
+                            </div>
+                        </div>
+                    </div>
+                    </details>
+
+                    <details class="accordion">
+                        <summary class="col">
+                            <h4>
+                                <i18n vanilla-i18n="form.heading.risks">Limitations and risks [optional]</i18n>
+                            </h4>
+                        </summary>
+                        <div class="form-group row my-2">
+                         <p><small class="text-muted">
+                             <i18n vanilla-i18n="form.risks.info">What are the known or foreseeable issues stemming from this model? Use this section to convey both technical and sociotechnical limitations.</i18n>
+                         </small></p>
+                            <div class="form-group row my-2">
+                                <label for="riskGerneral" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.risks.title">Limitations and risks</i18n></label>
+                                <div class="col-sm-9">
+                                    <textarea type="text" name="riskGerneral" class="form-control" id="riskGerneral"
+                                   placeholder="Provide an overview of the possible Limitations and risks that may be associated with this model"
+                                              vanilla-i18n-placeholder="form.risks.input"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label for="riskRecommendations" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.risks.recommendations.title">Recommendations</i18n></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="riskRecommendations" class="form-control" id="riskRecommendations"
+                                   placeholder="How can the known or foreseeable issues be addressed?"
+                                   vanilla-i18n-placeholder="form.risks.recommendations.input">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                    </details>
 
                     <details class="accordion active" open>
                         <summary class="col">
                             <h2>
-                                <i18n vanilla-i18n="form.heading.training">General information about the training</i18n>
+                                <i18n vanilla-i18n="form.heading.training">General Training</i18n>
                             </h2>
                         </summary>
                     <div class="form-group row my-2">
@@ -431,17 +517,74 @@
                             </small></p>
                         </div>
                     </div>
+
+                    <details class="accordion">
+                         <summary>
+                            <h4>
+                                <i18n vanilla-i18n="form.heading.environmental">Environmental impact</i18n>
+                            </h4>
+                         </summary>
+                        <div class="content">
+                         <p><small class="text-muted">
+                             <i18n vanilla-i18n="form.environmental.info">Carbon emissions can be estimated using the <a href="https://mlco2.github.io/impact#compute" target="_blank" rel="noopener noreferrer">Machine Learning Impact calculator</a> presented in <a href="https://arxiv.org/abs/1910.09700" target="_blank" rel="noopener noreferrer">Lacoste et al. (2019)</a>.</i18n>
+                         </small></p>
+                            <div class="form-group row my-2">
+                                <label for="envHardware" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.environmental.hardware.title">Hardware type</i18n></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="envHardware" class="form-control" id="envHardware"
+                                   placeholder="Hardware type"
+                                   vanilla-i18n-placeholder="form.environmental.hardware.input">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label for="envHours" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.environmental.hours.title">Hours used</i18n></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="envHours" class="form-control" id="envHours"
+                                   placeholder="Hours used"
+                                   vanilla-i18n-placeholder="form.environmental.hours.input">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label for="envProvider" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.environmental.provider.title">Cloud provider</i18n></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="envProvider" class="form-control" id="envProvider"
+                                   placeholder="Cloud provider"
+                                   vanilla-i18n-placeholder="form.environmental.provider.input">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label for="envRegion" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.environmental.region.title">Compute region</i18n></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="envRegion" class="form-control" id="envRegion"
+                                   placeholder="Compute region"
+                                   vanilla-i18n-placeholder="form.environmental.region.input">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label for="envCarbon" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.environmental.carbon.title">Carbon emitted</i18n></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="envCarbon" class="form-control" id="envCarbon"
+                                   placeholder="Carbon emitted in grams of CO2eq"
+                                   vanilla-i18n-placeholder="form.environmental.carbon.input">
+                                </div>
+                            </div>
+                        </div>
                     </details>
+                    </details>
+
 
                     <details class="accordion active" id="segmentation_data" style="display:none;" open>
                             <summary class="col">
-                                <h2 vanilla-i18n="form.heading.segmentation_data">Detailed information about the
-                                    segmentation training & data</h2>
+                                <h2 vanilla-i18n="form.heading.segmentation_data">Segmentation training & data</h2>
                             </summary>
                         <div class="form-group row my-2">
                             <label for="desc" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.segmentation_data.layout.feature.titel">Trained document
-                                    features
+                                <i18n vanilla-i18n="form.segmentation_data.layout.features.titel">Trained document features
                                 </i18n>
                             </label>
                             <div class="col-9">
@@ -559,7 +702,6 @@
                             </div>
                         </div>
 
-
                         <div class="form-group row my-2">
                             <label for="segmentation_dataset" class="col-sm-3 col-form-label">
                                 <i18n vanilla-i18n="form.segmentation_data.dataset.title">Ground Truth used for
@@ -631,8 +773,7 @@
 
                     <details class="accordion active" id="transcription_data" style="display:none;" open>
                             <summary class="col">
-                                <h2 vanilla-i18n="form.heading.transcription_data">Detailed information about the
-                                    transcription training & data</h2>
+                                <h2 vanilla-i18n="form.heading.transcription_data">Transcription training & data</h2>
                             </summary>
                         <div class="form-group row my-2">
                             <label for="scriptType" class="col-sm-3 col-form-label">
@@ -815,23 +956,89 @@
                         </div>
 
                         <!-- If i delete the unsued buttons other stuff heere breaks !-->
-                        <button class="btn btn-outline-primary add-sources" type="button" style="display:None">+
-                        </button>
-                        <button class="btn btn-outline-danger d-none remove-sources" type="button" style="display:None">
-                            -
-                        </button>
+                        <button class="btn btn-outline-primary add-sources" type="button" style="display:None">+</button>
+                        <button class="btn btn-outline-danger d-none remove-sources" type="button" style="display:None">-</button>
                     </details>
+
+
+                    <details class="accordion">
+                         <summary>
+                            <h2>
+                                <i18n vanilla-i18n="form.heading.evaluation">Evaluation</i18n>
+                            </h2>
+                         </summary>
+                        <div class="content">
+                         <div class="form-group row my-2">
+                                <label for="evalInput" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.evaluation.title">Evaluation</i18n></label>
+                                <div class="col-sm-9">
+                                    <textarea type="text" name="evalInput" class="form-control" id="evalInput"
+                                   placeholder="Evaluation information"
+                                   vanilla-i18n-placeholder="form.evaluation.input"></textarea>
+                                    <p><small class="text-muted"><i18n vanilla-i18n="form.evaluation.info">Detail the evaluation results for this model</i18n></small></p>
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label for="evalData" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.evaluation.data.title">Testing data</i18n></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="evalData" class="form-control" id="evalData"
+                                   placeholder="Evaluation data"
+                                   vanilla-i18n-placeholder="form.evaluation.data.input">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label for="evalFactors" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.evaluation.factors.title">Factors</i18n></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="evalFactors" class="form-control" id="evalFactors"
+                                   placeholder="Evaluation factors"
+                                   vanilla-i18n-placeholder="form.evaluation.factors.input">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label for="evalMetrics" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.evaluation.metrics.title">Metrics</i18n></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="evalMetrics" class="form-control" id="evalMetrics"
+                                   placeholder="Evaluation metrics"
+                                   vanilla-i18n-placeholder="form.evaluation.metrics.input">
+                                </div>
+                                <div class="offset-sm-3 col-sm-9">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="btn-group btn-group-sm">
+                                                <a id="evaluation-metric-key-cer"
+                                                class="btn btn-sm btn-outline-info evaluation-metric-key" href="#">CER</a>
+                                                <a id="evaluation-metric-key-wer"
+                                                class="btn btn-sm btn-outline-info evaluation-metric-key" href="#">WER</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label for="evalResults" class="col-sm-3 col-form-label">
+                                    <i18n vanilla-i18n="form.evaluation.results.title">Results</i18n></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="evalResults" class="form-control" id="evalResults"
+                                   placeholder="Evaluation results"
+                                   vanilla-i18n-placeholder="form.evaluation.results.input">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
 
                     <details class="accordion">
                         <summary class="col">
                             <h2>
-                                <i18n vanilla-i18n="form.heading.project">General information about the project</i18n>
+                                <i18n vanilla-i18n="form.heading.project">Project information</i18n>
                             </h2>
                         </summary>
                     <div class="form-group row my-2">
                         <label for="projectName" class="col-sm-3 col-form-label">
-                            <i18n vanilla-i18n="form.project.name.title">Project's name (if different from model name)
-                            </i18n>
+                            <i18n vanilla-i18n="form.project.name.title">Project's name (if different from model name)</i18n>
                         </label>
                         <div class="col-sm-9">
                             <input type="text" name="projectName" class="form-control" id="projectName"
@@ -840,8 +1047,7 @@
                     </div>
                     <div class="form-group row my-2">
                         <label for="projectWebsite" class="col-sm-3 col-form-label">
-                            <i18n vanilla-i18n="form.project.link.title">Link to website of project (if applicable)
-                            </i18n>
+                            <i18n vanilla-i18n="form.project.link.title">Link to website of project (if applicable)</i18n>
                         </label>
                         <div class="col-sm-9">
                             <input type="text" name="projectWebsite" class="form-control" id="projectWebsite"
@@ -849,79 +1055,10 @@
                                    vanilla-i18n-placeholder="form.project.link.input">
                         </div>
                     </div>
-                    </details>
-
-
-
-
-                    <details class="accordion">
-                         <summary>
-                            <h2>
-                                <i18n vanilla-i18n="form.environmental.info">Environmental impact</i18n>
-                            </h2>
-                         </summary>
-                    <div class="content">
-                         <p><small class="text-muted">
-                             <i18n vanilla-i18n="form.environmental.info">Carbon emissions can be estimated using the <a href="https://mlco2.github.io/impact#compute" target="_blank" rel="noopener noreferrer">Machine Learning Impact calculator</a> presented in <a href="https://arxiv.org/abs/1910.09700" target="_blank" rel="noopener noreferrer">Lacoste et al. (2019)</a>.</i18n>
-                         </small></p>
-                    <div class="form-group row my-2">
-                        <label for="envHardware" class="col-sm-3 col-form-label">
-                            <i18n vanilla-i18n="form.environmental.hardware.info">Hardware type</i18n></label>
-                        <div class="col-sm-9">
-                            <input type="text" name="envHardware" class="form-control" id="envHardware"
-                                   placeholder="Hardware type"
-                                   vanilla-i18n-placeholder="form.environmental.hardware.input">
-                        </div>
-                    </div>
-                    <div class="form-group row my-2">
-                        <label for="envHours" class="col-sm-3 col-form-label">
-                            <i18n vanilla-i18n="form.environmental.hours.info">Hours used</i18n></label>
-                        <div class="col-sm-9">
-                            <input type="text" name="envHours" class="form-control" id="envHours"
-                                   placeholder="Hours used"
-                                   vanilla-i18n-placeholder="form.environmental.hours.input">
-                        </div>
-                    </div>
-                    <div class="form-group row my-2">
-                        <label for="envProvider" class="col-sm-3 col-form-label">
-                            <i18n vanilla-i18n="form.enviormental.provider.info">Cloud Provider:</i18n></label>
-                        <div class="col-sm-9">
-                            <input type="text" name="envProvider" class="form-control" id="envProvider"
-                                   placeholder="Cloud provider"
-                                   vanilla-i18n-placeholder="form.environmental.provider.input">
-                        </div>
-                    </div>
-                    <div class="form-group row my-2">
-                        <label for="envRegion" class="col-sm-3 col-form-label">
-                            <i18n vanilla-i18n="form.environmental.region.info">Compute Region</i18n></label>
-                        <div class="col-sm-9">
-                            <input type="text" name="envRegion" class="form-control" id="envRegion"
-                                   placeholder="Compute region"
-                                   vanilla-i18n-placeholder="form.environmental.region.input">
-                        </div>
-                    </div>
-                    <div class="form-group row my-2">
-                        <label for="envCarbon" class="col-sm-3 col-form-label">
-                            <i18n vanilla-i18n="form.enviormental.carbon.info">Carbon emitted</i18n></label>
-                        <div class="col-sm-9">
-                            <input type="text" name="envCarbon" class="form-control" id="envCarbon"
-                                   placeholder="Carbon emitted"
-                                   vanilla-i18n-placeholder="form.environmental.carbon.input">
-                        </div>
-                    </div>
-                        </div>
-                    </details>
-
-
-
-                    <details class="accordion">
-                        <summary class="col">
-                            <h2>
-                                <i18n vanilla-i18n="form.heading.persons">General information about involved persons
-                                </i18n>
-                            </h2>
-                        </summary>
-
+                        <h3>
+                            <i18n vanilla-i18n="form.heading.persons"> Person information
+                            </i18n>
+                        </h3>
                     <div class="form-group row my-2">
                         <div class="col-3">
                             <i18n vanilla-i18n="form.person.authors">Authority and role(s)</i18n>
@@ -951,6 +1088,17 @@
                                                    vanilla-i18n-placeholder="form.person.member.surname"/>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class=" col-md-6">
+                                            <input type="text" name="authorityEmail"
+                                                   class="form-control mb-2 col-md-6" placeholder="E-Mail"
+                                                   vanilla-i18n-placeholder="form.person.member.email"/>
+                                        </div>
+                                        <div class=" col-md-6">
+                                            <input type="text" name="authorityContactInformation"
+                                                   class="form-control mb-2 col-md-6" placeholder="Contact information"
+                                                   vanilla-i18n-placeholder="form.person.member.contactInfo"/>
+                                        </div>
                                     <div class="row mb-2">
                                         <label class="col-md-2 col-form-label">ORCID</label>
                                         <div class="col-md-10">
@@ -987,7 +1135,7 @@
                                                 <input type="checkbox" value="project-manager" name="roleCreator"
                                                        id="roleCreator" class="roles">
                                                 <label class="form-check-label" for="roleCreator">
-                                                    <i18n vanilla-i18n="form.person.member.Creator">Creator</i18n>
+                                                    <i18n vanilla-i18n="form.person.member.creator">Creator</i18n>
                                                 </label>
                                             </div>
                                         </div>
@@ -1013,9 +1161,73 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-check">
+                                                <input type="checkbox" value="quality-control" name="roleCardCreator"
+                                                       id="roleCardCreator" class="roles">
+                                                <label class="form-check-label" for="roleCardCreator">
+                                                    <i18n vanilla-i18n="form.person.member.cardCreator">Card Creator</i18n>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-check">
+                                                <input type="checkbox" value="support" name="roleContact"
+                                                       id="roleContact" class="roles">
+                                                <label class="form-check-label" for="roleContact">
+                                                    <i18n vanilla-i18n="form.person.member.contact">Contact</i18n>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        </div>
+                    </div>
+                    </details>
+
+
+                    <details class="accordion">
+                        <summary class="col">
+                            <h2>
+                                <i18n vanilla-i18n="form.heading.glossary">Glossary</i18n>
+                            </h2>
+                        </summary>
+                        <p><small class="text-muted">
+                             <i18n vanilla-i18n="form.glossary.info">Terms used in the model card that need to be clearly defined in order to be accessible across audiences go here.</i18n>
+                         </small></p>
+                    <div class="form-group row my-2">
+                        <label for="glossary" class="col-sm-3 col-form-label">
+                            <i18n vanilla-i18n="form.glossary.title">Glossary details</i18n>
+                        </label>
+                        <div class="col-sm-9">
+                            <textarea type="text" name="glossary" class="form-control" id="glossary"
+                                   placeholder="Terms used in the model card or metadata that need to be clarified" vanilla-i18n-placeholder="form.glossary.input"></textarea>
+
+                        </div>
+                    </div>
+                    </details>
+
+
+                    <details class="accordion">
+                        <summary class="col">
+                            <h2>
+                                <i18n vanilla-i18n="form.heading.howto">How to get started</i18n>
+                            </h2>
+                        </summary>
+                        <p><small class="text-muted">
+                             <i18n vanilla-i18n="form.howto.info">Some guidelines how to get started with the model or link to an online instance to test the model</i18n>
+                         </small></p>
+                    <div class="form-group row my-2">
+                        <label for="projectName" class="col-sm-3 col-form-label">
+                            <i18n vanilla-i18n="form.howto.title">How to get started?</i18n>
+                        </label>
+                        <div class="col-sm-9">
+                            <textarea type="text" name="howTo" class="form-control" id="howTo"
+                                   placeholder="Description how to get started" vanilla-i18n-placeholder="form.howto.input"></textarea>
                         </div>
                     </div>
                     </details>
@@ -1033,6 +1245,7 @@
                             </p>
                         </div>
                     </div>
+
                 </form>
             </div>
         </div>

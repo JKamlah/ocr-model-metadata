@@ -7,17 +7,24 @@ infobar.todo.step1.info,Follow the examples and note that you can always manuall
 infobar.todo.step2.title,"Click on ""Get formatted metadata""","Klicken Sie auf ""Formatierte Metadaten abrufen"""
 infobar.todo.step2.info,And copy the output !,Und kopieren Sie das Ergebnis!
 infobar.help.title,Help,Hilfe
-infobar.help.level.title,Transcription level,Transkriptionsstufe
-infobar.help.level.info,"An overview of the transcription levels can be found at <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html"">GT-Guidelines</a>.<br/><br/>The <b>mixed level</b> contains transcriptions that correspond to several levels. There is no compatibility between the levels, see for example <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html"">hyphenation</a>.<br/><br/>To assess the transcription level, please read the <a href=""https://tboenig.github.io/gt-guidelines/html/trans/index.html"">GT-Guidelines</a>","Eine Übersicht über die Transkriptionsstufen finden Sie unter <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html"">GT-Guidelines</a>.<br/><br/>Die <b>gemischte Ebene</b> enthält Transkriptionen, die mehreren Ebenen entsprechen. Es besteht keine Kompatibilität zwischen den Ebenen, siehe zum Beispiel <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html"">Silbentrennung</a>.<br/><br/>Um die Transkriptionsstufe zu bewerten, lesen Sie bitte die <a href=""https://tboenig.github.io/gt-guidelines/html/trans/index.html"">GT-Guidelines</a>."
+infobar.help.level.title,Transcription level,Transkriptionslevel
+infobar.help.level.info,"An overview of the transcription levels can be found at <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html"">GT-Guidelines</a>.<br/><br/>The <b>mixed level</b> contains transcriptions that correspond to several levels. There is no compatibility between the levels, see for example <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html"">hyphenation</a>.<br/><br/>To assess the transcription level, please read the <a href=""https://tboenig.github.io/gt-guidelines/html/trans/index.html"">GT-Guidelines</a>","Eine Übersicht über die Transkriptionsstufen finden Sie unter <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trLevels.html"">GT-Guidelines</a>.<br/><br/>Das <b>gemischte Level</b> enthält Transkriptionen, die mehreren Leveln entsprechen. Es besteht keine Kompatibilität zwischen den Leveln, siehe zum Beispiel <a href=""https://tboenig.github.io/gt-guidelines/html/trans/trSilbentrennung.html"">Silbentrennung</a>.<br/><br/>Um die Transkriptionslevel zu bewerten, lesen Sie bitte die <a href=""https://tboenig.github.io/gt-guidelines/html/trans/index.html"">GT-Guidelines</a>."
 infobar.help.modelcards.title,Model Cards,Model Cards
-infobar.help.modelcards.info,"Model cards are files that accompany the models and provide handy information. Under the hood, model cards are simple Markdown files with additional metadata. Model cards are essential for discoverability, reproducibility, and sharing! You can find a model card as the README.md file in any model repo. Further information: https://huggingface.co/docs/hub/model-cards","Model cards are files that accompany the models and provide handy information. Under the hood, model cards are simple Markdown files with additional metadata. Model cards are essential for discoverability, reproducibility, and sharing! You can find a model card as the README.md file in any model repo. Further information: https://huggingface.co/docs/hub/model-cards"
+infobar.help.modelcards.info,"Model cards are files that accompany the models and provide handy information. Under the hood, model cards are simple Markdown files with additional metadata. Model cards are essential for discoverability, reproducibility, and sharing! You can find a model card as the README.md file in any model repo. Further information: <a  href=""https://huggingface.co/docs/hub/model-cards"">https://huggingface.co/docs/hub/model-cards</a> ","Model Cards sind Dateien, die die Modelle begleiten und praktische Informationen liefern. Unter der Haube sind Modellkarten einfache Markdown-Dateien mit zusätzlichen Metadaten. Modellkarten sind wichtig für die Auffindbarkeit, Reproduzierbarkeit und gemeinsame Nutzung! Sie können eine Modellkarte als README.md-Datei in jedem Modell-Repository finden. Weitere Informationen:  <a  href=""https://huggingface.co/docs/hub/model-cards"">https://huggingface.co/docs/hub/model-cards</a> "
 form.field.required,"Fields followed by a <span class=""required"">*</span> are the only ones required.","Felder, die von einem <span class=""required"">*</span> gefolgt werden, sind die einzigen erforderlichen."
-form.heading.persons,General information about involved persons,Allgemeine Informationen über beteiligte Personen
-form.heading.project,General information about the project,Allgemeine Informationen über das Projekt
+form.heading.persons,Person details,Allgemeine Informationen über beteiligte Personen
+form.heading.project,Project details,Allgemeine Informationen über das Projekt
 form.heading.generate,Generate the <code>metadata.yml</code> file,Generieren Sie die Datei <code>metadata.yml</code>
-form.heading.model,General information about the model,Allgemeine Informationen zum Modell
-form.heading.training,General information about the training,Allgemeine Informationen zum Training
+form.heading.model,Model details,Allgemeine Informationen zum Modell
+form.heading.training,Model training,Allgemeine Informationen zum Training
 form.heading.training_data,Detailed information about the training data,Detaillierte Informationen zu den Trainingsdaten
+form.heading.evaluation,Model evaluation,Evaluation des Modells
+form.heading.howto,How to get started,Anwendung des Modells
+form.heading.glossary,Glossary,Glossar
+form.heading.environmental,Environmental impact,Umwelteinfluss
+form.heading.risks,Limitations and risks  [optional],Grenzen und Risiken  [optional]
+form.heading.uses,Uses  [optional],Anwendungsfälle  [optional]
+form.heading.citation,Citation  [optional],Zitation  [optional]
 form.model.name.title,Model name,Modellname
 form.model.name.input,Model name,Modellname
 form.model.repo.link.title,Link to repository,Link zum Repository
@@ -25,7 +32,7 @@ form.model.repo.link.input,Link to repository,Link zum Repository
 form.model.default.link.title,Link to default model,Link zum Standardmodell
 form.model.default.link.input,Link to default model,Link zum Standardmodell
 form.model.default.link.info,"Provide a URL to the default model. If you only have one model, then use the url to that. If you have several models of the same type, choose one as the default.","Geben Sie eine URL zum Standardmodell an. Wenn Sie nur ein Modell haben, verwenden Sie die URL dazu. Wenn Sie mehrere Modelle desselben Typs haben, wählen Sie eines als Standard aus."
-form.model.default.creation.title,,
+form.model.default.creation.title,Date of creation,Erstellungsdatum
 form.model.default.creation.input,,
 form.model.default.creation.info,"If you want to provide just a year (e.g. 2021), choose: 01-01-2021","Wenn Sie nur ein Jahr angeben möchten (z. B. 2021), wählen Sie: 01.01.2021"
 form.model.description.title,Description,Beschreibung
@@ -38,7 +45,7 @@ form.model.license.info,"This is a non-exhaustive selection of license options.<
 form.model.format.title,Model file format,Modelldateiformat
 form.model.format.info,"This is a non-exhaustive selection of model formats options. If none fits, use the "".*"" option.","Dies ist eine nicht erschöpfende Auswahl von Modellformateoptionen. Wenn keine passt, verwenden Sie die Option "".*""."
 form.model.type.title,Model type,Modelltyp
-form.model.type.input,,
+form.model.type.input,Model type,Modelltyp
 form.model.topology.title,Model topology,Modelltopologie
 form.model.topology.input,Model topology,Modelltopologie
 form.model.topology.info,"Here you can give information about the topology of the model. Example: VGSL: [1,0,0,3 Ct5,5,16 Mp3,3 Lfys64 Lfx128 Lrx128 Lfx256 O1c105]","Hier können Informationen über die Topologie des Modells angegeben werdenl. Beispiel: VGSL: [1,0,0,3 Ct5,5,16 Mp3,3 Lfys64 Lfx128 Lrx128 Lfx256 O1c105]"
@@ -48,8 +55,17 @@ form.model.software.other.name.title,Name of the software/engine,Name der Softwa
 form.model.software.other.name.input,Software/engine,Software/Engine
 form.model.software.version.title,Software version,Software-Version
 form.model.software.version.input,Software/Engine version,Software/Engine-Version
+form.uses.info,"This section addresses questions around how the model is intended to be used, discusses the foreseeable users of the model (including those affected by the model), and describes uses that are considered out of scope or misuse of the model.","Dieser Abschnitt beantwortet Fragen zur beabsichtigten Verwendung des Modells, diskutiert die absehbaren Benutzer des Modells (einschließlich der von dem Modell betroffenen Personen) und beschreibt Verwendungen, die als nicht im Rahmen oder Missbrauch des Modells betrachtet werden."
+form.uses.general.title,General use details,Allgemeine Verwendungsdetails
+form.uses.general.input,General use details,Allgemeine Verwendungsdetails
+form.uses.direct.title,Direct use,Direkte Verwendung
+form.uses.direct.input,"How can this model be used, without additional post-processing or further pipeline work?",Wie kann dieses Modell ohne zusätzliche Nachbearbeitung oder weitere Schritte in der Pipeline verwendet werden?
+form.uses.downstream.title,Downstream use,Nachgeschaltete Verwendung
+form.uses.downstream.input,"How can this model be used, when incorporated into another system?","Wie kann dieses Modell verwendet werden, wenn es in ein anderes System integriert wird?"
+form.uses.oos.title,Out-of-Scope use,Nicht im Rahmen der Verwendung
+form.uses.oos.input,What tasks will the model not work for?,Für welche Aufgaben wird das Modell nicht funktionieren?
 form.training.type.title,Trainings type,Trainingstyp
-form.training.type.input,,
+form.training.type.input,Trainings type,Trainingstyp
 form.training.epochs.title,Epochs,Epochen
 form.training.epochs.input,Epochs,Epochen
 form.training.epochs.info,An epoch refers to one cycle through the full training dataset.,Eine Epoche bezieht sich auf einen Durchlauf durch den gesamten Trainingsdatensatz.
@@ -58,14 +74,14 @@ form.training.basemodel.name.input,Parent modelname,Basismodellname
 form.training.basemodel.link.title,Link to parent model,Link zum Basismodell
 form.training.basemodel.link.input,Link to parent model,Link zum Basismodell
 form.segmentation_data.dataset.title,Ground Truth used for training,Verwendete Ground Truth für das Training
-form.segmentation_data.dataset.link.input,,
-form.segmentation_data.dataset.description.input,,
+form.segmentation_data.dataset.link.input,Link to dataset,Link zum Datensatz
+form.segmentation_data.dataset.description.input,Please describe the dataset,Bitte beschreiben Sie den Datensatz
 form.segmentation_data.dataset.input,,
 form.segmentation_data.data.modifications.title,Data modifications,Datenmodifikationen
 form.segmentation_data.data.modifications.input,Data modifications,Datenmodifikationen
 form.segmentation_data.data.modifications.info,"Please insert any modification applied to the data not concerning the transcription (data augmentation, binarazation etc.)","Bitte geben Sie jede Modifikation an, die auf die Daten angewendet wurde und die die Transkription nicht betrifft (Datenanreicherung, Binarisierung usw.)."
-form.segmentation_data.layout.feature.title,Trained document features,Trainierte Dokumentfunktionen
-form.segmentation_data.layout.feature.info,,
+form.segmentation_data.layout.features.title,Trained document features,Trainierte Dokumentfunktionen
+form.segmentation_data.layout.features.info,,
 form.segmentation_data.layout.features.complex_ro,Complex Reading Order,Komplexe Lesereihenfolge
 form.segmentation_data.layout.features.multi_col,Multiple Column,Mehrspaltigkeit
 form.segmentation_data.layout.features.table,Tables,Tabellen
@@ -74,6 +90,8 @@ form.segmentation_data.layout.features.marginal,Marginal,Marginal
 form.segmentation_data.layout.features.initial,Initial,Initial
 form.segmentation_data.layout.tags.title,Element tags,Element-Tags
 form.segmentation_data.layout.tags.info,,
+form.segmentation_data.layout.tags.description.title,,
+form.segmentation_data.layout.tags.description.input,Tag,Tag
 form.segmentation_data.element_type.title,Element type(s),Elementtyp(en)
 form.segmentation_data.element_type.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Zur Erleichterung der Dateneingabe sind Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um diejenigen zu deaktivieren, die Sie nicht möchten."
 form.segmentation_data.prec.select.level1,Level 1,Level 1
@@ -123,18 +141,60 @@ form.person.member.add,Add person,Person hinzufügen
 form.person.member.name,Author's first name,Vorname des Autors
 form.person.member.surname,Author's last name,Nachname des Autors
 form.person.member.mainCreator,Project Manager,Projektmanager
-form.person.member.Creator,Creator,Schöpfer
+form.person.member.creator,Creator,Schöpfer
 form.person.member.qualityControl,Quality Control,Qualitätskontrolle
 form.person.member.support,Support,Unterstützung
 form.person.member.status,This contributor is an institution,Dieser Beitragende ist eine Institution
 form.person.member.person,Person,Person
 form.person.member.institution,Institution,Institution
 form.person.member.roles,Roles,Rollen
+form.person.member.cardCreator,Card Creator,
+form.person.member.contact,Contact,
 form.generate.metadata.download.text3,A METADATA.yml file is created in your repository. You can now paste into the metadata created.,Eine METADATA.yml-Datei wird in Ihrem Repository erstellt. Sie können sie jetzt in die erstellten Metadaten einfügen.
 form.generate.metadata.download.text2,to the clipboard and click on this,in die Zwischenablage und klicken Sie auf diese
 form.generate.metadata.download.text,this file below or,diese Datei unten oder
 form.generate.metadata.download.push_link,link,Link
-form.generate.metadata.download.push_copy,copy your content,Ihren Inhalt kopieren
+form.generate.metadata.download.push_copy,copy your content,Inhalt kopieren
 form.generate.metadata.download.dl,Download,Herunterladen
 form.generate.btn.get,Get formatted metadata,Formatierte Metadaten abrufen
 footer.team,Who are the people behind OCR-D?,Wer sind die Personen hinter OCR-D?
+form.risks.info,What are the known or foreseeable issues stemming from this model? Use this section to convey both technical and sociotechnical limitations.,"Welche bekannten oder absehbaren Probleme ergeben sich aus diesem Modell? Verwenden Sie diesen Abschnitt, um sowohl technische als auch soziotechnische Einschränkungen zu erläutern."
+form.risks.input,Provide an overview of the possible Limitations and risks that may be associated with this model,"Geben Sie einen Überblick über die möglichen Einschränkungen und Risiken, die mit diesem Modell verbunden sein können"
+form.risks.title,Limitations and risks,Grenzen und Risiken
+form.risks.recommendations.title,Recommendations,Empfehlungen
+form.risks.recommendations.input,"How can the known or foreseeable issues be addressed?""",Wie können die bekannten oder absehbaren Probleme behandelt werden?
+form.environmental.info,"Carbon emissions can be estimated using the <a href=""https://mlco2.github.io/impact#compute"" target=""_blank"" rel=""noopener noreferrer"">Machine Learning Impact calculator</a> presented in <a href=""https://arxiv.org/abs/1910.09700"" target=""_blank"" rel=""noopener noreferrer"">Lacoste et al. (2019)</a>.","Die Kohlenstoffemissionen können mithilfe des <a href=""https://mlco2.github.io/impact#compute"" target=""_blank"" rel=""noopener noreferrer"">Machine Learning Impact Calculator</a> geschätzt werden, der in <a href=""https://arxiv.org/abs/1910.09700"" target=""_blank"" rel=""noopener noreferrer"">Lacoste et al. (2019)</a> vorgestellt wird."
+form.environmental.hardware.title,Hardware type,Hardwaretyp
+form.environmental.hardware.input,Hardware type,Hardwaretyp
+form.environmental.hours.title,Hours used,Verwendete Stunden
+form.environmental.hours.input,Hours used,Verwendete Stunden
+form.environmental.provider.title,Cloud provider,Cloud-Anbieter
+form.environmental.provider.input,Cloud provider,Cloud-Anbieter
+form.environmental.carbon.title,Carbon emitted in grams of CO2eq,Kohlenstoffemissionen in Gramm CO2eq
+form.environmental.carbon.input,Carbon emitted in grams of CO2eq,Kohlenstoffemissionen in Gramm CO2eq
+form.environmental.region.title,Compute region,Berechnungsregion
+form.environmental.region.input,Compute region,Berechnungsregion
+form.heading.segmentation_data,Segmentation training & data,Segmentierungstraining & -daten
+form.segmentation_data.layout.features.intial.title,Inital,Anfang
+form.segmentation_data.prec.title,Segmentation level,Segmentierungsebene
+form.heading.transcription_data,Transcription training & data,Transkriptionstraining & -daten
+form.evaluation.title,Evaluation,Evaluation
+form.evaluation.input,Evaluation information,Evaluationsinformationen
+form.evaluation.info,Detail the evaluation results for this model,Beschreiben Sie die Bewertungsergebnisse für dieses Modell
+form.evaluation.data.title,Testing data,Testdaten
+form.evaluation.data.input,Ideally this links to a dataset,Im Ideafall kann hier ein Link zu einem Datensatz stehen
+form.evaluation.factors.input,"What are the foreseeable characteristics that will influence how the model behaves? This includes domain and context, as well as population subgroups.","Welches sind die vorhersehbaren Merkmale, die das Verhalten des Modells beeinflussen werden?"
+form.evaluation.factors.title,Factors,Faktoren
+form.evaluation.metrics.input,What metrics will be used for evaluation in light of tradeoffs between different errors?,Welche Metriken werden für die Bewertung im Hinblick auf Kompromisse zwischen verschiedenen Fehlern verwendet?
+form.evaluation.metrics.title,Metrics,Metriken
+form.evaluation.results.input,Evaluation results,Bewertungsergebnisse
+form.evaluation.results.title,Results,Ergebnisse
+form.glossary.title,Glossary details,Glossardetails
+form.glossary.info,Terms used in the model card that need to be clearly defined in order to be accessible across audiences go here.,"In diesem Abschnitt müssen Begriffe, die in der Modellkarte verwendet werden und klar definiert werden müssen, um für das Publikum zugänglich zu sein, klar definiert werden."
+form.glossary.input,Glossary details,Glossardetails
+form.howto.title,How to get started?,Anwendungsanweisung
+form.howto.info,Some guidelines how to get started with the model or link to an online instance to test the model,"Einige Richtlinien, wie Sie mit dem Modell beginnen können, oder ein Link zu einer Online-Instanz, um das Modell zu testen"
+form.howto.input,Description how to get started,Anwendungsanweisung
+form.segmentation_data.layout.features.titel,Trained document features,Eigenschaften der trainierten Dokumente
+form.segmentation_data.layout.features.intial,Initial,Initiale
+,,Hey
