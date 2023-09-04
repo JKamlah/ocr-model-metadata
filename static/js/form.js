@@ -8,9 +8,7 @@
         authorContainer = authorOriginal.parent,
         imgTag = document.querySelector("#imageContainer");
 
-    
 
-    
     const LICENSES = {
       "PublicDomainMark 1.0": 'https://creativecommons.org/publicdomain/mark/1.0/',
       "CC0 1.0": 'https://creativecommons.org/licenses/zero/1.0/',
@@ -19,8 +17,6 @@
       "Etalab OL 2.0": 'https://spdx.org/licenses/etalab-2.0.html',
       "ODbL 1.0": 'https://opendatacommons.org/licenses/odbl/1-0/'
     };
-
-    
 
 
     let idForAuthors = 0;
@@ -61,36 +57,33 @@
     };
     
     document.querySelector(".add-author").addEventListener("click", addAuthor);
-    const metricOriginal = document.querySelector(".metric-form");
 
-    const addMetric = function(event) {
+    const segSourcesOriginal = document.querySelector(".segmentation-sources-form");
+
+    const addSegmentationSource = function(event) {
       event.preventDefault();
       // Retrieve element and their copy
-      let new_elem = metricOriginal.cloneNode(true),
-          add_button = new_elem.querySelector(".add-metric"),
-          remove_button = new_elem.querySelector(".remove-metric"),
-          options = new_elem.querySelectorAll("option[selected]"),
+      let new_elem = segSourcesOriginal.cloneNode(true),
+          add_button = new_elem.querySelector(".add-segmentation-source"),
+          remove_button = new_elem.querySelector(".remove-segmentation-source"),
           text_inputs = new_elem.querySelectorAll("input[type='text']");
 
 
       // Clean text inputs
       for (var i = text_inputs.length - 1; i >= 0; i--) {
-        text_inputs[i].value = "0";
+        text_inputs[i].value = "";
       }
-
-      idForAuthors++;
       // Insert element in the DOM
-      metricOriginal.after(new_elem);
+      segSourcesOriginal.after(new_elem);
       // Un-hide the element for removal
       remove_button.classList.remove("d-none");
 
       // Register events
-      add_button.addEventListener("click", addMetric);
+      add_button.addEventListener("click", addSegmentationSource);
       remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
     };
 
-    document.querySelector(".add-metric").addEventListener("click", addMetric);
-
+    document.querySelector(".add-segmentation-source").addEventListener("click", addSegmentationSource);
 
     const sourcesOriginal = document.querySelector(".sources-form");
 
@@ -100,15 +93,18 @@
       let new_elem = sourcesOriginal.cloneNode(true),
           add_button = new_elem.querySelector(".add-sources"),
           remove_button = new_elem.querySelector(".remove-sources"),
-          text_inputs = new_elem.querySelectorAll("input[type='text']");
+          text_inputs = new_elem.querySelectorAll("input");
+          text_textareas = new_elem.querySelectorAll("textarea");
 
 
       // Clean text inputs
       for (var i = text_inputs.length - 1; i >= 0; i--) {
         text_inputs[i].value = "";
       }
+      for (var i = text_textareas.length - 1; i >= 0; i--) {
+        text_textareas[i].value = "";
+      }
 
-      idForAuthors++;
       // Insert element in the DOM
       sourcesOriginal.after(new_elem);
       // Un-hide the element for removal
@@ -119,7 +115,7 @@
       remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
     };
 
-    document.querySelector(".add-tags").addEventListener("click", addSources);
+    document.querySelector(".add-sources").addEventListener("click", addSources);
 
     const tagsOriginal = document.querySelector(".tags-form");
 
@@ -129,14 +125,17 @@
       let new_elem = tagsOriginal.cloneNode(true),
           add_button = new_elem.querySelector(".add-tags"),
           remove_button = new_elem.querySelector(".remove-tags"),
-          text_inputs = new_elem.querySelectorAll("input[type='text']");
+          text_inputs = new_elem.querySelectorAll("input");
+          text_textareas = new_elem.querySelectorAll("textarea");
 
 
       // Clean text inputs
       for (var i = text_inputs.length - 1; i >= 0; i--) {
         text_inputs[i].value = "";
       }
-
+      for (var i = text_textareas.length - 1; i >= 0; i--) {
+        text_textareas[i].value = "";
+      }
       idForAuthors++;
       // Insert element in the DOM
       tagsOriginal.after(new_elem);
@@ -149,7 +148,6 @@
     };
 
     document.querySelector(".add-tags").addEventListener("click", addTags);
-
 
     const normalize = function(a_string) {
       return str?.replace("'", "’") ?? "";
@@ -208,39 +206,210 @@
         out.authors.push(a);
         
       }
+      if (out.authors.length === 0) { return {}; }
 
       return out;
     };
 
-    const getModelInfos = function () {
-      let out = {"Model": []},
-          authors = document.querySelectorAll(".author");
+    const getModel = function () {
+      let out = {"model": {}};
+      const ids = {'modelName': 'name',
+      'repoLink': 'repo',
+      'defaultModelLink': 'defaultmodel',
+      'modelDesc': 'description',
+      'topology': 'topology',
+      'modelfileformat': 'fileformat',
+      'modeltype': 'type',
+      'defaultmodel-creation': 'creation-date'};
 
-      if (authors.length == 0) {
-        return {};
-      }
-      for (var i = 0; i < authors.length; i++) {
-        let surname = authors[i].querySelector("input[name='authoritySurname']").value,
-            name = authors[i].querySelector("input[name='authorityName']").value,
-            orcid = authors[i].querySelector("input[name='authorityORCID']").value,
-            status = authors[i].querySelector("input[name='authorityType']:checked");
+      updateOrIgnoreDictWithIdKeyDict(ids, out.model);
 
-        if (name.trim() === "") { continue; }
+      out.model['license'] = {}
+      out.model.license['name'] = document.getElementById('license').value;
+      out.model.license['url'] =  LICENSES[document.getElementById('license').value];
 
-        let a = {
-          "name": name,
-          "surname": surname
+      if (Object.keys(out.model).length === 0) { return {}; }
+
+      return out;
+    };
+
+   const getUses = function () {
+      let out = {"uses": {}};
+      const ids = {'uses': 'general',
+      'usesDirect': 'direct',
+      'usesDownstream': 'downstream',
+      'usesOOS': 'outofscope'};
+
+      updateOrIgnoreDictWithIdKeyDict(ids, out.uses);
+
+      if (Object.keys(out.uses).length === 0) { return {}; }
+
+      return out;
+   };
+
+   const getRisks = function () {
+      let out = {"risks": {}};
+      const ids = {'riskGeneral': 'general',
+      'riskRecommendations': 'recommendations'};
+
+      updateOrIgnoreDictWithIdKeyDict(ids, out.risks);
+      if (Object.keys(out.risks).length === 0) { return {}; }
+      return out;
+   };
+
+   const getProject = function () {
+      let out = {"project": {}};
+      const ids = {'projectName': 'name',
+      'projectWebsite': 'homepage'};
+
+      updateOrIgnoreDictWithIdKeyDict(ids, out.project);
+      if (Object.keys(out.project).length === 0) { return {}; }
+      return out;
+   };
+
+   const getCitation = function () {
+      let out = {"citation": {}};
+      const ids = {'citationCFF': 'CFF',
+      'citationAPA': 'APA',
+      'citationBibTeX': 'BIBTex'};
+
+      updateOrIgnoreDictWithIdKeyDict(ids, out.citation);
+
+      if (Object.keys(out.citation).length === 0) { return {}; }
+      return out;
+   };
+
+   const getAdditionalInfo = function () {
+      let out = {"additional": {}};
+
+      const ids = {'glossary': 'glossary',
+      'howTo': 'how-to'};
+
+      updateOrIgnoreDictWithIdKeyDict(ids, out.additional);
+      if (Object.keys(out.additional).length === 0) { return {}; }
+      return out;
+   };
+
+
+    const getTraining = function () {
+      let out = {"training": {"info": {}, "data": {}}};
+
+      out.training.info['trainingstype'] = document.getElementById('trainingstype').value;
+
+      const ids = {'basemodel_link': 'general', 'epochs': 'direct'};
+
+      updateOrIgnoreDictWithIdKeyDict(ids, out.training.info);
+      out.training.info['environmentalImpact'] = {};
+
+      const envids = {'envHardware': 'hardware',
+      'envHours': 'hours',
+      'envProvider':'provider',
+      'envRegion':'region',
+      'envCarbon':'carbon'};
+
+      updateOrIgnoreDictWithIdKeyDict(envids, out.training.info.environmentalImpact);
+
+      if (Object.keys(out.training.info.environmentalImpact).length === 0) { delete out.training.info['environmentalImpact'] }
+      if (Object.keys(out.training.info).length === 0) { delete out.training['info'] }
+
+      var segmentation_data = document.getElementById('segmentation_data');
+      if (segmentation_data.style.display == 'flex'){
+        out.training.data["type"] = "segmentation"
+        let feature_ids = document.getElementById("features").querySelectorAll("input[type='checkbox']:checked");
+        if (feature_ids.length > 0) {
+          out.training.data["features"] = []
+          out.training.data.features = [...feature_ids].map((o) => o.value);
         }
-          if (orcid.trim() !== "") {
-            a["orcid"] = orcid;
-          }
-        let roles = authors[i].querySelectorAll("input[type='checkbox']:checked");
-        if (roles.length > 0) {
-          a.roles = [...roles].map((o) => o.value);
+        out.training.data["elementType"] = elementTypeSelect.value();
+        out.training.data["elementTags"] = getTags();
+        out.training.data["datasets"] = getDatasets("segmentation");
+        out.training.data["level"] = document.getElementById('segmentation-level').value;
+        out.training.data["dataModifications"] = document.getElementById('segmentationDataModifications').value;
+      } else {
+        out.training.data["type"] = "transcription"
+        let scriptType = document.getElementById("scriptType")
+        if (scriptType.value !== "info") {
+            out.training.data["scriptType"] = scriptType.value;
         }
-        out.authors.push(a);
+        out.training.data = updateOrIgnoreDict(document.getElementById("date-begin").value, "notBefore", out.training.data);
+        out.training.data = updateOrIgnoreDict(document.getElementById("date-end").value, "notAfter", out.training.data);
+        out.training.data["languages"] = languageSelect.value();
+        out.training.data["script"] = scriptSelect.value();
+        out.training.data["datasets"] = getDatasets("transcription");
+        out.training.data["level"] = document.getElementById('transcription-level').value;
+        out.training.data["data-modifications"] = document.getElementById('transcriptionDataModifications').value;
+      };
 
+      cleanEmptyKeys(out.training.data);
+
+      if (Object.keys(out.training.data.datasets).length === 0)  { delete out.training.data['datasets'] }
+      if (Object.keys(out.training.data).length === 0)  { delete out.training['data'] }
+      if (Object.keys(out.training).length === 0)  { return {}; }
+      return out;
+    };
+
+    const getEvaluation = function () {
+      let out = {"evaluation": {}};
+      const ids = {'evalInput': 'input',
+      'evalData': 'data',
+      'evalFactors':'factors',
+      'evalMetrics':'metrics',
+      'evalResults':'results'};
+
+      updateOrIgnoreDictWithIdKeyDict(ids, out.evaluation);
+
+      if (Object.keys(out.evaluation).length === 0)  { return {}; }
+
+    return out;
+    };
+
+    const getTags = function () {
+        let out = {"tags": []},
+        tags = document.querySelectorAll(".tags-form");
+
+        if (tags.length == 0) { return {}; }
+        for (var i = 0; i < tags.length; i++) {
+            let type = tags[i].querySelector("select[name='segmentationTag']").value,
+                tag = tags[i].querySelector("textarea[name='segmentationTagDescription']").value;
+
+        if (tag.trim() === "") { continue; }
+
+        // DO NOT REINDENT
+        out.tags.push({
+          "elementType": type,
+          "tag": tag,
+        });
       }
+      if (out.tags.length === 0) { return {}; }
+
+      return out;
+    };
+
+    const getSoftware = function () {
+      let out = {"software": {}};
+      const ids = {'software_name': 'name', 'software_other': 'other', 'software_version': 'version'};
+      updateOrIgnoreDictWithIdKeyDict(ids, out.software);
+      if (Object.keys(out.software).length === 0)  { return {}; }
+      return out;
+    };
+
+    const getDatasets = function (type) {
+        let out = {"datasets": []},
+        datasets = document.querySelectorAll("."+type+"-sources-form");
+        if (datasets.length == 0) { return {}; }
+        for (var i = 0; i < datasets.length; i++) {
+            let link = datasets[i].querySelector("input[name='"+type+"DatasetLink']").value,
+                description = datasets[i].querySelector("textarea[name='"+type+"DatasetDescription']").value;
+
+        if (link.trim() === "") { continue; }
+
+        // DO NOT REINDENT
+        out.datasets.push({
+          "link": link,
+          "description": description,
+        });
+      }
+      if (out.datasets.length === 0) { return {}; }
 
       return out;
     };
@@ -302,20 +471,6 @@
         inlineIcon: false // custom cross icon for multiple select.
     });
 
-
-    /*elementTypeSelect.addEventListener('change', updateSelectOptions);
-    function updateSelectOptions() {
-        // Iterate through each PureSelect
-        for (var i = 0; i < pureSelects.length; i++) {
-            var pureValue = pureSelects.value[i];
-            //var selectedValue = pureSelect.value;
-             // Get the corresponding target select element
-            var targetSelect = document.getElementById('element-tag');
-            var option1 = document.createElement('option');
-            targetSelect.appendChild(option1);
-        }
-    }*/
-
     const languageSelect = new SelectPure(".language", {
         options: languages,
         multiple: true,
@@ -349,6 +504,32 @@
       return out;
     };
 
+    const updateOrIgnoreDict = function(field, key, dict) {
+      if (field !== undefined && field.trim() != ""){
+        dict[key] = field;
+      }
+      return dict;
+    };
+
+    const cleanEmptyKeys = function (dict) {
+     Object.entries(dict).forEach(([key, val]) =>  {
+         if (val === "") {
+            delete dict[key];
+         }
+      });
+     return dict;
+    }
+
+    const updateOrIgnoreDictWithIdKeyDict = function(idkeys, dict) {
+      Object.entries(idkeys).forEach(([id, key]) =>  {
+         var ele = document.getElementById(id);
+         if (ele.value !== "" && ele.style.display !== "none") {
+            dict[key] = ele.value;
+         }
+      });
+      return dict;
+    };
+
     const get_or_none_charriot = function(field, yaml) {
       if (field !== undefined && field.trim() != ""){
         return `${yaml}: >\n    ${field.split('\n').join('\n    ')}'`
@@ -359,8 +540,7 @@
      document.getElementById("modelfileformat").addEventListener('change', function(el) {
         event.preventDefault();
         val = el.target.value;
-        software = document.getElementById("software");
-        console.log(val);
+        software = document.getElementById("software_name");
         switch(val) {
             case ".traineddata":
                 software.value = "Tesseract";
@@ -386,10 +566,17 @@
         }
       });
 
+    document.querySelectorAll(".evaluation-metric-key").forEach((el) => {
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.getElementById("evalMetrics").value = el.innerText;
+      })
+    });
+
     document.querySelectorAll(".software-key").forEach((el) => {
       el.addEventListener("click", (event) => {
         event.preventDefault();
-        document.querySelector("#software").value = el.innerText;
+        document.querySelector("#software_name").value = el.innerText;
         var otherSoftware = document.getElementById('other_software');
         if (el.id !== "software-key-other") {
             otherSoftware.style.display = 'None';
@@ -413,9 +600,9 @@
             transcription_data.style.display = 'flex';
         }
       })
-    });
+   });
 
-    document.querySelectorAll(".doctype-key").forEach((el) => {
+   document.querySelectorAll(".doctype-key").forEach((el) => {
       el.addEventListener("click", (event) => {
         event.preventDefault();
         document.querySelector("#doctype").value = el.innerText;
@@ -436,65 +623,45 @@
     });
 
 
-
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       let data = Object.fromEntries(new FormData(form));
-      console.log(data);
       let languages = languageSelect.value().join("\n  - ");
       let element_types = elementTypeSelect.value().join("\n  - ");
       let scripts = scriptSelect.value().join("\n  - ");
 
       let obj = {
         "schema": "https://github.com/JKamlah/ocr-model-metadata/tree/master/schema/2022-03-15/schema.json",
-        "title": data.modelName,
-        "url": data.repoLink,
-        ...updateOrIgnore(data.projectName, "project-name"),
-        ...updateOrIgnore(data.projectWebsite, "project-website"),
-        ...getAuthors(),
-        "license": [
-          {"name": data.license, "url": LICENSES[data.license]}
-        ],
 
-        "description": data.modeldescriptionesc,
-        "defaultmodel": data.defaultmodelLink,
-        "modeltype": data.modelType,
-        "modelfileformat": data.modelFileformat,
-        ...updateOrIgnore(data.modelTopology, "modeltopology"),
-        ...updateOrIgnore(data.modelCreationDate, "model-creation-date"),
-        "software-name": data.softwareName,
-        ...updateOrIgnore(data.softwareOther, "software-other"),
-        ...updateOrIgnore(data.softwareVersion, "software-version")
-       /**
-        ...getModelInfos(),
+        // Model
+        ...getModel(),
 
-        "script": scriptSelect.value(),
-        "script-type": data.scriptType,
+        // Software
+        ...getSoftware(),
 
-        "modeltype": data.gformat,
-        "trainingstype": data.trainingstype,
-        ...updateOrIgnore(data.basmodellink, "basemodel"),
-        "epochs": data.epochs,
-        "time": {
-          "notBefore": data["date-begin"],
-          "notAfter": data["date-end"]
-        },
-        "hands": {
-          "count": data.hands,
-          "precision": data.precision,
-          "level": data.level
-        },
+        // Training
+        ...getTraining(),
 
-        "format": data.format,
-        ...getSources(),
-        ...getMetrics(),
-        ...updateOrIgnore(data.cff, 'citation-file-link'),
-        ...updateOrIgnore(data.transcriptionGuidelines, 'transcription-guidelines'),
-        ...updateOrIgnore(data.ocrmodel, "modeltitle"),
-        ...updateOrIgnore(data.ocrdesc, "modeldescription"),
-        ...updateOrIgnore(data.ocrmodellink, "modelurl"),
-        ...updateOrIgnore(data.ocrmodelengine, "modelengine"),
-      */
+       // Evaluation
+       ...getEvaluation(),
+
+       // Citation
+       ...getCitation(),
+
+       // Uses
+       ...getUses(),
+
+       // Risks
+       ...getRisks(),
+
+       // Project
+       ...getProject(),
+
+       // Persons
+       ...getAuthors(),
+
+       // Additional information
+       ...getAdditionalInfo(),
       };
 
       output.innerText = jsyaml.dump(obj, {"noRef": true});

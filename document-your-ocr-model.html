@@ -189,11 +189,11 @@
                         </div>
                     </div>
                     <div class="form-group row my-2">
-                        <label for="desc" class="col-sm-3 col-form-label">
+                        <label for="modelDesc" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.model.description.title">Description</i18n>
                             <span class="required">*</span></label>
                         <div class="col-sm-9">
-                            <textarea name="modelDescription" style="height: 150px;" class="form-control" id="desc"
+                            <textarea name="modelDescription" style="height: 150px;" class="form-control" id="modelDesc"
                                       placeholder="Description" required
                                       vanilla-i18n-placeholder="form.model.description.input"></textarea>
                         </div>
@@ -246,7 +246,7 @@
                         </div>
                     </div>
                     <div class="form-group row my-2">
-                        <label for="desc" class="col-sm-3 col-form-label">
+                        <label for="modeltype" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.model.type.title">Model type</i18n>
                             <span class="required">*</span></label>
                         <div class="col-sm-9">
@@ -282,11 +282,11 @@
                         </div>
                     </div>
                     <div class="form-group row my-2">
-                        <label for="desc" class="col-sm-3 col-form-label">
+                        <label for="software_name" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.model.software.name.title">Software/engine used for training</i18n>
                             <span class="required">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" name="softwareName" class="form-control" id="software" placeholder=""
+                            <input type="text" name="softwareName" class="form-control" id="software_name" placeholder=""
                                    vanilla-i18n-placeholder="form.model.software.name.input" required/>
                         </div>
                         <div class="offset-sm-3 col-sm-9">
@@ -311,17 +311,17 @@
                         </div>
                     </div>
                     <div class="form-group row my-2" id="other_software" style="display:none;">
-                        <label for="desc" class="col-sm-3 col-form-label">
+                        <label for="software_other" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.model.software.other.name.title">Other software</i18n>
                         </label>
                         <div class="col-sm-9">
-                            <input name="softwareOther" class="form-control" id="other_software_input"
+                            <input name="softwareOther" class="form-control" id="software_other"
                                    placeholder="Software name"
                                    vanilla-i18n-placeholder="form.model.software.other.name.input">
                         </div>
                     </div>
                     <div class="form-group row my-2">
-                        <label for="desc" class="col-sm-3 col-form-label">
+                        <label for="software_version" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.model.software.version.title">Software version</i18n>
                         </label>
                         <div class="col-sm-9">
@@ -367,6 +367,20 @@
                                     https://citation-file-format.github.io/
                                 </i18n><a href="https://citation-file-format.github.io/">https://citation-file-format.github.io/</a></small>
                             </p>
+                        </div>
+                        <label for="citationAPA" class="col-sm-3 col-form-label">
+                            <i18n vanilla-i18n="form.model.apa.title">APA citation</i18n>
+                        </label>
+                        <div class="col-sm-9">
+                            <input vanilla-i18n-placeholder="form.model.apa.input" type="text" name="apa"
+                                   class="form-control" id="citationAPA" placeholder="APA citation">
+                        </div>
+                        <label for="citationBibTeX" class="col-sm-3 col-form-label">
+                            <i18n vanilla-i18n="form.model.bibtex.title">BibTeX citation</i18n>
+                        </label>
+                        <div class="col-sm-9">
+                            <input vanilla-i18n-placeholder="form.model.bibtex.input" type="text" name="bibtex"
+                                   class="form-control" id="citationBibTeX" placeholder="BibTeX citation">
                         </div>
                     </div>
                     </details>
@@ -431,10 +445,10 @@
                              <i18n vanilla-i18n="form.risks.info">What are the known or foreseeable issues stemming from this model? Use this section to convey both technical and sociotechnical limitations.</i18n>
                          </small></p>
                             <div class="form-group row my-2">
-                                <label for="riskGerneral" class="col-sm-3 col-form-label">
+                                <label for="riskGeneral" class="col-sm-3 col-form-label">
                                     <i18n vanilla-i18n="form.risks.title">Limitations and risks</i18n></label>
                                 <div class="col-sm-9">
-                                    <textarea type="text" name="riskGerneral" class="form-control" id="riskGerneral"
+                                    <textarea type="text" name="riskGeneral" class="form-control" id="riskGeneral"
                                    placeholder="Provide an overview of the possible Limitations and risks that may be associated with this model"
                                               vanilla-i18n-placeholder="form.risks.input"></textarea>
                                 </div>
@@ -459,7 +473,7 @@
                             </h2>
                         </summary>
                     <div class="form-group row my-2">
-                        <label for="desc" class="col-sm-3 col-form-label">
+                        <label for="trainingstype" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.training.type.title">Trainings type</i18n>
                             <span class="required">*</span></label>
                         <div class="col-sm-9">
@@ -482,7 +496,7 @@
                         </div>
                     </div>
                     <div class="form-group row my-2" id="basemodel" style="display:none;">
-                        <label for="desc" class="col-sm-3 col-form-label">
+                        <label for="basemodel_name" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.training.basemodel.name.title"> Parent modelname</i18n>
                         </label>
                         <div class="col-sm-9">
@@ -491,7 +505,7 @@
                         </div>
                     </div>
                     <div class="form-group row my-2" id="basemodel_container" style="display:none;">
-                        <label for="desc" class="col-sm-3 col-form-label">
+                        <label for="basemodel_link" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.training.basemodel.link.title">Link to parent model</i18n>
                         </label>
                         <div class="col-sm-9">
@@ -577,18 +591,17 @@
                     </details>
                     </details>
 
-
                     <details class="accordion active" id="segmentation_data" style="display:none;" open>
                             <summary class="col">
                                 <h2 vanilla-i18n="form.heading.segmentation_data">Segmentation training & data</h2>
                             </summary>
                         <div class="form-group row my-2">
-                            <label for="desc" class="col-sm-3 col-form-label">
+                            <label for="features" class="col-sm-3 col-form-label">
                                 <i18n vanilla-i18n="form.segmentation_data.layout.features.titel">Trained document features
                                 </i18n>
                             </label>
                             <div class="col-9">
-                                <div class="row p-2 mx-1 mt-1 mb-2 rounded border border-secondary">
+                                <div id="features" class="row p-2 mx-1 mt-1 mb-2 rounded border border-secondary">
                                     <div class="col-sm-12">
                                         <div class="row">
                                             <div class="col-sm-6">
@@ -604,7 +617,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" value="typo-pec" name="layoutFeatureMultiColumn"
+                                                    <input type="checkbox" value="multi-column" name="layoutFeatureMultiColumn"
                                                            id="layoutFeatureMultiCol" class="roles">
                                                     <label class="form-check-label" for="layoutFeatureMultiCol">
                                                         <i18n vanilla-i18n="form.segmentation_data.layout.features.multi_col">
@@ -613,7 +626,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" value="typo-pec" name="layoutFeatureTable"
+                                                    <input type="checkbox" value="tables" name="layoutFeatureTable"
                                                            id="layoutFeatureTable" class="roles">
                                                     <label class="form-check-label" for="layoutFeatureTable">
                                                         <i18n vanilla-i18n="form.segmentation_data.layout.features.table">
@@ -624,7 +637,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-check">
-                                                    <input type="checkbox" value="typo-pec" name="layoutFeatureAdvert"
+                                                    <input type="checkbox" value="advertisment" name="layoutFeatureAdvert"
                                                            id="layoutFeatureAdvert" class="roles">
                                                     <label class="form-check-label" for="layoutFeatureAdvert">
                                                         <i18n vanilla-i18n="form.segmentation_data.layout.features.advert">
@@ -633,7 +646,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" value="typo-pec" name="layoutFeatureMarginal"
+                                                    <input type="checkbox" value="marginal" name="layoutFeatureMarginal"
                                                            id="layoutFeatureMarginal" class="roles">
                                                     <label class="form-check-label" for="layoutFeatureMarginal">
                                                         <i18n vanilla-i18n="form.segmentation_data.layout.features.marginal">
@@ -642,7 +655,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" value="typo-pec" name="layoutFeatureTypoPec"
+                                                    <input type="checkbox" value="initial" name="layoutFeatureInitial"
                                                            id="layoutFeatureInitial" class="roles">
                                                     <label class="form-check-label" for="layoutFeatureInitial">
                                                         <i18n vanilla-i18n="form.segmentation_data.layout.features.intial">
@@ -671,16 +684,16 @@
                             </div>
                         </div>
                         <div class="form-group row my-2">
-                            <label for="element-tag" class="col-sm-3 col-form-label">
+                            <label for="element-tags" class="col-sm-3 col-form-label">
                                 <i18n vanilla-i18n="form.segmentation_data.layout.tags.title">Ground Truth used for
                                     training
                                 </i18n>
                             </label>
                             <div class="col-sm-9 row-2">
-                                <div class="tags-form">
+                                <div class="tags-form" id="element-tags">
                                     <div class="input-group">
                                         <div class="col-sm-9">
-                                            <select name="segmentationTag" id="element-tag" class="form-control">
+                                            <select name="segmentationTag" class="form-control">
                                                 <option value="Region">Region</option>
                                                 <option value="TextLine">TextLine</option>
                                             </select>
@@ -709,7 +722,7 @@
                                 </i18n>
                             </label>
                             <div class="col-sm-9 row-2">
-                                <div class="sources-form" id="segmentation_dataset">
+                                <div class="segmentation-sources-form" id="segmentation_dataset">
                                     <div class="input-group">
                                         <div class="col-sm-9">
                                             <input vanilla-i18n-placeholder="form.segmentation_data.dataset.link.input"
@@ -723,8 +736,8 @@
                                                       placeholder="Description dataset"></textarea>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-primary add-metric" type="button">+</button>
-                                            <button class="btn btn-outline-danger d-none remove-metric" type="button">
+                                            <button class="btn btn-outline-primary add-segmentation-source" type="button">+</button>
+                                            <button class="btn btn-outline-danger d-none remove-segmentation-source" type="button">
                                                 -
                                             </button>
                                         </div>
@@ -733,7 +746,7 @@
                             </div>
                         </div>
                         <div class="form-group row my-2">
-                            <label for="level" class="col-sm-3 col-form-label mt-2">
+                            <label for="transcription-level" class="col-sm-3 col-form-label mt-2">
                                 <i18n vanilla-i18n="form.segmentation_data.prec.title">Segmentation level</i18n>
                             </label>
                             <div class="col-sm-3">
@@ -751,14 +764,14 @@
                             </div>
                         </div>
                         <div class="form-group row my-2">
-                            <label for="segmenatationDataModifications" class="col-sm-3 col-form-label">
+                            <label for="segmentationDataModifications" class="col-sm-3 col-form-label">
                                 <i18n vanilla-i18n="form.segmentation_data.data.modifications.title">Data
                                     modifications
                                 </i18n>
                             </label>
                             <div class="col-sm-9">
-                                <textarea name="segementationDataModification" class="form-control"
-                                          id="segmenatationDataModifications" placeholder="Data modifications"
+                                <textarea name="segmentationDataModification" class="form-control"
+                                          id="segmentationDataModifications" placeholder="Data modifications"
                                           vanilla-i18n-placeholder="form.segmentation_data.data.modifications.input"></textarea>
                                 <p><small class="text-muted">
                                     <i18n vanilla-i18n="form.segmentation_data.data.modifications.info">Please insert
@@ -879,18 +892,18 @@
                                     <div class="input-group" id="transcriptionDataDescription">
                                         <div class="col-sm-9">
                                             <input vanilla-i18n-placeholder="form.transcription_data.dataset.link.input"
-                                                   type="text" name="datasetLink" class="form-control"
+                                                   type="text" name="transcriptionDatasetLink" class="form-control"
                                                    placeholder="Dataset URL">
                                         </div>
                                         <div class="col-sm-9">
                                             <textarea style="height: 100px;"
                                                       vanilla-i18n-placeholder="form.transcription_data.dataset.description.input"
-                                                      name="metricCount" class="form-control"
+                                                      name="transcriptionDatasetDescription" class="form-control"
                                                       placeholder="Description dataset"></textarea>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-primary add-metric" type="button">+</button>
-                                            <button class="btn btn-outline-danger d-none remove-metric" type="button">
+                                            <button class="btn btn-outline-primary add-sources" type="button">+</button>
+                                            <button class="btn btn-outline-danger d-none remove-sources" type="button">
                                                 -
                                             </button>
                                         </div>
@@ -899,11 +912,11 @@
                             </div>
                         </div>
                         <div class="form-group row my-2">
-                            <label for="level" class="col-sm-3 col-form-label mt-2">
+                            <label for="transcription-level" class="col-sm-3 col-form-label mt-2">
                                 <i18n vanilla-i18n="form.transcription_data.prec.title">Transcription level</i18n>
                             </label>
                             <div class="col-sm-3">
-                                <select name="transcriptionLevel" id="level" class="form-control my-2">
+                                <select name="transcriptionLevel" id="transcription-level" class="form-control my-2">
                                     <option value="level1" selected=""
                                             vanilla-i18n="form.transcription_data.prec.select.level1">Level 1
                                     </option>
@@ -931,19 +944,19 @@
                                 <p><small class="text-muted">
                                     <i18n vanilla-i18n="form.transcription_data.guidelines.info">Guidelines used to
                                         transcribe the resources (normalization, resolution of abbreviation, correction
-                                        of mispelling, etc.)
+                                        of misspelling, etc.)
                                     </i18n>
                                 </small></p>
                             </div>
                         </div>
                         <div class="form-group row my-2">
-                            <label for="dataModifications" class="col-sm-3 col-form-label">
+                            <label for="transcriptionDataModifications" class="col-sm-3 col-form-label">
                                 <i18n vanilla-i18n="form.transcription_data.data.modifications.title">Data
                                     modifications
                                 </i18n>
                             </label>
                             <div class="col-sm-9">
-                                <textarea name="transcriptionGuidelines" class="form-control" id="dataModifications"
+                                <textarea name="transcriptionGuidelines" class="form-control" id="transcriptionDataModifications"
                                           placeholder="Data modifications"
                                           vanilla-i18n-placeholder="form.transcription_data.data.modifications.input"></textarea>
                                 <p><small class="text-muted">
@@ -972,7 +985,7 @@
                                 <label for="evalInput" class="col-sm-3 col-form-label">
                                     <i18n vanilla-i18n="form.evaluation.title">Evaluation</i18n></label>
                                 <div class="col-sm-9">
-                                    <textarea type="text" name="evalInput" class="form-control" id="evalInput"
+                                    <textarea type="text" name="input" class="form-control" id="evalInput"
                                    placeholder="Evaluation information"
                                    vanilla-i18n-placeholder="form.evaluation.input"></textarea>
                                     <p><small class="text-muted"><i18n vanilla-i18n="form.evaluation.info">Detail the evaluation results for this model</i18n></small></p>
@@ -982,7 +995,7 @@
                                 <label for="evalData" class="col-sm-3 col-form-label">
                                     <i18n vanilla-i18n="form.evaluation.data.title">Testing data</i18n></label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="evalData" class="form-control" id="evalData"
+                                    <input type="text" name="data" class="form-control" id="evalData"
                                    placeholder="Evaluation data"
                                    vanilla-i18n-placeholder="form.evaluation.data.input">
                                 </div>
@@ -991,7 +1004,7 @@
                                 <label for="evalFactors" class="col-sm-3 col-form-label">
                                     <i18n vanilla-i18n="form.evaluation.factors.title">Factors</i18n></label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="evalFactors" class="form-control" id="evalFactors"
+                                    <input type="text" name="factors" class="form-control" id="evalFactors"
                                    placeholder="Evaluation factors"
                                    vanilla-i18n-placeholder="form.evaluation.factors.input">
                                 </div>
@@ -1000,7 +1013,7 @@
                                 <label for="evalMetrics" class="col-sm-3 col-form-label">
                                     <i18n vanilla-i18n="form.evaluation.metrics.title">Metrics</i18n></label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="evalMetrics" class="form-control" id="evalMetrics"
+                                    <input type="text" name="metrics" class="form-control" id="evalMetrics"
                                    placeholder="Evaluation metrics"
                                    vanilla-i18n-placeholder="form.evaluation.metrics.input">
                                 </div>
@@ -1008,10 +1021,20 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="btn-group btn-group-sm">
-                                                <a id="evaluation-metric-key-cer"
-                                                class="btn btn-sm btn-outline-info evaluation-metric-key" href="#">CER</a>
-                                                <a id="evaluation-metric-key-wer"
+                                                <a id="evaluation-metric-key-cer" title="Character error rate"
+                                                class="btn btn-sm btn-outline-info evaluation-metric-key"  href="#">CER</a>
+                                                <a id="evaluation-metric-key-bcer" title="Bag of character error rate"
+                                                class="btn btn-sm btn-outline-info evaluation-metric-key" href="#">BCER</a>
+                                                <a id="evaluation-metric-key-wer" title="Word error rate"
                                                 class="btn btn-sm btn-outline-info evaluation-metric-key" href="#">WER</a>
+                                                <a id="evaluation-metric-key-bwer" title="Bag of word error rate"
+                                                class="btn btn-sm btn-outline-info evaluation-metric-key" href="#">BWER</a>
+                                                <a id="evaluation-metric-key-ser" title="Sentence error rate"
+                                                class="btn btn-sm btn-outline-info evaluation-metric-key" href="#">SER</a>
+                                                <a id="evaluation-metric-key-bser" title="Bag of sentence error rate"
+                                                class="btn btn-sm btn-outline-info evaluation-metric-key" href="#">BSER</a>
+                                                <a id="evaluation-metric-key-ler" title="Layout error rate"
+                                                class="btn btn-sm btn-outline-info evaluation-metric-key" href="#">LER</a>
                                             </div>
                                         </div>
                                     </div>
@@ -1021,7 +1044,7 @@
                                 <label for="evalResults" class="col-sm-3 col-form-label">
                                     <i18n vanilla-i18n="form.evaluation.results.title">Results</i18n></label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="evalResults" class="form-control" id="evalResults"
+                                    <input type="text" name="results" class="form-control" id="evalResults"
                                    placeholder="Evaluation results"
                                    vanilla-i18n-placeholder="form.evaluation.results.input">
                                 </div>
@@ -1033,7 +1056,7 @@
                     <details class="accordion">
                         <summary class="col">
                             <h2>
-                                <i18n vanilla-i18n="form.heading.project">Project information</i18n>
+                                <i18n vanilla-i18n="form.heading.project">Project and person details</i18n>
                             </h2>
                         </summary>
                     <div class="form-group row my-2">
@@ -1189,7 +1212,6 @@
                     </div>
                     </details>
 
-
                     <details class="accordion">
                         <summary class="col">
                             <h2>
@@ -1211,7 +1233,6 @@
                     </div>
                     </details>
 
-
                     <details class="accordion">
                         <summary class="col">
                             <h2>
@@ -1222,7 +1243,7 @@
                              <i18n vanilla-i18n="form.howto.info">Some guidelines how to get started with the model or link to an online instance to test the model</i18n>
                          </small></p>
                     <div class="form-group row my-2">
-                        <label for="projectName" class="col-sm-3 col-form-label">
+                        <label for="howTo" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.howto.title">How to get started?</i18n>
                         </label>
                         <div class="col-sm-9">

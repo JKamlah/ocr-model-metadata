@@ -13,7 +13,7 @@ infobar.help.modelcards.title,Model Cards,Model Cards
 infobar.help.modelcards.info,"Model cards are files that accompany the models and provide handy information. Under the hood, model cards are simple Markdown files with additional metadata. Model cards are essential for discoverability, reproducibility, and sharing! You can find a model card as the README.md file in any model repo. Further information: <a  href=""https://huggingface.co/docs/hub/model-cards"">https://huggingface.co/docs/hub/model-cards</a> ","Model Cards sind Dateien, die die Modelle begleiten und praktische Informationen liefern. Unter der Haube sind Modellkarten einfache Markdown-Dateien mit zusätzlichen Metadaten. Modellkarten sind wichtig für die Auffindbarkeit, Reproduzierbarkeit und gemeinsame Nutzung! Sie können eine Modellkarte als README.md-Datei in jedem Modell-Repository finden. Weitere Informationen:  <a  href=""https://huggingface.co/docs/hub/model-cards"">https://huggingface.co/docs/hub/model-cards</a> "
 form.field.required,"Fields followed by a <span class=""required"">*</span> are the only ones required.","Felder, die von einem <span class=""required"">*</span> gefolgt werden, sind die einzigen erforderlichen."
 form.heading.persons,Person details,Allgemeine Informationen über beteiligte Personen
-form.heading.project,Project details,Allgemeine Informationen über das Projekt
+form.heading.project,Project and person details,Allgemeine Informationen über das Projekt und Personen
 form.heading.generate,Generate the <code>metadata.yml</code> file,Generieren Sie die Datei <code>metadata.yml</code>
 form.heading.model,Model details,Allgemeine Informationen zum Modell
 form.heading.training,Model training,Allgemeine Informationen zum Training
@@ -21,7 +21,7 @@ form.heading.training_data,Detailed information about the training data,Detailli
 form.heading.evaluation,Model evaluation,Evaluation des Modells
 form.heading.howto,How to get started,Anwendung des Modells
 form.heading.glossary,Glossary,Glossar
-form.heading.environmental,Environmental impact,Umwelteinfluss
+form.heading.environmental,Used infrasctruce & environmental impact,Verwendete Infrastruktur  & Umwelteinfluss
 form.heading.risks,Limitations and risks  [optional],Grenzen und Risiken  [optional]
 form.heading.uses,Uses  [optional],Anwendungsfälle  [optional]
 form.heading.citation,Citation  [optional],Zitation  [optional]
@@ -40,6 +40,10 @@ form.model.description.input,Short description of the model,Kurze Beschreibung d
 form.model.cff.title,Link to a CITATION.cff file,Link zu einer CITATION.cff-Datei
 form.model.cff.input,Link to a CITATION.cff file,Link zu einer CITATION.cff-Datei
 form.model.cff.info,CITATION.cf files allow for generating quick APA citations or Bibtex ones on github for example. See:,"CITATION.cf-Dateien ermöglichen das schnelle Generieren von APA-Zitaten oder Bibtex-Zitaten auf GitHub, zum Beispiel. Siehe:"
+form.model.apa.title,APA citation,APA Zitation
+form.model.apa.input,APA citation,APA Zitation
+form.model.bibtex.title,BibTeX citation,BibTeX Zitation
+form.model.bibtex.input,BibTex citation,BibTeX Zitation
 form.model.license.title,License,Lizenz
 form.model.license.info,"This is a non-exhaustive selection of license options.</br><a href=""https://choosealicense.com"">https://choosealicense.com/</a> can help to find a suitable license and download the template.","Dies ist eine nicht erschöpfende Auswahl von Lizenzoptionen.</br><a href=""https://choosealicense.com"">https://choosealicense.com/</a> kann helfen, eine geeignete Lizenz zu finden und die Vorlage herunterzuladen."
 form.model.format.title,Model file format,Modelldateiformat
@@ -197,4 +201,3 @@ form.howto.info,Some guidelines how to get started with the model or link to an 
 form.howto.input,Description how to get started,Anwendungsanweisung
 form.segmentation_data.layout.features.titel,Trained document features,Eigenschaften der trainierten Dokumente
 form.segmentation_data.layout.features.intial,Initial,Initiale
-,,Hey
