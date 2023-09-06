@@ -1,31 +1,22 @@
-const element_types = [{"label": "Region", "value": "Region"},
-{"label": "TextLine", "value": "TextLine"}]
-/*
-page border, text region, text line, header, image, separator, marginalia, initial, table
-Structural
- PrintSpace
- Border
-Text
- TextRegion
- TextLine
-Table
- TableRegion
- TableCell
-Illustrations
- ImageRegion
- GraphicRegion
- LineDrawingRegion
- MapRegion
- AdvertRegion
-Art/Science
- MathsRegion
- ChemRegion
- MusicRegion
-Other
- NoiseRegion
- UnknownRegion*/
+const element_types = [
+{"label": "Region", "value": "Region"},
+{"label": "TextLine", "value": "TextLine"},
+{"label": "Baseline", "value": "Baseline"},
+{"label": "Table", "value": "Table"},
+{"label": "TableCell", "value": "TableCell"}];
 
-const languages = [{"label": "Ghotuo", "value": "aaa"},
+const layoutmodel_specs = [
+{"label": "Segmentation", "value": "Segmentation"},
+{"label": "Reading Order", "value": "ReadingOrder"},
+{"label": "Field tagging", "value": "FieldTag"}];
+
+const textmodel_specs = [
+{"label": "Transcription", "value": "Transcription"},
+{"label": "Language", "value": "Language"},
+{"label": "Text tagging", "value": "TextTag"}];
+
+const languages = [
+{"label": "Ghotuo", "value": "aaa"},
 {"label": "Alumu-Tesu", "value": "aab"},
 {"label": "Ari", "value": "aac"},
 {"label": "Amal", "value": "aad"},
@@ -8500,3 +8491,27 @@ const scripts = [
 {"label": "Yezidi", "value": "Yezi"},
 {"label": "Yi", "value": "Yiii"},
 {"label": "Zanabazar Square (Zanabazarin Dörböljin Useg, Xewtee Dörböljin Bicig, Horizontal Square Script)", "value": "Zanb"}]
+/*
+page border, text region, text line, header, image, separator, marginalia, initial, table
+Structural
+ PrintSpace
+ Border
+Text
+ TextRegion
+ TextLine
+Table
+ TableRegion
+ TableCell
+Illustrations
+ ImageRegion
+ GraphicRegion
+ LineDrawingRegion
+ MapRegion
+ AdvertRegion
+Art/Science
+ MathsRegion
+ ChemRegion
+ MusicRegion
+Other
+ NoiseRegion
+ UnknownRegion*/

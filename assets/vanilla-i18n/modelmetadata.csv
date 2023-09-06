@@ -50,6 +50,8 @@ form.model.format.title,Model file format,Modelldateiformat
 form.model.format.info,"This is a non-exhaustive selection of model formats options. If none fits, use the "".*"" option.","Dies ist eine nicht erschöpfende Auswahl von Modellformateoptionen. Wenn keine passt, verwenden Sie die Option "".*""."
 form.model.type.title,Model type,Modelltyp
 form.model.type.input,Model type,Modelltyp
+form.model.type.tooltip.layoutanalysis,Can contain reading order and field tagging,Kann die Reading order und Field tagging enthalten
+form.model.type.tooltip.textrecogntion,Can contain language models and text tagging,Kann ein Language Modell und Text tagging enthalten
 form.model.topology.title,Model topology,Modelltopologie
 form.model.topology.input,Model topology,Modelltopologie
 form.model.topology.info,"Here you can give information about the topology of the model. Example: VGSL: [1,0,0,3 Ct5,5,16 Mp3,3 Lfys64 Lfx128 Lrx128 Lfx256 O1c105]","Hier können Informationen über die Topologie des Modells angegeben werdenl. Beispiel: VGSL: [1,0,0,3 Ct5,5,16 Mp3,3 Lfys64 Lfx128 Lrx128 Lfx256 O1c105]"
@@ -77,64 +79,68 @@ form.training.basemodel.name.title,Parent modelname,Basismodellname
 form.training.basemodel.name.input,Parent modelname,Basismodellname
 form.training.basemodel.link.title,Link to parent model,Link zum Basismodell
 form.training.basemodel.link.input,Link to parent model,Link zum Basismodell
-form.segmentation_data.dataset.title,Ground Truth used for training,Verwendete Ground Truth für das Training
-form.segmentation_data.dataset.link.input,Link to dataset,Link zum Datensatz
-form.segmentation_data.dataset.description.input,Please describe the dataset,Bitte beschreiben Sie den Datensatz
-form.segmentation_data.dataset.input,,
-form.segmentation_data.data.modifications.title,Data modifications,Datenmodifikationen
-form.segmentation_data.data.modifications.input,Data modifications,Datenmodifikationen
-form.segmentation_data.data.modifications.info,"Please insert any modification applied to the data not concerning the transcription (data augmentation, binarazation etc.)","Bitte geben Sie jede Modifikation an, die auf die Daten angewendet wurde und die die Transkription nicht betrifft (Datenanreicherung, Binarisierung usw.)."
-form.segmentation_data.layout.features.title,Trained document features,Trainierte Dokumentfunktionen
-form.segmentation_data.layout.features.info,,
-form.segmentation_data.layout.features.complex_ro,Complex Reading Order,Komplexe Lesereihenfolge
-form.segmentation_data.layout.features.multi_col,Multiple Column,Mehrspaltigkeit
-form.segmentation_data.layout.features.table,Tables,Tabellen
-form.segmentation_data.layout.features.advert,Advertisment,Werbung
-form.segmentation_data.layout.features.marginal,Marginal,Marginal
-form.segmentation_data.layout.features.initial,Initial,Initial
-form.segmentation_data.layout.tags.title,Element tags,Element-Tags
-form.segmentation_data.layout.tags.info,,
-form.segmentation_data.layout.tags.description.title,,
-form.segmentation_data.layout.tags.description.input,Tag,Tag
-form.segmentation_data.element_type.title,Element type(s),Elementtyp(en)
-form.segmentation_data.element_type.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Zur Erleichterung der Dateneingabe sind Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um diejenigen zu deaktivieren, die Sie nicht möchten."
-form.segmentation_data.prec.select.level1,Level 1,Level 1
-form.segmentation_data.prec.select.level2,Level 2,Level 2
-form.segmentation_data.prec.select.level3,Level 3,Level 3
-form.segmentation_data.prec.select.levelmix,Level mix,Level gemischt
-form.transcription_data.dataset.title,Ground Truth used for training,Verwendete Ground Truth für das Training
-form.transcription_data.dataset.link.input,,
-form.transcription_data.dataset.description.input,,
-form.transcription_data.dataset.input,,
-form.transcription_data.script.type.select.info, -- select an option -- ,-- eine Option auswählen --
-form.transcription_data.script.type.select.print,Print (e.g. books),Druck (z. B. Bücher)
-form.transcription_data.script.type.select.only-typed,Typed only,Nur getippt
-form.transcription_data.script.type.select.only-manuscript,Manuscript only,Nur Manuskript
-form.transcription_data.script.type.select.mainly-typed,Mainly typed,Hauptsächlich getippt
-form.transcription_data.script.type.select.mainly-manuscript,Mainly manuscript,Hauptsächlich Manuskript
-form.transcription_data.script.type.select.evenly-mixed,Evenly typed and manuscript,Gleichmäßig getippt und Manuskript
-form.transcription_data.script.type.select.all,All,Alle
-form.transcription_data.script.title,Document type,Dokumenttyp
-form.transcription_data.year.start.title,Training data Start-Year,Startjahr der Trainingsdaten
-form.transcription_data.year.start.input,,
-form.transcription_data.year.info,"For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.","Bei Jahrhunderten verwenden Sie bitte die Verwendung von 1200, wenn ein Datensatz im 13. Jahrhundert beginnt, und 1299, wenn er im 13. Jahrhundert endet. Daten müssen nicht präzise sein."
-form.transcription_data.year.end.title,Training data End-Year,Endjahr der Trainingsdaten
-form.transcription_data.year.end.input,,
-form.transcription_data.scripts.title,Font/Writing system,Schriftsatz/Schriftsystem
-form.transcription_data.scripts.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Zur Erleichterung der Dateneingabe sind Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um diejenigen zu deaktivieren, die Sie nicht möchten."
-form.transcription_data.languages.title,Language(s),Sprache(n)
-form.transcription_data.languages.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Zur Erleichterung der Dateneingabe sind Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um diejenigen zu deaktivieren, die Sie nicht möchten."
-form.transcription_data.guidelines.title,Transcription guidelines,Transkriptionsrichtlinien
-form.transcription_data.guidelines.input,,
-form.transcription_data.guidelines.info,"Guidelines used to transcribe the resources (normalization, resolution of abbreviation, correction of mispelling, etc.)","Richtlinien zur Transkription der Ressourcen (Normalisierung, Auflösung von Abkürzungen, Korrektur von Rechtschreibfehlern, etc.)"
-form.transcription_data.prec.select.level1,Level 1,Level 1
-form.transcription_data.prec.select.level2,Level 2,Level 2
-form.transcription_data.prec.select.level3,Level 3,Level 3
-form.transcription_data.prec.select.levelmix,Level mix,Level gemischt
-form.transcription_data.prec.title,Transcription level,Transkriptionsstufe
-form.transcription_data.data.modifications.title,Data modifications,Datenmodifikationen
-form.transcription_data.data.modifications.input,Data modifications,Datenmodifikationen
-form.transcription_data.data.modifications.info,"Please insert any modification applied to the data not concerning the transcription (data augmentation, binarazation etc.)","Bitte geben Sie jede Modifikation an, die auf die Daten angewendet wurde und die die Transkription nicht betrifft (Datenanreicherung, Binarisierung usw.)."
+form.layout_data.dataset.title,Ground Truth used for training,Verwendete Ground Truth für das Training
+form.layout_data.dataset.link.input,Link to dataset,Link zum Datensatz
+form.layout_data.dataset.description.input,Please describe the dataset,Bitte beschreiben Sie den Datensatz
+form.layout_data.dataset.input,,
+form.layout_data.data.modifications.title,Data modifications,Datenmodifikationen
+form.layout_data.data.modifications.input,Data modifications,Datenmodifikationen
+form.layout_data.data.modifications.info,"Please insert any modification applied to the data not concerning the transcription (data augmentation, binarazation etc.)","Bitte geben Sie jede Modifikation an, die auf die Daten angewendet wurde und die die Transkription nicht betrifft (Datenanreicherung, Binarisierung usw.)."
+form.layout_data.layout.features.title,Trained document features,Trainierte Dokumentfunktionen
+form.layout_data.layout.features.info,,
+form.layout_data.layout.features.complex_ro,Complex Reading Order,Komplexe Lesereihenfolge
+form.layout_data.layout.features.multi_col,Multiple Column,Mehrspaltigkeit
+form.layout_data.layout.features.table,Tables,Tabellen
+form.layout_data.layout.features.advert,Advertisment,Werbung
+form.layout_data.layout.features.marginal,Marginal,Marginal
+form.layout_data.layout.features.initial,Initial,Initial
+form.layout_data.layout.tags.title,Element tags,Element-Tags
+form.layout_data.layout.tags.info,,
+form.layout_data.layout.tags.description.title,,
+form.layout_data.layout.tags.description.input,Tag,Tag
+form.layout_data.model.specs.title,Specification layout analysis,Spezifkation Layoutanalyse
+form.layout_data.model.specs.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","To ease data entry, default values are already selected. Just click on it to deselect the one you don't want."
+form.text_data.model.specs.title,Specification text recognition,Spezifikation Texterkennung
+form.text_data.model.specs.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","To ease data entry, default values are already selected. Just click on it to deselect the one you don't want."
+form.layout_data.element_type.title,Element type(s),Elementtyp(en)
+form.layout_data.element_type.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Zur Erleichterung der Dateneingabe sind Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um diejenigen zu deaktivieren, die Sie nicht möchten."
+form.layout_data.prec.select.level1,Level 1,Level 1
+form.layout_data.prec.select.level2,Level 2,Level 2
+form.layout_data.prec.select.level3,Level 3,Level 3
+form.layout_data.prec.select.levelmix,Level mix,Level gemischt
+form.text_data.dataset.title,Ground Truth used for training,Verwendete Ground Truth für das Training
+form.text_data.dataset.link.input,,
+form.text_data.dataset.description.input,,
+form.text_data.dataset.input,,
+form.text_data.script.type.select.info, -- select an option -- ,-- eine Option auswählen --
+form.text_data.script.type.select.print,Print (e.g. books),Druck (z. B. Bücher)
+form.text_data.script.type.select.only-typed,Typed only,Nur getippt
+form.text_data.script.type.select.only-manuscript,Manuscript only,Nur Manuskript
+form.text_data.script.type.select.mainly-typed,Mainly typed,Hauptsächlich getippt
+form.text_data.script.type.select.mainly-manuscript,Mainly manuscript,Hauptsächlich Manuskript
+form.text_data.script.type.select.evenly-mixed,Evenly typed and manuscript,Gleichmäßig getippt und Manuskript
+form.text_data.script.type.select.all,All,Alle
+form.text_data.script.title,Document type,Dokumenttyp
+form.text_data.year.start.title,Training data Start-Year,Startjahr der Trainingsdaten
+form.text_data.year.start.input,,
+form.text_data.year.info,"For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.","Bei Jahrhunderten verwenden Sie bitte die Verwendung von 1200, wenn ein Datensatz im 13. Jahrhundert beginnt, und 1299, wenn er im 13. Jahrhundert endet. Daten müssen nicht präzise sein."
+form.text_data.year.end.title,Training data End-Year,Endjahr der Trainingsdaten
+form.text_data.year.end.input,,
+form.text_data.scripts.title,Font/Writing system,Schriftsatz/Schriftsystem
+form.text_data.scripts.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Zur Erleichterung der Dateneingabe sind Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um diejenigen zu deaktivieren, die Sie nicht möchten."
+form.text_data.languages.title,Language(s),Sprache(n)
+form.text_data.languages.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Zur Erleichterung der Dateneingabe sind Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um diejenigen zu deaktivieren, die Sie nicht möchten."
+form.text_data.guidelines.title,Transcription guidelines,Transkriptionsrichtlinien
+form.text_data.guidelines.input,,
+form.text_data.guidelines.info,"Guidelines used to transcribe the resources (normalization, resolution of abbreviation, correction of mispelling, etc.)","Richtlinien zur Transkription der Ressourcen (Normalisierung, Auflösung von Abkürzungen, Korrektur von Rechtschreibfehlern, etc.)"
+form.text_data.prec.select.level1,Level 1,Level 1
+form.text_data.prec.select.level2,Level 2,Level 2
+form.text_data.prec.select.level3,Level 3,Level 3
+form.text_data.prec.select.levelmix,Level mix,Level gemischt
+form.text_data.prec.title,Transcription level,Transkriptionsstufe
+form.text_data.data.modifications.title,Data modifications,Datenmodifikationen
+form.text_data.data.modifications.input,Data modifications,Datenmodifikationen
+form.text_data.data.modifications.info,"Please insert any modification applied to the data not concerning the transcription (data augmentation, binarazation etc.)","Bitte geben Sie jede Modifikation an, die auf die Daten angewendet wurde und die die Transkription nicht betrifft (Datenanreicherung, Binarisierung usw.)."
 form.project.name.title,Project's name (if different from the repository/dataset's one),Projektname (falls unterschiedlich vom Namen des Repositorys/Datensatzes)
 form.project.name.input,Project's name (if different from the repository/dataset's one),Projektname (falls unterschiedlich vom Namen des Repositorys/Datensatzes)
 form.project.link.title,Link to project's website,Link zur Website des Projekts
@@ -178,10 +184,10 @@ form.environmental.carbon.title,Carbon emitted in grams of CO2eq,Kohlenstoffemis
 form.environmental.carbon.input,Carbon emitted in grams of CO2eq,Kohlenstoffemissionen in Gramm CO2eq
 form.environmental.region.title,Compute region,Berechnungsregion
 form.environmental.region.input,Compute region,Berechnungsregion
-form.heading.segmentation_data,Segmentation training & data,Segmentierungstraining & -daten
-form.segmentation_data.layout.features.intial.title,Inital,Anfang
-form.segmentation_data.prec.title,Segmentation level,Segmentierungsebene
-form.heading.transcription_data,Transcription training & data,Transkriptionstraining & -daten
+form.heading.layout_data,Layout analysis training & data,Layoutanalysetraining & -daten
+form.layout_data.layout.features.intial.title,Inital,Anfang
+form.layout_data.prec.title,Segmentation level,Segmentierungsebene
+form.heading.text_data,Text recognition training & data,Texterkennungstraining & -daten
 form.evaluation.title,Evaluation,Evaluation
 form.evaluation.input,Evaluation information,Evaluationsinformationen
 form.evaluation.info,Detail the evaluation results for this model,Beschreiben Sie die Bewertungsergebnisse für dieses Modell
@@ -199,5 +205,5 @@ form.glossary.input,Glossary details,Glossardetails
 form.howto.title,How to get started?,Anwendungsanweisung
 form.howto.info,Some guidelines how to get started with the model or link to an online instance to test the model,"Einige Richtlinien, wie Sie mit dem Modell beginnen können, oder ein Link zu einer Online-Instanz, um das Modell zu testen"
 form.howto.input,Description how to get started,Anwendungsanweisung
-form.segmentation_data.layout.features.titel,Trained document features,Eigenschaften der trainierten Dokumente
-form.segmentation_data.layout.features.intial,Initial,Initiale
+form.layout_data.layout.features.titel,Trained document features,Eigenschaften der trainierten Dokumente
+form.layout_data.layout.features.intial,Initial,Initiale

@@ -234,6 +234,7 @@
                                 <option value=".ckpt">.ckpt</option>
                                 <option value=".pb">.pb</option>
                                 <option value=".pt">.pt</option>
+                                <option value=".pth">.pth</option>
                                 <option value="">.*</option>
                             </select>
                         </div>
@@ -257,15 +258,45 @@
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="btn-group btn-group-sm">
-                                        <a id="modeltype-key-segmentation"
-                                           class="btn btn-sm btn-outline-info modeltype-key" href="#">Segmentation/Layout</a>
-                                        <a id="modeltype-key-transcription"
-                                           class="btn btn-sm btn-outline-info modeltype-key" href="#">Transcription/Recognition</a>
+                                        <a id="modeltype-key-layoutanalysis" vanilla-i18n-title="form.model.type.tooltip.la" title="Models for segmentation, reading order and field tagging or a mix of them"
+                                           class="btn btn-sm btn-outline-info modeltype-key" href="#">Layout analysis</a>
+                                        <a id="modeltype-key-textrecogntion" vanilla-i18n-title="form.model.type.tooltip.rec" title="Models for transcript, language and text tagging or a mix of them"
+                                           class="btn btn-sm btn-outline-info modeltype-key" href="#">Text recognition</a>
+                                        <a id="modeltype-key-end2end" vanilla-i18n-title="form.model.type.tooltip.end2end" title="Model for an end2end engine"
+                                           class="btn btn-sm btn-outline-info modeltype-key" href="#">Layout analysis + Text recognition</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                        <div class="form-group row my-2" style="display:none;" id="layout_specs">
+                            <label for="layoutmodelspec" class="col-sm-3 col-form-label">
+                                <i18n vanilla-i18n="form.layout_data.model.specs.title">Model specification</i18n>
+                            </label>
+                            <div class="col-sm-9">
+                                <span class="layoutmodel-specs" id="layoutmodelspec"></span>
+                                <small class="form-text text-muted">
+                                    <i18n vanilla-i18n="form.layout_data.model.specs.info">To ease data entry,
+                                        default values are already selected. Just click on it to deselect the one you
+                                        don't want.
+                                    </i18n>
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2" style="display:none;" id="text_specs">
+                            <label for="textmodelspecs" class="col-sm-3 col-form-label">
+                                <i18n vanilla-i18n="form.text_data.model.specs.title"></i18n>
+                            </label>
+                            <div class="col-sm-9">
+                                <span class="textmodel-specs" id="textmodelspecs"></span>
+                                <small class="form-text text-muted">
+                                    <i18n vanilla-i18n="form.text_data.model.specs.info">To ease data entry,
+                                        default values are already selected. Just click on it to deselect the one you
+                                        don't want.
+                                    </i18n>
+                                </small>
+                            </div>
+                        </div>
                     <div class="form-group row my-2">
                         <label for="topology" class="col-sm-3 col-form-label">
                             <i18n vanilla-i18n="form.model.topology.title">Model topology</i18n></label>
@@ -303,6 +334,8 @@
                                            href="#">PyLaia</a>
                                         <a id="software-key-eynollah" class="btn btn-sm btn-outline-info software-key"
                                            href="#">Eynollah</a>
+                                        <a id="software-key-p2pala" class="btn btn-sm btn-outline-info software-key"
+                                           href="#">P2PaLA</a>
                                         <a id="software-key-other" class="btn btn-sm btn-outline-info software-key"
                                            href="#">Other</a>
                                     </div>
@@ -591,13 +624,13 @@
                     </details>
                     </details>
 
-                    <details class="accordion active" id="segmentation_data" style="display:none;" open>
+                    <details class="accordion active" id="layout_data" style="display:none;" open>
                             <summary class="col">
-                                <h2 vanilla-i18n="form.heading.segmentation_data">Segmentation training & data</h2>
+                                <h2 vanilla-i18n="form.heading.layout_data">Layout analysis training & data</h2>
                             </summary>
                         <div class="form-group row my-2">
                             <label for="features" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.segmentation_data.layout.features.titel">Trained document features
+                                <i18n vanilla-i18n="form.layout_data.layout.features.titel">Trained document features
                                 </i18n>
                             </label>
                             <div class="col-9">
@@ -611,7 +644,7 @@
                                                            id="layoutFeatureComplexReadingOrder" class="roles">
                                                     <label class="form-check-label"
                                                            for="layoutFeatureComplexReadingOrder">
-                                                        <i18n vanilla-i18n="form.segmentation_data.layout.features.complex_ro">
+                                                        <i18n vanilla-i18n="form.layout_data.layout.features.complex_ro">
                                                             Complex Reading Order
                                                         </i18n>
                                                     </label>
@@ -620,7 +653,7 @@
                                                     <input type="checkbox" value="multi-column" name="layoutFeatureMultiColumn"
                                                            id="layoutFeatureMultiCol" class="roles">
                                                     <label class="form-check-label" for="layoutFeatureMultiCol">
-                                                        <i18n vanilla-i18n="form.segmentation_data.layout.features.multi_col">
+                                                        <i18n vanilla-i18n="form.layout_data.layout.features.multi_col">
                                                             Multiple Column
                                                         </i18n>
                                                     </label>
@@ -629,7 +662,7 @@
                                                     <input type="checkbox" value="tables" name="layoutFeatureTable"
                                                            id="layoutFeatureTable" class="roles">
                                                     <label class="form-check-label" for="layoutFeatureTable">
-                                                        <i18n vanilla-i18n="form.segmentation_data.layout.features.table">
+                                                        <i18n vanilla-i18n="form.layout_data.layout.features.table">
                                                             Tables
                                                         </i18n>
                                                     </label>
@@ -640,7 +673,7 @@
                                                     <input type="checkbox" value="advertisment" name="layoutFeatureAdvert"
                                                            id="layoutFeatureAdvert" class="roles">
                                                     <label class="form-check-label" for="layoutFeatureAdvert">
-                                                        <i18n vanilla-i18n="form.segmentation_data.layout.features.advert">
+                                                        <i18n vanilla-i18n="form.layout_data.layout.features.advert">
                                                             Advertisment
                                                         </i18n>
                                                     </label>
@@ -649,7 +682,7 @@
                                                     <input type="checkbox" value="marginal" name="layoutFeatureMarginal"
                                                            id="layoutFeatureMarginal" class="roles">
                                                     <label class="form-check-label" for="layoutFeatureMarginal">
-                                                        <i18n vanilla-i18n="form.segmentation_data.layout.features.marginal">
+                                                        <i18n vanilla-i18n="form.layout_data.layout.features.marginal">
                                                             Marginal
                                                         </i18n>
                                                     </label>
@@ -658,7 +691,7 @@
                                                     <input type="checkbox" value="initial" name="layoutFeatureInitial"
                                                            id="layoutFeatureInitial" class="roles">
                                                     <label class="form-check-label" for="layoutFeatureInitial">
-                                                        <i18n vanilla-i18n="form.segmentation_data.layout.features.intial">
+                                                        <i18n vanilla-i18n="form.layout_data.layout.features.intial">
                                                             Initial
                                                         </i18n>
                                                     </label>
@@ -671,12 +704,12 @@
                         </div>
                         <div class="form-group row my-2">
                             <label for="element-type" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.segmentation_data.element_type.title"></i18n>
+                                <i18n vanilla-i18n="form.layout_data.element_type.title"></i18n>
                             </label>
                             <div class="col-sm-9">
                                 <span class="element-type" id="element-type"></span>
                                 <small class="form-text text-muted">
-                                    <i18n vanilla-i18n="form.segmentation_data.element_type.title">To ease data entry,
+                                    <i18n vanilla-i18n="form.layout_data.element_type.title">To ease data entry,
                                         default values are already selected. Just click on it to deselect the one you
                                         don't want.
                                     </i18n>
@@ -685,7 +718,7 @@
                         </div>
                         <div class="form-group row my-2">
                             <label for="element-tags" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.segmentation_data.layout.tags.title">Ground Truth used for
+                                <i18n vanilla-i18n="form.layout_data.layout.tags.title">Ground Truth used for
                                     training
                                 </i18n>
                             </label>
@@ -693,16 +726,16 @@
                                 <div class="tags-form" id="element-tags">
                                     <div class="input-group">
                                         <div class="col-sm-9">
-                                            <select name="segmentationTag" class="form-control">
+                                            <select name="layoutanalysisTag" class="form-control">
                                                 <option value="Region">Region</option>
                                                 <option value="TextLine">TextLine</option>
                                             </select>
-                                            <!-- <input vanilla-i18n-placeholder="form.segmentation_data.layout.tags.link.input" type="text" name="count" class="form-control" placeholder="Element type"> !-->
+                                            <!-- <input vanilla-i18n-placeholder="form.layout_data.layout.tags.link.input" type="text" name="count" class="form-control" placeholder="Element type"> !-->
                                         </div>
                                         <div class="col-sm-9">
                                             <textarea style="height: 40px;"
-                                                      vanilla-i18n-placeholder="form.segmentation_data.layout.tags.description.input"
-                                                      name="segmentationTagDescription" class="form-control"
+                                                      vanilla-i18n-placeholder="form.layout_data.layout.tags.description.input"
+                                                      name="layoutanalysisTagDescription" class="form-control"
                                                       placeholder="Tag"></textarea>
                                         </div>
                                         <div class="input-group-append">
@@ -716,28 +749,28 @@
                         </div>
 
                         <div class="form-group row my-2">
-                            <label for="segmentation_dataset" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.segmentation_data.dataset.title">Ground Truth used for
+                            <label for="layout_dataset" class="col-sm-3 col-form-label">
+                                <i18n vanilla-i18n="form.layout_data.dataset.title">Ground Truth used for
                                     training
                                 </i18n>
                             </label>
                             <div class="col-sm-9 row-2">
-                                <div class="segmentation-sources-form" id="segmentation_dataset">
+                                <div class="layoutanalysis-sources-form" id="layout_dataset">
                                     <div class="input-group">
                                         <div class="col-sm-9">
-                                            <input vanilla-i18n-placeholder="form.segmentation_data.dataset.link.input"
-                                                   type="text" name="segmentationDatasetLink" class="form-control"
+                                            <input vanilla-i18n-placeholder="form.layout_data.dataset.link.input"
+                                                   type="text" name="layoutanalysisDatasetLink" class="form-control"
                                                    placeholder="Dataset URL">
                                         </div>
                                         <div class="col-sm-9">
                                             <textarea style="height: 100px;"
-                                                      vanilla-i18n-placeholder="form.segmentation_data.dataset.description.input"
-                                                      name="segmentationDatasetDescription" class="form-control"
+                                                      vanilla-i18n-placeholder="form.layout_data.dataset.description.input"
+                                                      name="layoutanalysisDatasetDescription" class="form-control"
                                                       placeholder="Description dataset"></textarea>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-primary add-segmentation-source" type="button">+</button>
-                                            <button class="btn btn-outline-danger d-none remove-segmentation-source" type="button">
+                                            <button class="btn btn-outline-primary add-layoutanalysis-source" type="button">+</button>
+                                            <button class="btn btn-outline-danger d-none remove-layoutanalysis-source" type="button">
                                                 -
                                             </button>
                                         </div>
@@ -746,35 +779,35 @@
                             </div>
                         </div>
                         <div class="form-group row my-2">
-                            <label for="transcription-level" class="col-sm-3 col-form-label mt-2">
-                                <i18n vanilla-i18n="form.segmentation_data.prec.title">Segmentation level</i18n>
+                            <label for="layoutanalysis-level" class="col-sm-3 col-form-label mt-2">
+                                <i18n vanilla-i18n="form.layout_data.prec.title">Layout analysis level</i18n>
                             </label>
                             <div class="col-sm-3">
-                                <select name="segmentationLevel" id="segmentation-level" class="form-control my-2">
+                                <select name="layoutanalysisLevel" id="layoutanalysis-level" class="form-control my-2">
                                     <option value="level1" selected=""
-                                            vanilla-i18n="form.segmentation_data.prec.select.level1">Level 1
+                                            vanilla-i18n="form.layout_data.prec.select.level1">Level 1
                                     </option>
                                     <option value="level2" selected=""
-                                            vanilla-i18n="form.segmentation_data.prec.select.level2">Level 2
+                                            vanilla-i18n="form.layout_data.prec.select.level2">Level 2
                                     </option>
                                     <option value="levelmix" selected=""
-                                            vanilla-i18n="form.segmentation_data.prec.select.levelmix">Level mix
+                                            vanilla-i18n="form.layout_data.prec.select.levelmix">Level mix
                                     </option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row my-2">
-                            <label for="segmentationDataModifications" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.segmentation_data.data.modifications.title">Data
+                            <label for="layoutanalysisDataModifications" class="col-sm-3 col-form-label">
+                                <i18n vanilla-i18n="form.layout_data.data.modifications.title">Data
                                     modifications
                                 </i18n>
                             </label>
                             <div class="col-sm-9">
-                                <textarea name="segmentationDataModification" class="form-control"
-                                          id="segmentationDataModifications" placeholder="Data modifications"
-                                          vanilla-i18n-placeholder="form.segmentation_data.data.modifications.input"></textarea>
+                                <textarea name="layoutanalysisDataModification" class="form-control"
+                                          id="layoutanalysisDataModifications" placeholder="Data modifications"
+                                          vanilla-i18n-placeholder="form.layout_data.data.modifications.input"></textarea>
                                 <p><small class="text-muted">
-                                    <i18n vanilla-i18n="form.segmentation_data.data.modifications.info">Please insert
+                                    <i18n vanilla-i18n="form.layout_data.data.modifications.info">Please insert
                                         any modification applied to the data not concerning the transcription (data
                                         augmentation, binarazation etc.)
                                     </i18n>
@@ -783,42 +816,41 @@
                         </div>
                     </details>
 
-
-                    <details class="accordion active" id="transcription_data" style="display:none;" open>
+                    <details class="accordion active" id="text_data" style="display:none;" open>
                             <summary class="col">
-                                <h2 vanilla-i18n="form.heading.transcription_data">Transcription training & data</h2>
+                                <h2 vanilla-i18n="form.heading.text_data">Text recognition training & data</h2>
                             </summary>
                         <div class="form-group row my-2">
                             <label for="scriptType" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.transcription_data.script.title">Document type</i18n>
+                                <i18n vanilla-i18n="form.text_data.script.title">Document type</i18n>
                             </label>
                             <div class="col-sm-9">
                                 <select name="scriptType" id="scriptType" class="form-control">
-                                    <option value="info" vanilla-i18n="form.transcription_data.script.type.select.info"
+                                    <option value="info" vanilla-i18n="form.text_data.script.type.select.info"
                                             disabled selected> -- select an option --
                                     </option>
-                                    <!-- <option value="print" vanilla-i18n="form.transcription_data.script.type.select.print">Print (e.g. books)</option> !-->
+                                    <!-- <option value="print" vanilla-i18n="form.text_data.script.type.select.print">Print (e.g. books)</option> !-->
                                     <option value="only-manuscript"
-                                            vanilla-i18n="form.transcription_data.script.type.select.only-manuscript">
+                                            vanilla-i18n="form.text_data.script.type.select.only-manuscript">
                                         Manuscript only
                                     </option>
                                     <option value="only-typed"
-                                            vanilla-i18n="form.transcription_data.script.type.select.only-typed">Typed
+                                            vanilla-i18n="form.text_data.script.type.select.only-typed">Typed
                                         only
                                     </option>
                                     <option value="mainly-manuscript"
-                                            vanilla-i18n="form.transcription_data.script.type.select.mainly-manuscript">
+                                            vanilla-i18n="form.text_data.script.type.select.mainly-manuscript">
                                         Mainly manuscript
                                     </option>
                                     <option value="mainly-typed"
-                                            vanilla-i18n="form.transcription_data.script.type.select.mainly-typed">
+                                            vanilla-i18n="form.text_data.script.type.select.mainly-typed">
                                         Mainly type
                                     </option>
                                     <option value="evenly-mixed"
-                                            vanilla-i18n="form.transcription_data.script.type.select.evenly-mixed">
+                                            vanilla-i18n="form.text_data.script.type.select.evenly-mixed">
                                         Evenly typed and manuscript
                                     </option>
-                                    <option value="all" vanilla-i18n="form.transcription_data.script.type.select.all">
+                                    <option value="all" vanilla-i18n="form.text_data.script.type.select.all">
                                         All
                                     </option>
                                 </select>
@@ -826,27 +858,27 @@
                         </div>
                         <div class="form-group row my-2">
                             <label for="date-begin" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.transcription_data.year.start.title">Data Start-Year</i18n>
+                                <i18n vanilla-i18n="form.text_data.year.start.title">Data Start-Year</i18n>
                             </label>
                             <div class="col-sm-3">
-                                <input type="number" name="transcriptionDateBegin" class="form-control" id="date-begin"
+                                <input type="number" name="textDateBegin" class="form-control" id="date-begin"
                                        placeholder="Example: 1800"
-                                       vanilla-i18n-placeholder="form.transcription_data.year.start.input"/>
+                                       vanilla-i18n-placeholder="form.text_data.year.start.input"/>
                             </div>
                             <div class="col-sm-1"></div>
                             <label for="date-end" class="col-sm-2 col-form-label">
-                                <i18n vanilla-i18n="form.transcription_data.year.end.title">Data End-Year</i18n>
+                                <i18n vanilla-i18n="form.text_data.year.end.title">Data End-Year</i18n>
                             </label>
                             <div class="col-sm-3">
-                                <input type="number" name="transcriptionDateEnd" class="form-control" id="date-end"
+                                <input type="number" name="textDateEnd" class="form-control" id="date-end"
                                        placeholder="Example: 1948"
-                                       vanilla-i18n-placeholder="form.transcription_data.year.end.input"/>
+                                       vanilla-i18n-placeholder="form.text_data.year.end.input"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col offset-3">
                                 <p><small class="text-muted">
-                                    <i18n vanilla-i18n="form.transcription_data.year.info">For centuries, please prefer
+                                    <i18n vanilla-i18n="form.text_data.year.info">For centuries, please prefer
                                         the use of 1200 when a dataset starts in the 13th century and 1299 when it ends
                                         in the 13th century. Dates do not need to be precise.
                                     </i18n>
@@ -855,12 +887,12 @@
                         </div>
                         <div class="form-group row my-2">
                             <label for="language" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.transcription_data.languages.title">Language(s)</i18n>
+                                <i18n vanilla-i18n="form.text_data.languages.title">Language(s)</i18n>
                             </label>
                             <div class="col-sm-9">
                                 <span class="language" id="language"></span>
                                 <small class="form-text text-muted">
-                                    <i18n vanilla-i18n="form.transcription_data.languages.info">To ease data entry,
+                                    <i18n vanilla-i18n="form.text_data.languages.info">To ease data entry,
                                         default values are already selected. Just click on it to deselect the one you
                                         don't want.
                                     </i18n>
@@ -869,12 +901,12 @@
                         </div>
                         <div class="form-group row my-2">
                             <label for="scripts" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.transcription_data.scripts.title">Font/Writing system</i18n>
+                                <i18n vanilla-i18n="form.text_data.scripts.title">Font/Writing system</i18n>
                             </label>
                             <div class="col-sm-9">
                                 <span class="scripts" id="scripts"></span>
                                 <small class="form-text text-muted">
-                                    <i18n vanilla-i18n="form.transcription_data.scripts.info">To ease data entry,
+                                    <i18n vanilla-i18n="form.text_data.scripts.info">To ease data entry,
                                         default values are already selected. Just click on it to deselect the one you
                                         don't want.
                                     </i18n>
@@ -882,23 +914,23 @@
                             </div>
                         </div>
                         <div class="form-group row my-2">
-                            <label for="transcriptionDataDescription" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.transcription_data.dataset.title">Ground Truth used for
+                            <label for="textDataDescription" class="col-sm-3 col-form-label">
+                                <i18n vanilla-i18n="form.text_data.dataset.title">Ground Truth used for
                                     training
                                 </i18n>
                             </label>
                             <div class="col-sm-9 row-2">
                                 <div class="sources-form">
-                                    <div class="input-group" id="transcriptionDataDescription">
+                                    <div class="input-group" id="textDataDescription">
                                         <div class="col-sm-9">
-                                            <input vanilla-i18n-placeholder="form.transcription_data.dataset.link.input"
-                                                   type="text" name="transcriptionDatasetLink" class="form-control"
+                                            <input vanilla-i18n-placeholder="form.text_data.dataset.link.input"
+                                                   type="text" name="textDatasetLink" class="form-control"
                                                    placeholder="Dataset URL">
                                         </div>
                                         <div class="col-sm-9">
                                             <textarea style="height: 100px;"
-                                                      vanilla-i18n-placeholder="form.transcription_data.dataset.description.input"
-                                                      name="transcriptionDatasetDescription" class="form-control"
+                                                      vanilla-i18n-placeholder="form.text_data.dataset.description.input"
+                                                      name="textDatasetDescription" class="form-control"
                                                       placeholder="Description dataset"></textarea>
                                         </div>
                                         <div class="input-group-append">
@@ -913,36 +945,36 @@
                         </div>
                         <div class="form-group row my-2">
                             <label for="transcription-level" class="col-sm-3 col-form-label mt-2">
-                                <i18n vanilla-i18n="form.transcription_data.prec.title">Transcription level</i18n>
+                                <i18n vanilla-i18n="form.text_data.prec.title">Transcription level</i18n>
                             </label>
                             <div class="col-sm-3">
                                 <select name="transcriptionLevel" id="transcription-level" class="form-control my-2">
                                     <option value="level1" selected=""
-                                            vanilla-i18n="form.transcription_data.prec.select.level1">Level 1
+                                            vanilla-i18n="form.text_data.prec.select.level1">Level 1
                                     </option>
                                     <option value="level2" selected=""
-                                            vanilla-i18n="form.transcription_data.prec.select.level2">Level 2
+                                            vanilla-i18n="form.text_data.prec.select.level2">Level 2
                                     </option>
                                     <option value="level3" selected=""
-                                            vanilla-i18n="form.transcription_data.prec.select.level3">Level 3
+                                            vanilla-i18n="form.text_data.prec.select.level3">Level 3
                                     </option>
                                     <option value="levelmix" selected=""
-                                            vanilla-i18n="form.transcription_data.prec.select.levelmix">Level mix
+                                            vanilla-i18n="form.text_data.prec.select.levelmix">Level mix
                                     </option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row my-2">
                             <label for="transcriptionGuidelines" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.transcription_data.guidelines.title">Transcription guidelines
+                                <i18n vanilla-i18n="form.text_data.guidelines.title">Transcription guidelines
                                 </i18n>
                             </label>
                             <div class="col-sm-9">
                                 <textarea name="transcriptionGuidelines" class="form-control"
                                           id="transcriptionGuidelines" placeholder="Transcription guidelines"
-                                          vanilla-i18n-placeholder="form.transcription_data.guidelines.input"></textarea>
+                                          vanilla-i18n-placeholder="form.text_data.guidelines.input"></textarea>
                                 <p><small class="text-muted">
-                                    <i18n vanilla-i18n="form.transcription_data.guidelines.info">Guidelines used to
+                                    <i18n vanilla-i18n="form.text_data.guidelines.info">Guidelines used to
                                         transcribe the resources (normalization, resolution of abbreviation, correction
                                         of misspelling, etc.)
                                     </i18n>
@@ -951,16 +983,16 @@
                         </div>
                         <div class="form-group row my-2">
                             <label for="transcriptionDataModifications" class="col-sm-3 col-form-label">
-                                <i18n vanilla-i18n="form.transcription_data.data.modifications.title">Data
+                                <i18n vanilla-i18n="form.text_data.data.modifications.title">Data
                                     modifications
                                 </i18n>
                             </label>
                             <div class="col-sm-9">
                                 <textarea name="transcriptionGuidelines" class="form-control" id="transcriptionDataModifications"
                                           placeholder="Data modifications"
-                                          vanilla-i18n-placeholder="form.transcription_data.data.modifications.input"></textarea>
+                                          vanilla-i18n-placeholder="form.text_data.data.modifications.input"></textarea>
                                 <p><small class="text-muted">
-                                    <i18n vanilla-i18n="form.transcription_data.data.modifications.info">Please insert
+                                    <i18n vanilla-i18n="form.text_data.data.modifications.info">Please insert
                                         any modification applied to the data not concerning the transcription (data
                                         augmentation, binarization etc.)
                                     </i18n>

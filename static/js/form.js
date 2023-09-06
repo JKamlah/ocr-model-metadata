@@ -58,14 +58,14 @@
     
     document.querySelector(".add-author").addEventListener("click", addAuthor);
 
-    const segSourcesOriginal = document.querySelector(".segmentation-sources-form");
+    const segSourcesOriginal = document.querySelector(".layoutanalysis-sources-form");
 
-    const addSegmentationSource = function(event) {
+    const addlayoutanalysisSource = function(event) {
       event.preventDefault();
       // Retrieve element and their copy
       let new_elem = segSourcesOriginal.cloneNode(true),
-          add_button = new_elem.querySelector(".add-segmentation-source"),
-          remove_button = new_elem.querySelector(".remove-segmentation-source"),
+          add_button = new_elem.querySelector(".add-layoutanalysis-source"),
+          remove_button = new_elem.querySelector(".remove-layoutanalysis-source"),
           text_inputs = new_elem.querySelectorAll("input[type='text']");
 
 
@@ -79,11 +79,11 @@
       remove_button.classList.remove("d-none");
 
       // Register events
-      add_button.addEventListener("click", addSegmentationSource);
+      add_button.addEventListener("click", addlayoutanalysisSource);
       remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
     };
 
-    document.querySelector(".add-segmentation-source").addEventListener("click", addSegmentationSource);
+    document.querySelector(".add-layoutanalysis-source").addEventListener("click", addlayoutanalysisSource);
 
     const sourcesOriginal = document.querySelector(".sources-form");
 
@@ -224,6 +224,9 @@
 
       updateOrIgnoreDictWithIdKeyDict(ids, out.model);
 
+      out.model['layout-specs'] = layoutModelSpecsSelect.value();
+      out.model['text-specs'] = textModelSpecsSelect.value();
+
       out.model['license'] = {}
       out.model.license['name'] = document.getElementById('license').value;
       out.model.license['url'] =  LICENSES[document.getElementById('license').value];
@@ -292,7 +295,7 @@
 
 
     const getTraining = function () {
-      let out = {"training": {"info": {}, "data": {}}};
+      let out = {"training": {"info": {}, "data": {"layout": {}, "text": {}}}};
 
       out.training.info['trainingstype'] = document.getElementById('trainingstype').value;
 
@@ -311,38 +314,42 @@
 
       if (Object.keys(out.training.info.environmentalImpact).length === 0) { delete out.training.info['environmentalImpact'] }
       if (Object.keys(out.training.info).length === 0) { delete out.training['info'] }
-
-      var segmentation_data = document.getElementById('segmentation_data');
-      if (segmentation_data.style.display == 'flex'){
-        out.training.data["type"] = "segmentation"
+      var layout_data = document.getElementById('layout_data');
+      if (layout_data.style.display == 'flex'){
+        out.training.data.layout["type"] = "layoutanalysis"
         let feature_ids = document.getElementById("features").querySelectorAll("input[type='checkbox']:checked");
         if (feature_ids.length > 0) {
-          out.training.data["features"] = []
-          out.training.data.features = [...feature_ids].map((o) => o.value);
+          out.training.data.layout["features"] = []
+          out.training.data.layout.features = [...feature_ids].map((o) => o.value);
         }
-        out.training.data["elementType"] = elementTypeSelect.value();
-        out.training.data["elementTags"] = getTags();
-        out.training.data["datasets"] = getDatasets("segmentation");
-        out.training.data["level"] = document.getElementById('segmentation-level').value;
-        out.training.data["dataModifications"] = document.getElementById('segmentationDataModifications').value;
-      } else {
-        out.training.data["type"] = "transcription"
+        out.training.data.layout["elementType"] = elementTypeSelect.value();
+        out.training.data.layout["elementTags"] = getTags();
+        out.training.data.layout["datasets"] = getDatasets("layoutanalysis");
+        if (Object.keys(out.training.data.layout.datasets).length === 0)  { delete out.training.data.layout['datasets'] }
+        out.training.data.layout["level"] = document.getElementById('layoutanalysis-level').value;
+        out.training.data.layout["dataModifications"] = document.getElementById('layoutanalysisDataModifications').value;
+      }
+      if (text_data.style.display == 'flex') {
+        out.training.data.text["type"] = "text"
         let scriptType = document.getElementById("scriptType")
         if (scriptType.value !== "info") {
-            out.training.data["scriptType"] = scriptType.value;
+            out.training.data.text["scriptType"] = scriptType.value;
         }
-        out.training.data = updateOrIgnoreDict(document.getElementById("date-begin").value, "notBefore", out.training.data);
-        out.training.data = updateOrIgnoreDict(document.getElementById("date-end").value, "notAfter", out.training.data);
-        out.training.data["languages"] = languageSelect.value();
-        out.training.data["script"] = scriptSelect.value();
-        out.training.data["datasets"] = getDatasets("transcription");
-        out.training.data["level"] = document.getElementById('transcription-level').value;
-        out.training.data["data-modifications"] = document.getElementById('transcriptionDataModifications').value;
+        out.training.data.text = updateOrIgnoreDict(document.getElementById("date-begin").value, "notBefore", out.training.data.text);
+        out.training.data.text = updateOrIgnoreDict(document.getElementById("date-end").value, "notAfter", out.training.data.text);
+        out.training.data.text["languages"] = languageSelect.value();
+        out.training.data.text["script"] = scriptSelect.value();
+        out.training.data.text["datasets"] = getDatasets("transcription");
+        if (Object.keys(out.training.data.text.datasets).length === 0)  { delete out.training.data.text['datasets'] }
+        out.training.data.text["level"] = document.getElementById('transcription-level').value;
+        out.training.data.text["data-modifications"] = document.getElementById('transcriptionDataModifications').value;
       };
+      console.log(out);
+      cleanEmptyKeys(out.training.data.layout);
+      cleanEmptyKeys(out.training.data.text);
 
-      cleanEmptyKeys(out.training.data);
-
-      if (Object.keys(out.training.data.datasets).length === 0)  { delete out.training.data['datasets'] }
+      if (Object.keys(out.training.data.layout).length === 0)  { delete out.training.data['layout'] }
+      if (Object.keys(out.training.data.text).length === 0)  { delete out.training.data['text'] }
       if (Object.keys(out.training.data).length === 0)  { delete out.training['data'] }
       if (Object.keys(out.training).length === 0)  { return {}; }
       return out;
@@ -369,8 +376,8 @@
 
         if (tags.length == 0) { return {}; }
         for (var i = 0; i < tags.length; i++) {
-            let type = tags[i].querySelector("select[name='segmentationTag']").value,
-                tag = tags[i].querySelector("textarea[name='segmentationTagDescription']").value;
+            let type = tags[i].querySelector("select[name='layoutanalysisTag']").value,
+                tag = tags[i].querySelector("textarea[name='layoutanalysisTagDescription']").value;
 
         if (tag.trim() === "") { continue; }
 
@@ -461,6 +468,27 @@
       return text;
     };
 
+    const layoutModelSpecsSelect = new SelectPure(".layoutmodel-specs", {
+        options: layoutmodel_specs,
+        multiple: true,
+        autocomplete: true, // default: false
+        value: ["Segmentation"],
+
+        icon: "fa fa-times", // uses Font Awesome
+        inlineIcon: false // custom cross icon for multiple select.
+    });
+
+    const textModelSpecsSelect = new SelectPure(".textmodel-specs", {
+        options: textmodel_specs,
+        multiple: true,
+        autocomplete: true, // default: false
+        value: ["Transcription"],
+
+        icon: "fa fa-times", // uses Font Awesome
+        inlineIcon: false // custom cross icon for multiple select.
+    });
+
+
     const elementTypeSelect = new SelectPure(".element-type", {
         options: element_types,
         multiple: true,
@@ -475,11 +503,12 @@
         options: languages,
         multiple: true,
         autocomplete: true, // default: false
-        value: ["eng", "fra", "deu"], 
+        value: ["eng", "fra", "deu"],
 
         icon: "fa fa-times", // uses Font Awesome
         inlineIcon: false // custom cross icon for multiple select.
     });
+
     const scriptSelect = new SelectPure(".scripts", {
         options: scripts,
         multiple: true,
@@ -551,6 +580,9 @@
             case ".pt":
                 software.value = "PyTorch";
                 break;
+            case ".pth":
+                software.value = "P2PaLA";
+                break;
             case ".pb":
                 software.value = "Eynollah";
                 break;
@@ -590,14 +622,31 @@
       el.addEventListener("click", (event) => {
         event.preventDefault();
         document.querySelector("#modeltype").value = el.innerText;
-        var segementation_data = document.getElementById('segmentation_data');
-        var transcription_data = document.getElementById('transcription_data');
-        if (el.id === "modeltype-key-segmentation") {
-            segementation_data.style.display = 'flex';
-            transcription_data.style.display = 'None';
+        var layout_data = document.getElementById('layout_data');
+        var layout_specs = document.getElementById('layout_specs');
+        var text_data = document.getElementById('text_data');
+        var text_specs = document.getElementById('text_specs');
+        if (el.id === "modeltype-key-layoutanalysis") {
+            layout_data.style.display = 'flex';
+            layout_specs.style.display = 'flex';
+            layoutModelSpecsSelect.reset();
+            text_data.style.display = 'None';
+            text_specs.style.display = 'None';
+            textModelSpecsSelect.reset();
+        } else if (el.id === "modeltype-key-end2end") {
+            layout_data.style.display = 'flex';
+            layout_specs.style.display = 'flex';
+            layoutModelSpecsSelect.reset();
+            text_data.style.display = 'flex';
+            text_specs.style.display = 'flex';
+            textModelSpecsSelect.reset();
         } else {
-            segementation_data.style.display = 'None';
-            transcription_data.style.display = 'flex';
+            layout_data.style.display = 'None';
+            layout_specs.style.display = 'None';
+            layoutModelSpecsSelect.reset();
+            text_data.style.display = 'flex';
+            text_specs.style.display = 'flex';
+            textModelSpecsSelect.reset();
         }
       })
    });
